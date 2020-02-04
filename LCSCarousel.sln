@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCSCarousel", "LCSCarousel\LCSCarousel.csproj", "{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SimpleLCSSetup", "SimpleLCSSetup\SimpleLCSSetup.vdproj", "{75293B28-52B5-470B-81DF-3562C844B985}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75293B28-52B5-470B-81DF-3562C844B985}.Debug|Any CPU.ActiveCfg = Debug
+		{75293B28-52B5-470B-81DF-3562C844B985}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31C25B90-94D9-4529-87E5-E0325EF83DFC}
+	EndGlobalSection
+EndGlobal

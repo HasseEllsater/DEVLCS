@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="1024by768" xml:space="preserve">
+    <value>1924 by 768 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1280by1024" xml:space="preserve">
+    <value>1280 by 1024 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1280by720" xml:space="preserve">
+    <value>1280 by 720 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1280by768" xml:space="preserve">
+    <value>1280 by 768 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1280by800" xml:space="preserve">
+    <value>1280 by 800 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1366by768" xml:space="preserve">
+    <value>1366 by 768 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1400by1050" xml:space="preserve">
+    <value>1400 by 1050 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1440by900" xml:space="preserve">
+    <value>1440 by 900 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1600by1200" xml:space="preserve">
+    <value>1600 by 1200 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1680by1050" xml:space="preserve">
+    <value>1680 by 1050 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1920by1080" xml:space="preserve">
+    <value>1920 by 1080 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="1920by1200" xml:space="preserve">
+    <value>1920 by 1200 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="2560by1440" xml:space="preserve">
+    <value>2560 by 1440 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="3440by1440" xml:space="preserve">
+    <value>3440 by 1440</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="640by480" xml:space="preserve">
+    <value>640 by 480 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="800by600" xml:space="preserve">
+    <value>800 by 600 pixels</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="Application" xml:space="preserve">
+    <value>Application</value>
+    <comment>Event log</comment>
+  </data>
+  <data name="BrowserSetup" xml:space="preserve">
+    <value>Brower version must be set</value>
+    <comment>Register browser version</comment>
+  </data>
+  <data name="CloudHostedInstance" xml:space="preserve">
+    <value>The compare object is not an instance of the CloudHostedInstance class</value>
+    <comment>Compare fail</comment>
+  </data>
+  <data name="CompareObjIsNull" xml:space="preserve">
+    <value>Compare object RDPTerminal is null</value>
+    <comment>Bubble sort compare failed</comment>
+  </data>
+  <data name="ConfirmAction" xml:space="preserve">
+    <value>Confirm action</value>
+    <comment>Confirm action</comment>
+  </data>
+  <data name="ConfirmDeployPackage" xml:space="preserve">
+    <value>Confirm deployment of package {0}, the environment will be unavailable during the deploy and it will take some time to finish.</value>
+    <comment>Confirm deploy</comment>
+  </data>
+  <data name="ConfirmLogOut" xml:space="preserve">
+    <value>When you log off, all locally saved information about your projects and instances will be deleted. You will need to refresh data from LCS.
+
+Application will close.
+
+Do you want to proceed?</value>
+    <comment>Confirm reset of data</comment>
+  </data>
+  <data name="ConfirmStartInstance" xml:space="preserve">
+    <value>Confirm that you wish to start the instance {0}</value>
+    <comment>Confirm start of machine</comment>
+  </data>
+  <data name="ConfirmStopInstance" xml:space="preserve">
+    <value>Confirm that you wish to stop the instance {0}</value>
+    <comment>Confim stop of machine</comment>
+  </data>
+  <data name="CredentialsListIsNull" xml:space="preserve">
+    <value>The credentials list is not valid, ensure that the list is not null, wrong use of function: RDPConnectionDetailsViewModel(List&lt;RDPConnectionDetails&gt; rdpList)</value>
+    <comment>Error in credentials list</comment>
+  </data>
+  <data name="FetchingPackages" xml:space="preserve">
+    <value>Fetching available packages for environment: 
+Environment Id: {0}
+Display Name: {1}</value>
+    <comment>Status message for packages</comment>
+  </data>
+  <data name="FirewallRuleNotCorrect" xml:space="preserve">
+    <value>Both name and IP address is required for a new rule, press Cancel to close, OK to re-enter the correct values.</value>
+    <comment>Incomplete rule</comment>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>Fullscreen</value>
+    <comment>Resolution</comment>
+  </data>
+  <data name="InitRefresh" xml:space="preserve">
+    <value>Clearing Cache: In progress{0}Fetching Cloud hosted VM's: In progress{1}Fetching MS Hosted VM's: In progress</value>
+    <comment>Initial message in refresh function</comment>
+  </data>
+  <data name="LoggedIn" xml:space="preserve">
+    <value>You are now logged in to LCS</value>
+    <comment>Successful login</comment>
+  </data>
+  <data name="LoggInStatus" xml:space="preserve">
+    <value>Log in status</value>
+    <comment>Status of login</comment>
+  </data>
+  <data name="MyRDPTitle" xml:space="preserve">
+    <value>My RDP {0}</value>
+    <comment>My RDP title page</comment>
+  </data>
+  <data name="NoRDPUserSelected" xml:space="preserve">
+    <value>Select the user you wish to use to sign in with</value>
+    <comment>No user selected</comment>
+  </data>
+  <data name="NotLoggedIn" xml:space="preserve">
+    <value>You are not logged in to LCS, do you wish to login now?</value>
+    <comment>Not logged in error</comment>
+  </data>
+  <data name="NotSignedIn" xml:space="preserve">
+    <value>You need to log in to LCS before you can use this application</value>
+    <comment>Not signed in</comment>
+  </data>
+  <data name="NullURI" xml:space="preserve">
+    <value>The URI can't be null</value>
+    <comment>No URI supplied</comment>
+  </data>
+  <data name="ObjIsNotRDPTerminal" xml:space="preserve">
+    <value>The compare object is not an instance of the RDPTerminal class</value>
+    <comment>Bubble sort compare failed</comment>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please wait...</value>
+    <comment>General wait title</comment>
+  </data>
+  <data name="RefreshProgress" xml:space="preserve">
+    <value>Clearing Cache: {0}{1}Fetching Cloud hosted VM's: {2}{3}Fetching MS Hosted VM's: {4}</value>
+    <comment>Ongoing refresh</comment>
+  </data>
+  <data name="RemoveFirewallRule" xml:space="preserve">
+    <value>Remove the firewall rule {0}? Press OK to confirm removal</value>
+    <comment>Warn removal of firewall</comment>
+  </data>
+  <data name="RunAsAdminOnce" xml:space="preserve">
+    <value>Run this program as Admin the first time to register the correct browser version</value>
+    <comment>Register browser as admin</comment>
+  </data>
+  <data name="SelectedRDPSession" xml:space="preserve">
+    <value>Your current personal VM is {0}</value>
+    <comment>Selected RDP title</comment>
+  </data>
+  <data name="SelectRDPUserOnlyOneSelected" xml:space="preserve">
+    <value>You can only select one user to sign in with</value>
+    <comment>More than one user selected</comment>
+  </data>
+  <data name="SelectRDPUserTitle" xml:space="preserve">
+    <value>Select RDP User</value>
+    <comment>Select RDP user warning</comment>
+  </data>
+</root>

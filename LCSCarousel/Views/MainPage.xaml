@@ -1,0 +1,155 @@
+﻿<Page x:Class="LCSCarousel.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LCSCarousel.Views"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage" FontFamily="Segoe UI" Loaded="Page_Loaded">
+
+    <Border Margin="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image Source="/LCSSimpleUtil;component/Resources/icons8-checklist-100.ico" Height="Auto" Width="60" Grid.Row="0" 
+                       HorizontalAlignment="Right" VerticalAlignment="Center" >
+                <Image.Effect>
+                    <DropShadowEffect Direction="225" Color="#FFB6C2CB" ShadowDepth="10" BlurRadius="14" />
+                </Image.Effect>
+            </Image>
+
+            <Canvas Grid.Column="0" Grid.Row="0" Width="180" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Rectangle
+                    Width="270"
+                    Height="60"
+                    Fill="{DynamicResource AccentBaseColorBrush}"
+                />
+                <TextBlock Text="Home"
+                FontSize="32"
+                Margin="8"
+                Foreground="{DynamicResource IdealForegroundColorBrush}"  
+                FontWeight="Light"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                />
+            </Canvas>
+            <WrapPanel Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Width="Auto"
+                   Height="Auto"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" >
+
+
+                <Controls:Tile Name="Open365" Title="{StaticResource LogOnTo365}"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="RoyalBlue"
+                           ToolTip="{StaticResource LogOnTo365}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           FontSize="14" FontWeight="Light"
+                           Click="Open365_Click" Visibility="Collapsed">
+                    <iconPacks:PackIconUnicons Width="40"
+                                          Height="40"
+                                          Kind="CloudDataConnection" />
+                </Controls:Tile>
+                <Controls:Tile Name="Login" Title="Login to LCS"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="Teal"
+                           HorizontalTitleAlignment="Center"
+                           FontSize="14" FontWeight="Light"
+                           ToolTip="{StaticResource LoginToLCS}" 
+                           Style="{StaticResource SmallTileStyle}"
+                            Click="Login_Click">
+                    <iconPacks:PackIconMaterialLight Width="40"
+                                          Height="40"
+                                          Kind="Login" />
+                </Controls:Tile>
+
+                <Controls:Tile Name="Logout" Title="Logout from LCS"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="Black"
+                           HorizontalTitleAlignment="Center"
+                           FontSize="14" FontWeight="Light"
+                           ToolTip="{StaticResource LogoutFromLCS}"
+                           Style="{StaticResource SmallTileStyle}"
+                           Click="Logout_Click" >
+                    <iconPacks:PackIconMaterialLight Width="40"
+                                          Height="40"
+                                          Kind="Logout" />
+                </Controls:Tile>
+
+
+
+                <Controls:Tile Name="Project" Title="Select project"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="OliveDrab"
+                           FontSize="14" FontWeight="Light"
+                           ToolTip="{StaticResource PicProject}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           Click="Project_Click">
+                    <iconPacks:PackIconModern Width="40"
+                                          Height="40"
+                                          Kind="OfficeProject" />
+                </Controls:Tile>
+
+
+
+                <Controls:Tile Name="Refresh" Title="Refresh instances"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="SteelBlue"
+                           FontSize="14" FontWeight="Light"
+                           ToolTip="{StaticResource RefreshInstances}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           Click="Refresh_Click">
+                    <iconPacks:PackIconMaterialLight Width="40"
+                                          Height="40"
+                                          Kind="Refresh" />
+                </Controls:Tile>
+
+
+
+            </WrapPanel>
+
+            <Label x:Name="SelectedVMName" Grid.Row="5" FontFamily="Segoe UI" FontSize="20" FontWeight="Light" Content="No default VM is selected" 
+               Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left" ></Label>
+
+            <Button x:Name="OpenTerminal" Visibility="Hidden" Click="OpenTerminal_Click" Grid.Row="6" Grid.Column="0" Width="Auto" 
+                        HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                        Background="{StaticResource  WindowBackgroundBrush}" Cursor="Hand" ToolTip="{StaticResource OpenMyRDPTip}">
+                <Button.Content>
+                    <Image x:Name="SelectedVMImage" Source="{Binding ImageSource}" Height="250" Width="Auto" 
+                       HorizontalAlignment="Left" VerticalAlignment="Bottom" Cursor="Hand">
+                        <Image.Effect>
+                            <DropShadowEffect Direction="225" Color="#FFB6C2CB" ShadowDepth="10" BlurRadius="14" />
+                        </Image.Effect>
+                    </Image>
+                </Button.Content>
+            </Button>
+        </Grid>
+    </Border>
+</Page>

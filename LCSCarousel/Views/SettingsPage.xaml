@@ -1,0 +1,143 @@
+﻿<Page x:Class="LCSCarousel.Views.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LCSCarousel.Views"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:metro="clr-namespace:MahApps.Metro;assembly=MahApps.Metro"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="800"
+      Title="SettingsPage" Loaded="Page_Loaded" FontFamily="Segoe UI">
+
+    <Border Margin="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Canvas Grid.Column="0" Grid.Row="0" Width="180" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Rectangle
+                    Width="270"
+                    Height="60"
+                    Fill="{DynamicResource AccentBaseColorBrush}"
+                />
+                <TextBlock Text="Settings"
+                FontSize="32"
+                Margin="8"
+                Foreground="{DynamicResource IdealForegroundColorBrush}"  
+                FontWeight="Light"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                />
+            </Canvas>
+
+            <iconPacks:PackIconModern Width="48" Grid.Row="0" Grid.Column="1"
+                                       Height="48"
+                                       Margin="10"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Foreground="{DynamicResource AccentBaseColorBrush}"
+                                       Kind="Settings"/>
+
+
+            <Label FontSize="18" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" 
+               Foreground="{DynamicResource LabelTextBrush}"  
+               Padding="2" VerticalAlignment="Center"
+               Margin="{StaticResource ControlMargin}" 
+               Content="Pick your default VM"/>
+
+            <ComboBox Grid.Column="0" Grid.Row="4" x:Name="vmCombo" Padding="2" 
+                  Margin="{StaticResource ControlMargin}"  
+                  Text="VM" SelectionChanged="vmCombo_SelectionChanged"
+                  Controls:TextBoxHelper.ClearTextButton="True"
+                  Controls:TextBoxHelper.UseFloatingWatermark="False"
+                  Controls:TextBoxHelper.Watermark="Available VM's"
+                  ItemsSource="{Binding AllWMS}"
+                  DisplayMemberPath="{Binding DisplayName}" Width="250"
+                  HorizontalAlignment="Left"/>
+            
+  
+            <Label FontSize="18" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" 
+               Foreground="{DynamicResource LabelTextBrush}"  
+               Padding="2" VerticalAlignment="Center"
+               Margin="{StaticResource ControlMargin}" 
+               Content="Remote desktop settings"/>
+
+            <Label FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" 
+               Foreground="{DynamicResource LabelTextBrush}"  
+               Padding="2" VerticalAlignment="Center"
+               Margin="{StaticResource ControlMargin}" 
+               Content="Display configuration"/>
+
+            <Slider x:Name="Resolution" Width="200"
+                    Margin="4"
+                    LargeChange="1"
+                    Maximum="16"
+                    Minimum="0"
+                    Orientation="Horizontal"
+                    SmallChange="1"
+                    TickFrequency="1"
+                    IsSnapToTickEnabled="True"
+                    TickPlacement="BottomRight"
+                    Value="0" Grid.Row="7" Grid.Column="0" 
+                    HorizontalAlignment="Left"
+                    ToolTip="{StaticResource ResolutionTip}"
+                    ValueChanged="Resolution_ValueChanged" Thumb.DragCompleted="Resolution_DragCompleted"/>
+            
+            <Label Name="SelectedResolution" FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" 
+               Foreground="{DynamicResource LabelTextBrush}"  
+               Padding="2" VerticalAlignment="Center"
+               Margin="{StaticResource ControlMargin}" 
+               Content="640 by 480 pixels"
+                />
+          
+            <Controls:ToggleSwitch x:Name="Span"
+                                   Margin="{StaticResource ControlMargin}" FontSize="18" FontWeight="Light"
+                                   IsChecked="False"
+                                   OffLabel="Span over all monitors - Off"
+                                   OnLabel="Span over all monitors - On"
+                                   Grid.Row="9" Grid.Column="0" VerticalAlignment="Center"
+                                   Padding="4"
+                                   ToolTip="{StaticResource SpanTip}"
+                                   Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" Click="Span_Click"/>
+
+            <Controls:ToggleSwitch x:Name="Multimon"
+                                   Margin="{StaticResource ControlMargin}" FontSize="18" FontWeight="Light"
+                                   IsChecked="False"
+                                   OffLabel="Multimon - Off"
+                                   OnLabel="Multimon - On"
+                                   ToolTip="{StaticResource MultimonTip}"
+                                   Grid.Row="10" Grid.Column="0" VerticalAlignment="Center"
+                                   Padding="4"
+                                   Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" Click="Multimon_Click"/>
+            <Controls:ToggleSwitch x:Name="MinimizeSetting"
+                                   Margin="{StaticResource ControlMargin}" FontSize="18" FontWeight="Light"
+                                   IsChecked="True"
+                                   OffLabel="Don't minimize app when starting RDP or D365FO"
+                                   OnLabel="Minimize the app when starting the RDP sesion or D365FO"
+                                   Grid.Row="11" Grid.Column="0" VerticalAlignment="Center"
+                                   Padding="4"
+                                   Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" Click="MinimizeSetting_Click"/>
+        </Grid>
+    </Border>
+</Page>

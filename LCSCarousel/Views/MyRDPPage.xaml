@@ -1,0 +1,148 @@
+﻿<Page x:Class="LCSCarousel.Views.MyRDPPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LCSCarousel.Views"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="My RDP" FontFamily="Segoe UI" Loaded="Page_Loaded">
+    
+    <Border Margin="10">
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <iconPacks:PackIconMaterialLight Width="48" Grid.Row="0"
+                                       Height="48"
+                                       Margin="10"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Foreground="{DynamicResource AccentBaseColorBrush}"
+                                       Kind="Account" />
+                <Canvas Grid.Column="0" Grid.Row="0" Width="Auto" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Rectangle
+                    Width="350"
+                    Height="60"
+                    Fill="{DynamicResource AccentBaseColorBrush}"
+                        />
+                    <TextBlock x:Name="MyRDP" Text="- Nothing here to see -"
+                    FontSize="32"
+                    Margin="8"
+                    Foreground="{DynamicResource IdealForegroundColorBrush}"  
+                    FontWeight="Light"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    />
+                </Canvas>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <WrapPanel Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="5"
+                   Width="Auto"
+                   Height="Auto"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top">
+
+                    <Controls:Tile  Name="LogOnToApplication" Title="{StaticResource LogOnTo365}"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="RoyalBlue"
+                           ToolTip="{StaticResource LogOnTo365}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           FontSize="14" FontWeight="Light"
+                           Click="LogOnToApplication_Click">
+                        <iconPacks:PackIconUnicons Width="40"
+                                          Height="40"
+                                          Kind="CloudDataConnection" />
+                    </Controls:Tile>
+
+                    <Controls:Tile  Name="StartInstance" Title="{StaticResource StartInstance}"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="Green"
+                           ToolTip="{StaticResource StartInstance}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           FontSize="14" FontWeight="Light"
+                           Click="StartInstance_Click">
+                        <iconPacks:PackIconFontAwesome Width="40"
+                                          Height="40"
+                                          Kind="PlayCircleRegular" />
+                    </Controls:Tile>
+
+                    <Controls:Tile  Name="StopInstance" Title="{StaticResource StopInstance}"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="DarkRed"
+                           ToolTip="{StaticResource StopInstance}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           FontSize="14" FontWeight="Light"
+                           Click="StopInstance_Click">
+                        <iconPacks:PackIconFontAwesome Width="40"
+                                          Height="40"
+                                          Kind="StopCircleRegular" />
+                    </Controls:Tile>
+
+                    <Controls:Tile  Name="ShowPwd" Title="{StaticResource ShowPwd}"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="OliveDrab"
+                           ToolTip="{StaticResource PicProject}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           FontSize="14" FontWeight="Light"
+                           Click="ShowPassword_Click">
+                        <iconPacks:PackIconModern Width="40"
+                                          Height="40"
+                                          Kind="InterfacePassword" />
+                    </Controls:Tile>
+                </WrapPanel>
+            </Grid>
+
+            <Grid Margin="{StaticResource ControlMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="1" x:Name="MyTitle" FontSize="20" FontWeight="Light" Content="No VM selected" HorizontalAlignment="Left"></Label>
+                <Button x:Name="OpenTerminal" Click="OpenTerminal_Click" Grid.Row="2" Grid.Column="0" Width="Auto" 
+                        HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                        Background="{StaticResource  WindowBackgroundBrush}" Cursor="Hand" ToolTip="{StaticResource OpenMyRDPTip}">
+                    <Button.Content>
+                        <Image Source="{Binding ImageSource}" Height="250" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Bottom" Cursor="Hand">
+                            <Image.Effect>
+                                <DropShadowEffect Direction="225" Color="#FFB6C2CB" ShadowDepth="10" BlurRadius="14" />
+                            </Image.Effect>
+                        </Image>
+                    </Button.Content>
+                </Button>
+            </Grid>
+
+        </StackPanel>
+    </Border>
+</Page>
