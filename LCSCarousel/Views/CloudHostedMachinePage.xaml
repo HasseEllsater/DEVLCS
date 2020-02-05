@@ -67,13 +67,12 @@
                                        Kind="RemoteDesktop" />
                         </Button.Content>
                     </Button>
-
-                    <Label Grid.Row="1" Grid.Column="1" Content="{StaticResource ShowPwd}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="ShowPassword" Click="ShowPassword_Click" ToolTip="{StaticResource ShowPwd}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
+                    <Label Grid.Row="1" Grid.Column="1" Content="{StaticResource LogOnTo365}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
+                    <Button x:Name="LogOnToApplication" Click="LogOnToApplication_Click" ToolTip="{StaticResource LogOnTo365}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
                         <Button.Content>
-                            <iconPacks:PackIconModern Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
-                                       Kind="InterfacePassword" />
+                            <iconPacks:PackIconUnicons Width="32" Height="32"
+                                           Foreground="{DynamicResource AccentBaseColorBrush}"
+                                           Kind="CloudDataConnection" />
                         </Button.Content>
                     </Button>
                     <Label Grid.Row="1" Grid.Column="2" Content="{StaticResource StartInstance}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
@@ -92,12 +91,12 @@
                                        Kind="StopCircleRegular" />
                         </Button.Content>
                     </Button>
-                    <Label Grid.Row="1" Grid.Column="4" Content="{StaticResource LogOnTo365}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="LogOnToApplication" Click="LogOnToApplication_Click" ToolTip="{StaticResource LogOnTo365}" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
+                    <Label Grid.Row="1" Grid.Column="4" Content="{StaticResource ShowPwd}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
+                    <Button x:Name="ShowPassword" Click="ShowPassword_Click" ToolTip="{StaticResource ShowPwd}" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
                         <Button.Content>
-                            <iconPacks:PackIconUnicons Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
-                                       Kind="CloudDataConnection" />
+                            <iconPacks:PackIconModern Width="32" Height="32"
+                                            Foreground="{DynamicResource AccentBaseColorBrush}"
+                                            Kind="InterfacePassword" />
                         </Button.Content>
                     </Button>
                     <Label Grid.Row="3" Grid.Column="0" Content="{StaticResource DeployPackage}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>

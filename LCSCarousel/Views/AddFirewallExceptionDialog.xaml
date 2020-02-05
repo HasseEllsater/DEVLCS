@@ -14,7 +14,8 @@
         ShowTitleBar="False"
         mc:Ignorable="d"
         Title="Add Firewall" Height="260" Width="600"
-        WindowStartupLocation="CenterOwner" FontFamily="Segoe UI">
+        WindowStartupLocation="CenterOwner" FontFamily="Segoe UI" 
+        ResizeMode="CanResizeWithGrip" >
     
     <Border Margin="10">
         <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">

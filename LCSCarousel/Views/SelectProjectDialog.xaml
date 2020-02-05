@@ -13,10 +13,11 @@
         ShowCloseButton="False"
         ShowTitleBar="False"
         mc:Ignorable="d"
-        Title="Projects" Height="260" Width="600"
+        Title="Projects" Height="Auto" Width="700"
         Loaded="MetroWindow_Loaded"
-        WindowStartupLocation="CenterOwner" FontFamily="Segoe UI" >
-    
+        WindowStartupLocation="CenterOwner" FontFamily="Segoe UI" 
+        ResizeMode="CanResizeWithGrip">
+
     <Border Margin="10">
         <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid.RowDefinitions>
