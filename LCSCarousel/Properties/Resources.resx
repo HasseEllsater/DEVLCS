@@ -189,6 +189,10 @@
     <value>Brower version must be set</value>
     <comment>Register browser version</comment>
   </data>
+  <data name="ClearDefaultUserTitle" xml:space="preserve">
+    <value>Clear default user ({0})</value>
+    <comment>Show default user name</comment>
+  </data>
   <data name="CloudHostedInstance" xml:space="preserve">
     <value>The compare object is not an instance of the CloudHostedInstance class</value>
     <comment>Compare fail</comment>
@@ -254,6 +258,10 @@ Display Name: {1}</value>
   <data name="MyRDPTitle" xml:space="preserve">
     <value>My RDP {0}</value>
     <comment>My RDP title page</comment>
+  </data>
+  <data name="NoDefaultUser" xml:space="preserve">
+    <value>No default user is selected</value>
+    <comment>No user selected yet</comment>
   </data>
   <data name="NoRDPUserSelected" xml:space="preserve">
     <value>Select the user you wish to use to sign in with</value>

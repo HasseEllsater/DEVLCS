@@ -21,5 +21,22 @@ namespace LCSCarousel
             ThemeHelper.ChooseTheme();
             Application.Current.MainWindow.Activate();
         }
+
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+    
+            switch (e.Exception.Source)
+            {
+                case "System.Net.Http" when e.Exception.Message == $"Response status code does not indicate success: 498 ().":
+                    MessageBox.Show("Please login to LCS again. Your cookie is probably invalid or expired.");
+                    //var mainForm = GetMainForm();
+                    //mainForm.Cursor = Cursors.Default;
+                    //mainForm.SetLoginButtonEnabled();
+                    break;
+
+                default:
+                    throw e.Exception;
+            }
+        }
     }
 }

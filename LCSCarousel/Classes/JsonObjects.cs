@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LCSCarousel.Enums;
+using System;
 using System.Collections.Generic;
 
 
@@ -606,5 +607,53 @@ namespace LCSCarousel
         public bool IsModified { get; set; }
         public int WorkflowInstanceId { get; set; }
     }
+    public class JITOptions
+    {
+        public string Label { get; set; }
+        public string Value { get; set; }
+    }
 
+    public class ServiceToRestart
+    {
+        public string Label { get; set; }
+        public string Value { get; set; }
+    }
+
+    public class ServiceRestartResponseData
+    {
+        public string ActivityId { get; set; }
+        public string ErrorCode { get; set; }
+        public object errorList { get; set; }
+        public bool isSuccessful { get; set; }
+        public string Message { get; set; }
+        public string MessageTitle { get; set; }
+    }
+
+    public class ActionDetails
+    {
+        public string ActionStatusText { get; set; }
+        public string ActionType { get; set; }
+        public int ActionTypeId { get; set; }
+        public string CompletionDate { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string PackageAssetId { get; set; }
+        public string PackageType { get; set; }
+        public int ServicingAction { get; set; }
+        public string StartDate { get; set; }
+        public LcsEnvironmentActionStatus Status { get; set; }
+    }
+
+    public class EnvironmentHistoryDetailsData
+    {
+        public int PagingType { get; set; }
+        public List<ActionDetails> Results { get; set; }
+        public int StartIndex { get; set; }
+        public int TotalCount { get; set; }
+    }
+    public class ValidateSandboxServicingData
+    {
+        public string PlatformRelease { get; set; }
+        public string ApplicationRelease { get; set; }
+    }
 }

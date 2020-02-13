@@ -24,6 +24,8 @@ using System.Diagnostics;
 using LCSCarousel.Model;
 using System.Windows.Input;
 using System.Web.ClientServices.Providers;
+using System.Configuration;
+using System.Reflection;
 
 namespace LCSCarousel
 {
@@ -37,20 +39,13 @@ namespace LCSCarousel
 #pragma warning disable CA1802 // Use literals where appropriate
         private static readonly string _lcsDiagUrl = "https://diag.lcs.dynamics.com";
         private static readonly string _lcsUpdateUrl = "https://update.lcs.dynamics.com";
-        private ViewModels.MenuItem myRDPMenuItem { get; set; }
+        //private ViewModels.MenuItem myRDPMenuItem { get; set; }
         private ViewModels.MenuItem myCloudHostedMenuItem { get; set; }
         private ViewModels.MenuItem myMSHostedMenuItem { get; set; }
         private Uri LoggedInUri;
-
+        private RDPConnectionDetails selectedDefaultUser;
 
         private ViewModels.MenuItem mySettingsMenuItem { get; set; }
-
-        internal void setPersonalVM(string environmentId)
-        {
-            Properties.Settings.Default.SelectedPersonalVM = environmentId;
-            Properties.Settings.Default.Save();
-        }
-
         private static readonly string _lcsUrl = "https://lcs.dynamics.com";
 
 #pragma warning restore CA1802 // Use literals where appropriate
@@ -62,6 +57,17 @@ namespace LCSCarousel
         private HttpClientHelper httpClientHelper;
         private LcsProject SelectedProject;
         private List<ProjectInstance> Instances;
+
+        internal List<RDPConnectionDetails> GetUsers(CloudHostedInstance instance)
+        {
+            List<RDPConnectionDetails> rdpList = null;
+            using (new WaitCursor())
+            {
+                rdpList = httpClientHelper.GetRdpConnectionDetails(instance);
+            }
+            return rdpList;
+        }
+
         private List<LcsProject> Projects;
         private List<CloudHostedInstance> SaasInstancesList;
         private List<CloudHostedInstance> CloudHostedInstancesList;
@@ -263,6 +269,8 @@ namespace LCSCarousel
             }
             return cookies;
         }
+
+
         /// Dispose
         /// </summary>
         public void Dispose()
@@ -283,9 +291,47 @@ namespace LCSCarousel
                 httpClientHelper?.Dispose();
             }
         }
+        static void ToggleConfigEncryption(string exeConfigName)
+        {
+            // Takes the executable file name without the
+            // .config extension.
+            try
+            {
+                // Open the configuration file and retrieve 
+                // the connectionStrings section.
+                Configuration config = ConfigurationManager.OpenExeConfiguration(exeConfigName);
 
+                ConnectionStringsSection section =
+                    config.GetSection("LCSCarousel.Properties.Settings")
+                    as ConnectionStringsSection;
+
+
+                if (section.SectionInformation.IsProtected)
+                {
+                    // Remove encryption.
+                    section.SectionInformation.UnprotectSection();
+                }
+                else
+                {
+                    // Encrypt the section.
+                    section.SectionInformation.ProtectSection(
+                        "DataProtectionConfigurationProvider");
+                }
+                // Save the current configuration.
+                config.Save();
+
+                Console.WriteLine("Protected={0}",
+                    section.SectionInformation.IsProtected);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
+
+//            ToggleConfigEncryption("LCSSimpleUtil.exe");
 
             Instances = JsonConvert.DeserializeObject<List<ProjectInstance>>(Properties.Settings.Default.instances) ?? new List<ProjectInstance>();
             Projects = JsonConvert.DeserializeObject<List<LcsProject>>(Properties.Settings.Default.projects) ?? new List<LcsProject>();
@@ -535,9 +581,7 @@ namespace LCSCarousel
                 return;
             }
 
-
             CloudHostedInstance selectedInstance = null;
-
             foreach (CloudHostedInstance instance in AllVMsList)
             {
                 if (instance.EnvironmentId == _environmentId)
@@ -548,20 +592,9 @@ namespace LCSCarousel
             }
             if (selectedInstance != null)
             {
-                List<RDPConnectionDetails> rdpList = null;
-                using (new WaitCursor())
-                {
-                    rdpList = httpClientHelper.GetRdpConnectionDetails(selectedInstance);
-                }
-                RDPConnectionDetails rdpEntry;
-                if (rdpList.Count > 1)
-                {
-                    rdpEntry = ChooseRdpLogonUser(rdpList);
-                }
-                else
-                {
-                    rdpEntry = rdpList.First();
-                }
+               
+                RDPConnectionDetails rdpEntry = getRDPEntry(selectedInstance);
+
                 if (rdpEntry != null)
                 {
                     if (Properties.Settings.Default.MimimizeOnStartRDP == true)
@@ -570,14 +603,6 @@ namespace LCSCarousel
                     }
                     using (new RdpCredentials(rdpEntry.Address, $"{rdpEntry.Domain}\\{rdpEntry.Username}", rdpEntry.Password))
                     {
-                        //var rdcProcess = new Process
-                        //{
-                        //    StartInfo =
-                        //    {
-                        //        FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe"),
-                        //        Arguments = "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}"
-                        //    }
-                        //};
                         var rdcProcess = createProcess(rdpEntry);
                         rdcProcess.Start();
                     }
@@ -585,6 +610,41 @@ namespace LCSCarousel
                 }
             }
             return;
+        }
+        internal RDPConnectionDetails getRDPEntry(CloudHostedInstance selectedInstance)
+        {
+            RDPConnectionDetails rdpEntry = null;
+            bool isSelectedEnvironment = false;
+
+            string environmentId = Properties.Settings.Default.SelectedPersonalVM;
+            if(selectedInstance.EnvironmentId == environmentId)
+            {
+                rdpEntry = getDefaultUser();
+                isSelectedEnvironment = true;
+            }
+
+            if (rdpEntry is null)
+            {
+                if (selectedInstance != null)
+                {
+                    List<RDPConnectionDetails> rdpList = null;
+                    using (new WaitCursor())
+                    {
+                        rdpList = httpClientHelper.GetRdpConnectionDetails(selectedInstance);
+                    }
+                    if (rdpList.Count > 1)
+                    {
+                        rdpEntry = ChooseRdpLogonUser(rdpList, isSelectedEnvironment);
+                    }
+                    else
+                    {
+                        rdpEntry = rdpList.First();
+                    }
+                }
+
+            }
+
+            return rdpEntry;
         }
         internal Process createProcess(RDPConnectionDetails rdpEntry)
         {
@@ -764,10 +824,11 @@ namespace LCSCarousel
             }
         }
 
-        public RDPConnectionDetails ChooseRdpLogonUser(List<RDPConnectionDetails> rdpList)
+        public RDPConnectionDetails ChooseRdpLogonUser(List<RDPConnectionDetails> rdpList,bool isSelectedEnvironment)
         {
             SelectRDPUserDialog dlg = new SelectRDPUserDialog();
             dlg.SetRDPList(rdpList);
+            dlg.SelectedEnvironment = isSelectedEnvironment;
             dlg.Owner = this;
             dlg.ShowDialog();
             RDPConnectionDetails selectedUser = dlg.getSelectedUser();
@@ -952,7 +1013,6 @@ namespace LCSCarousel
             }
 
         }
-
         private async void ConfirmRemoval(NSGRule nSGRule, CloudHostedInstance selectedInstance)
         {
             string message = string.Format(Properties.Resources.RemoveFirewallRule, nSGRule.Name);
@@ -982,7 +1042,6 @@ namespace LCSCarousel
             }
 
         }
-
         internal void AddFirewallRule(CloudHostedInstance selectedInstance, string name, string address)
         {
             if (selectedInstance is null) return;
@@ -1019,7 +1078,7 @@ namespace LCSCarousel
         {
             ShellViewModel viewmodel = (ShellViewModel)this.DataContext;
 
-            myRDPMenuItem = viewmodel.GetItem(new Uri("Views/MyRDPPage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
+            //myRDPMenuItem = viewmodel.GetItem(new Uri("Views/MyRDPPage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
             myCloudHostedMenuItem = viewmodel.GetItem(new Uri("Views/CloudHostedMachinePage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
             myMSHostedMenuItem = viewmodel.GetItem(new Uri("Views/MSHostedPage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
             mySettingsMenuItem = viewmodel.GetOptionsItem(new Uri("Views/SettingsPage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
@@ -1034,7 +1093,7 @@ namespace LCSCarousel
         }
         public void EnableMenuOptions(bool enable)
         {
-            myRDPMenuItem.IsEnabled = enable;
+            //myRDPMenuItem.IsEnabled = enable;
             myCloudHostedMenuItem.IsEnabled = enable;
             myMSHostedMenuItem.IsEnabled = enable;
             mySettingsMenuItem.IsEnabled = enable;
@@ -1097,7 +1156,6 @@ namespace LCSCarousel
         }
         internal void clearAndClose()
         {
-  
             Properties.Settings.Default.projects = "";
             Properties.Settings.Default.instances = "";
             Properties.Settings.Default.cookie = "";
@@ -1109,7 +1167,25 @@ namespace LCSCarousel
             ClearLocalList();
             Application.Current.MainWindow.Close();
         }
+        internal void setPersonalVM(string environmentId)
+        {
+            Properties.Settings.Default.SelectedPersonalVM = environmentId;
+            Properties.Settings.Default.Save();
+        }
+        internal void setDefaultUser(RDPConnectionDetails selectedUser)
+        {
+            Properties.Settings.Default.DefaultUser = JsonConvert.SerializeObject(selectedUser, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+            Properties.Settings.Default.Save();
+        }
+        internal RDPConnectionDetails getDefaultUser()
+        {
+            RDPConnectionDetails connectionDetails;
+            connectionDetails = JsonConvert.DeserializeObject<RDPConnectionDetails>(Properties.Settings.Default.DefaultUser);
+
+            return connectionDetails;
+        }
     }
+
     public class WaitCursor : IDisposable
     {
         private Cursor _previousCursor;

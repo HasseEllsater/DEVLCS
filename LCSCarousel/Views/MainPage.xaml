@@ -61,7 +61,7 @@
                 <Controls:Tile Name="Open365" Title="{StaticResource LogOnTo365}"
                            Margin="{StaticResource ControlMargin}"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
-                           Background="RoyalBlue"
+                           Background="{DynamicResource AccentBaseColorBrush}"
                            ToolTip="{StaticResource LogOnTo365}"
                            HorizontalTitleAlignment="Center"
                            Style="{StaticResource SmallTileStyle}"
@@ -71,10 +71,51 @@
                                           Height="40"
                                           Kind="CloudDataConnection" />
                 </Controls:Tile>
+                <Controls:Tile  Name="StartInstance" Title="{StaticResource StartInstance}"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="{DynamicResource AccentBaseColorBrush}"
+                           ToolTip="{StaticResource StartInstance}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           FontSize="14" FontWeight="Light"
+                           Click="StartInstance_Click" Visibility="Collapsed" >
+                    <iconPacks:PackIconFontAwesome Width="40"
+                                          Height="40"
+                                          Kind="PlayCircleRegular" />
+                </Controls:Tile>
+
+                <Controls:Tile  Name="StopInstance" Title="{StaticResource StopInstance}"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="{DynamicResource AccentBaseColorBrush}"
+                           ToolTip="{StaticResource StopInstance}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           FontSize="14" FontWeight="Light"
+                           Click="StopInstance_Click" Visibility="Collapsed">
+                    <iconPacks:PackIconFontAwesome Width="40"
+                                          Height="40"
+                                          Kind="StopCircleRegular" />
+                </Controls:Tile>
+
+                <Controls:Tile  Name="ShowPwd" Title="{StaticResource ShowPwd}"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="{DynamicResource AccentBaseColorBrush}"
+                           ToolTip="{StaticResource PicProject}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           FontSize="14" FontWeight="Light"
+                           Click="ShowPwd_Click" Visibility="Collapsed" >
+                    <iconPacks:PackIconModern Width="40"
+                                          Height="40"
+                                          Kind="InterfacePassword" />
+                </Controls:Tile>
                 <Controls:Tile Name="Login" Title="Login to LCS"
                            Margin="{StaticResource ControlMargin}"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
-                           Background="Teal"
+                           Background="{DynamicResource AccentBaseColorBrush}"
                            HorizontalTitleAlignment="Center"
                            FontSize="14" FontWeight="Light"
                            ToolTip="{StaticResource LoginToLCS}" 
@@ -88,7 +129,7 @@
                 <Controls:Tile Name="Logout" Title="Logout from LCS"
                            Margin="{StaticResource ControlMargin}"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
-                           Background="Black"
+                           Background="{DynamicResource  AccentBaseColorBrush}"
                            HorizontalTitleAlignment="Center"
                            FontSize="14" FontWeight="Light"
                            ToolTip="{StaticResource LogoutFromLCS}"
@@ -104,7 +145,7 @@
                 <Controls:Tile Name="Project" Title="Select project"
                            Margin="{StaticResource ControlMargin}"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
-                           Background="OliveDrab"
+                           Background="{DynamicResource AccentBaseColorBrush}"
                            FontSize="14" FontWeight="Light"
                            ToolTip="{StaticResource PicProject}"
                            HorizontalTitleAlignment="Center"
@@ -120,7 +161,7 @@
                 <Controls:Tile Name="Refresh" Title="Refresh instances"
                            Margin="{StaticResource ControlMargin}"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
-                           Background="SteelBlue"
+                           Background="{DynamicResource AccentBaseColorBrush}"
                            FontSize="14" FontWeight="Light"
                            ToolTip="{StaticResource RefreshInstances}"
                            HorizontalTitleAlignment="Center"

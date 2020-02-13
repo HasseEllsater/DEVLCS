@@ -15,6 +15,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
@@ -51,7 +52,7 @@
                 />
             </Canvas>
 
-            <iconPacks:PackIconModern Width="48" Grid.Row="0" Grid.Column="1"
+            <iconPacks:PackIconModern Width="48" Grid.Row="0" Grid.Column="2"
                                        Height="48"
                                        Margin="10"
                                        HorizontalAlignment="Right"
@@ -66,7 +67,7 @@
                Margin="{StaticResource ControlMargin}" 
                Content="Pick your default VM"/>
 
-            <ComboBox Grid.Column="0" Grid.Row="4" x:Name="vmCombo" Padding="2" 
+            <ComboBox Grid.Column="0" Grid.Row="4" x:Name="vmCombo" Padding="2"  Grid.ColumnSpan="3"
                   Margin="{StaticResource ControlMargin}"  
                   Text="VM" SelectionChanged="vmCombo_SelectionChanged"
                   Controls:TextBoxHelper.ClearTextButton="True"
@@ -75,15 +76,33 @@
                   ItemsSource="{Binding AllWMS}"
                   DisplayMemberPath="{Binding DisplayName}" Width="250"
                   HorizontalAlignment="Left"/>
-            
-  
-            <Label FontSize="18" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" 
+
+            <Label Name="UserName" FontSize="18" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" 
+               Foreground="{DynamicResource LabelTextBrush}"  
+               Padding="2" VerticalAlignment="Center"
+               Margin="{StaticResource ControlMargin}" 
+               Content="Clear default user setting"/>
+          
+            <Button x:Name="ClearDefaultUser" 
+                    Margin="{StaticResource ControlMargin}" 
+                    Padding="4" Height="32" Width="70" 
+                    Grid.Row="6" Grid.Column="0" 
+                    Content="Clear" HorizontalAlignment="Left" 
+                    Click="ClearDefaultUser_Click"></Button>
+
+            <Label FontSize="16" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" 
+               Foreground="{DynamicResource LabelTextBrush}"  
+               Padding="2" VerticalAlignment="Center"
+               Margin="{StaticResource ControlMargin}" 
+               Content="Select the default user when you start your VM"/>
+
+            <Label FontSize="18" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
                Content="Remote desktop settings"/>
 
-            <Label FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" 
+            <Label FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
@@ -99,12 +118,13 @@
                     TickFrequency="1"
                     IsSnapToTickEnabled="True"
                     TickPlacement="BottomRight"
-                    Value="0" Grid.Row="7" Grid.Column="0" 
+                    Value="0" Grid.Row="9" Grid.Column="0" 
+                    Grid.ColumnSpan="3"
                     HorizontalAlignment="Left"
                     ToolTip="{StaticResource ResolutionTip}"
                     ValueChanged="Resolution_ValueChanged" Thumb.DragCompleted="Resolution_DragCompleted"/>
             
-            <Label Name="SelectedResolution" FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" 
+            <Label Name="SelectedResolution" FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
@@ -116,7 +136,8 @@
                                    IsChecked="False"
                                    OffLabel="Span over all monitors - Off"
                                    OnLabel="Span over all monitors - On"
-                                   Grid.Row="9" Grid.Column="0" VerticalAlignment="Center"
+                                   Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3"
+                                   VerticalAlignment="Center"
                                    Padding="4"
                                    ToolTip="{StaticResource SpanTip}"
                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" Click="Span_Click"/>
@@ -127,15 +148,17 @@
                                    OffLabel="Multimon - Off"
                                    OnLabel="Multimon - On"
                                    ToolTip="{StaticResource MultimonTip}"
-                                   Grid.Row="10" Grid.Column="0" VerticalAlignment="Center"
+                                   Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3"
+                                   VerticalAlignment="Center"
                                    Padding="4"
                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" Click="Multimon_Click"/>
             <Controls:ToggleSwitch x:Name="MinimizeSetting"
                                    Margin="{StaticResource ControlMargin}" FontSize="18" FontWeight="Light"
                                    IsChecked="True"
-                                   OffLabel="Don't minimize app when starting RDP or D365FO"
-                                   OnLabel="Minimize the app when starting the RDP sesion or D365FO"
-                                   Grid.Row="11" Grid.Column="0" VerticalAlignment="Center"
+                                   OffLabel="Minimize app when starting RDP or D365FO - Off"
+                                   OnLabel="Minimize app when starting RDP or D365FO - On"
+                                   Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3"
+                                   VerticalAlignment="Center"
                                    Padding="4"
                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" Click="MinimizeSetting_Click"/>
         </Grid>

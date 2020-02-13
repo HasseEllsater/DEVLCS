@@ -1,4 +1,5 @@
 ﻿using LCSCarousel.Classes;
+using LCSCarousel.ViewModels;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,8 @@ namespace LCSCarousel.Views
     /// </summary>
     public partial class SettingsPage : Page
     {
-        List<CloudHostedInstance> allWMS;
+        private List<CloudHostedInstance> allWMS;
+        private string environmentId;
 
         public SettingsPage()
         {
@@ -38,6 +40,10 @@ namespace LCSCarousel.Views
                 {
                     MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
                     mainWindow.setPersonalVM(cloudHostedInstance.EnvironmentId);
+                    if(cloudHostedInstance.EnvironmentId != environmentId)
+                    {
+                        ClearDefaultUser_Click(null, null);
+                    }
                 }
             }
         }
@@ -61,6 +67,7 @@ namespace LCSCarousel.Views
                 }
                 if(personalInstance != null)
                 {
+                    environmentId = personalInstance.EnvironmentId;
                     vmCombo.SelectedItem = personalInstance;
                 }
             }
@@ -68,7 +75,21 @@ namespace LCSCarousel.Views
             Span.IsChecked = Properties.Settings.Default.Span;
             Resolution.Value = Properties.Settings.Default.Resolution;
             Multimon.IsChecked = Properties.Settings.Default.Multimon;
+
+            RDPConnectionDetails connectionDetails = mainWindow.getDefaultUser();
+            if (connectionDetails == null)
+            {
+                ClearDefaultUser.IsEnabled = false;
+                UserName.Content = Properties.Resources.NoDefaultUser;
+            }
+            else
+            {
+                ClearDefaultUser.IsEnabled = true;
+                UserName.Content = string.Format(Properties.Resources.ClearDefaultUserTitle,connectionDetails.Username);
+            }
+
         }
+      
 
         private void MinimizeSetting_Click(object sender, RoutedEventArgs e)
         {
@@ -203,6 +224,13 @@ namespace LCSCarousel.Views
             Properties.Settings.Default.Multimon = multiMonChecked;
             Properties.Settings.Default.Save();
 
+        }
+
+        private void ClearDefaultUser_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.DefaultUser = "";
+            Properties.Settings.Default.Save();
+            ClearDefaultUser.IsEnabled = false;
         }
     }
 }

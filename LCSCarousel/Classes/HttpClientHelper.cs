@@ -133,8 +133,18 @@ namespace LCSCarousel
 
             if (validationResponse.Success && !string.IsNullOrEmpty(validationResponse.Data.ToString()))
             {
+                string platformRelease;
+                try
+                {
+                    var releaseVersion = JsonConvert.DeserializeObject<ValidateSandboxServicingData>(validationResponse.Data.ToString());
+                    platformRelease = releaseVersion.PlatformRelease;
+                }
+                catch
+                {
+                    platformRelease = validationResponse.Data.ToString();
+                }
                 log.AppendLine($"{instance.DisplayName}: Package deployment validation successful.");
-                var deploymentResponse = StartSandboxServicing(package, validationResponse.Data.ToString());
+                var deploymentResponse = StartSandboxServicing(package, platformRelease);
                 log.AppendLine($"{instance.DisplayName}: {deploymentResponse.Message}");
                 log.AppendLine();
             }

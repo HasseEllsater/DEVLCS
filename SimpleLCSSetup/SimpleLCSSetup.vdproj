@@ -15,235 +15,127 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_03FFB4842E8711D0D9177337C421DC91"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_03FFB4842E8711D0D9177337C421DC91"
+        "MsmKey" = "8:_07BFA22525FC7250FC98C8E068CF29D5"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1CB4D8C55A623B100D847368D6A81F6A"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_09A9B487B535185802F2F26E42C37925"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1CB4D8C55A623B100D847368D6A81F6A"
+        "MsmKey" = "8:_09A9B487B535185802F2F26E42C37925"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_21A8150344C5803928F5B1FBC8CAEC3A"
+        "MsmKey" = "8:_0E1C383EA02A0FA54800648D05F3ED46"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0E1C383EA02A0FA54800648D05F3ED46"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2725D5C6609256EB7D69A53C6187F193"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_12410C0929EF1B7EEC03DCF2E534A3C3"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2725D5C6609256EB7D69A53C6187F193"
+        "MsmKey" = "8:_12410C0929EF1B7EEC03DCF2E534A3C3"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_27A11C07A914F86AB92A5251785CF7D3"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_27A11C07A914F86AB92A5251785CF7D3"
+        "MsmKey" = "8:_253923E05AF1024DEC0EC167DF98FD6B"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_29BAC9A73A66F06581C418B39815D22B"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_261CCF5EFB51C0E8E2F7A929236C1AEC"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_29BAC9A73A66F06581C418B39815D22B"
+        "MsmKey" = "8:_261CCF5EFB51C0E8E2F7A929236C1AEC"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2D004393CE0814690B89C8D248989AE8"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_2653F9DA1EFD9A6E5C8BAA0FF7D28327"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2D004393CE0814690B89C8D248989AE8"
+        "MsmKey" = "8:_2653F9DA1EFD9A6E5C8BAA0FF7D28327"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_367E0F760E8F9B2832BAB5CE52592B59"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_3AFAC30FEAA7FEEEE7829190B9A16996"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_367E0F760E8F9B2832BAB5CE52592B59"
+        "MsmKey" = "8:_3AFAC30FEAA7FEEEE7829190B9A16996"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_762B75D43E2E1006A3C09E6CAB872A9F"
+        "MsmKey" = "8:_3E756DC6D9745CF93C20484354C2F507"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_2725D5C6609256EB7D69A53C6187F193"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_D518FCD53F2D2815FE41498607938E4D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_F4E0F00CAABE04670961BA69ABCE0FB4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_B784BA20523A003B6311E97043E9669C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_27A11C07A914F86AB92A5251785CF7D3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_D4D953A79DC0AA984B7BF269861EB226"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_85574051E83997D7101E74DFF97A90FE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_49C9C57A8AAFD92D036F19CDC991CE74"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_58052D621659904FDD3959FDA4E6D50B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_29BAC9A73A66F06581C418B39815D22B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_B2DD67A996E065DB61F18B0B861027D4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_1CB4D8C55A623B100D847368D6A81F6A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_D04D29520B1AF31C3CCEDF40E2752653"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_824DBC9E279F7E4C0B923C2B951052BA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_52660CDC14D7864F1184390DEDD69C68"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_367E0F760E8F9B2832BAB5CE52592B59"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_F5B2FA2507963FA68CE4FA0D7D9E650C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_2D004393CE0814690B89C8D248989AE8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_03FFB4842E8711D0D9177337C421DC91"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
+        "MsmKey" = "8:_3E756DC6D9745CF93C20484354C2F507"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_49C9C57A8AAFD92D036F19CDC991CE74"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_42A962B9A5964CB40B24D31711719E1E"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_49C9C57A8AAFD92D036F19CDC991CE74"
+        "MsmKey" = "8:_42A962B9A5964CB40B24D31711719E1E"
+        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4A7C2F74EF674742A276F75861B66A65"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4E1A4C349418D178699C622CECF1B6FB"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4E1A4C349418D178699C622CECF1B6FB"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -255,79 +147,115 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_52660CDC14D7864F1184390DEDD69C68"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_52660CDC14D7864F1184390DEDD69C68"
+        "MsmKey" = "8:_582310B54E4E5604D87445075B46E7BF"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_58052D621659904FDD3959FDA4E6D50B"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_582310B54E4E5604D87445075B46E7BF"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_58052D621659904FDD3959FDA4E6D50B"
+        "MsmKey" = "8:_5E50FA64582E4800BEA84F08704778FB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_60E5A69C56F7B9A0EF289146FF5CDD38"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_762B75D43E2E1006A3C09E6CAB872A9F"
+        "MsmKey" = "8:_60E5A69C56F7B9A0EF289146FF5CDD38"
+        "OwnerKey" = "8:_07BFA22525FC7250FC98C8E068CF29D5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6C712FC951D0B2B980E183F37D8C50BC"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6C712FC951D0B2B980E183F37D8C50BC"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_762B75D43E2E1006A3C09E6CAB872A9F"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_7383AEFD5055764F8832B9D2D9805A07"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_824DBC9E279F7E4C0B923C2B951052BA"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_824DBC9E279F7E4C0B923C2B951052BA"
+        "MsmKey" = "8:_7383AEFD5055764F8832B9D2D9805A07"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_85574051E83997D7101E74DFF97A90FE"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_7E7005258B54DA19306F4E454FD680B4"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_85574051E83997D7101E74DFF97A90FE"
+        "MsmKey" = "8:_7E7005258B54DA19306F4E454FD680B4"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9511B1D5FA7BD72725BB050966DF7DE8"
-        "OwnerKey" = "8:_FC0D7DD94B934617374C81DDC70CA795"
+        "MsmKey" = "8:_7F3AA28C68BCD6C09C41994117779A29"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9511B1D5FA7BD72725BB050966DF7DE8"
-        "OwnerKey" = "8:_E76E542ABD6860B88DB2642EAD7B51E7"
+        "MsmKey" = "8:_7F3AA28C68BCD6C09C41994117779A29"
+        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9511B1D5FA7BD72725BB050966DF7DE8"
+        "MsmKey" = "8:_95090F7EEA4EFACCADCD3DE32348EC85"
+        "OwnerKey" = "8:_60E5A69C56F7B9A0EF289146FF5CDD38"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_95090F7EEA4EFACCADCD3DE32348EC85"
+        "OwnerKey" = "8:_07BFA22525FC7250FC98C8E068CF29D5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_95090F7EEA4EFACCADCD3DE32348EC85"
+        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_997D871986292867C07E794F71DAE29A"
+        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9D56F2F9462929CC8501D3A1C4A2BF35"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9D56F2F9462929CC8501D3A1C4A2BF35"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -339,31 +267,163 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B2DD67A996E065DB61F18B0B861027D4"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_582310B54E4E5604D87445075B46E7BF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B2DD67A996E065DB61F18B0B861027D4"
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_0E1C383EA02A0FA54800648D05F3ED46"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_B7ADE56513BC71B1FDF3FDAB66C15486"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_12410C0929EF1B7EEC03DCF2E534A3C3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_4E1A4C349418D178699C622CECF1B6FB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_2653F9DA1EFD9A6E5C8BAA0FF7D28327"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_7F3AA28C68BCD6C09C41994117779A29"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_7E7005258B54DA19306F4E454FD680B4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_6C712FC951D0B2B980E183F37D8C50BC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_42A962B9A5964CB40B24D31711719E1E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_09A9B487B535185802F2F26E42C37925"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_FE4B67567E66F7C4DBF7DD6A7165146A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_9D56F2F9462929CC8501D3A1C4A2BF35"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_BC88CE58A856C464232D709AF94E7653"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_FFD34F10224717276CE5A92B9E12E746"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_7383AEFD5055764F8832B9D2D9805A07"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_3AFAC30FEAA7FEEEE7829190B9A16996"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_261CCF5EFB51C0E8E2F7A929236C1AEC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_D535B568CC4A4DB3701B058184073E95"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_3E756DC6D9745CF93C20484354C2F507"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B784BA20523A003B6311E97043E9669C"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_B7ADE56513BC71B1FDF3FDAB66C15486"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B784BA20523A003B6311E97043E9669C"
+        "MsmKey" = "8:_B7ADE56513BC71B1FDF3FDAB66C15486"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C074DE72B699FE8A2721D3A304B48405"
+        "MsmKey" = "8:_B8E8DF3EFE69A726F2E565A0B435D050"
+        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BC88CE58A856C464232D709AF94E7653"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BC88CE58A856C464232D709AF94E7653"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -375,92 +435,50 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D04D29520B1AF31C3CCEDF40E2752653"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_D535B568CC4A4DB3701B058184073E95"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D04D29520B1AF31C3CCEDF40E2752653"
-        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D4D953A79DC0AA984B7BF269861EB226"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D4D953A79DC0AA984B7BF269861EB226"
-        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D518FCD53F2D2815FE41498607938E4D"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D518FCD53F2D2815FE41498607938E4D"
-        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E76E542ABD6860B88DB2642EAD7B51E7"
+        "MsmKey" = "8:_D535B568CC4A4DB3701B058184073E95"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_EDD9462EC6B4B5B56C7127ABDCC31CCE"
-        "OwnerKey" = "8:_C074DE72B699FE8A2721D3A304B48405"
+        "OwnerKey" = "8:_253923E05AF1024DEC0EC167DF98FD6B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F4E0F00CAABE04670961BA69ABCE0FB4"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_FE4B67567E66F7C4DBF7DD6A7165146A"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F4E0F00CAABE04670961BA69ABCE0FB4"
+        "MsmKey" = "8:_FE4B67567E66F7C4DBF7DD6A7165146A"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F5B2FA2507963FA68CE4FA0D7D9E650C"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_FFD34F10224717276CE5A92B9E12E746"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F5B2FA2507963FA68CE4FA0D7D9E650C"
+        "MsmKey" = "8:_FFD34F10224717276CE5A92B9E12E746"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FC0D7DD94B934617374C81DDC70CA795"
-        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FC0D7DD94B934617374C81DDC70CA795"
-        "OwnerKey" = "8:_E76E542ABD6860B88DB2642EAD7B51E7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -472,157 +490,151 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
+        "OwnerKey" = "8:_B8E8DF3EFE69A726F2E565A0B435D050"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_21A8150344C5803928F5B1FBC8CAEC3A"
+        "OwnerKey" = "8:_997D871986292867C07E794F71DAE29A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F9678A6F88524C3DD09BA22457DAFE1A"
+        "OwnerKey" = "8:_0E1C383EA02A0FA54800648D05F3ED46"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2725D5C6609256EB7D69A53C6187F193"
+        "OwnerKey" = "8:_B7ADE56513BC71B1FDF3FDAB66C15486"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D518FCD53F2D2815FE41498607938E4D"
+        "OwnerKey" = "8:_12410C0929EF1B7EEC03DCF2E534A3C3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F4E0F00CAABE04670961BA69ABCE0FB4"
+        "OwnerKey" = "8:_4E1A4C349418D178699C622CECF1B6FB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B784BA20523A003B6311E97043E9669C"
+        "OwnerKey" = "8:_2653F9DA1EFD9A6E5C8BAA0FF7D28327"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_27A11C07A914F86AB92A5251785CF7D3"
+        "OwnerKey" = "8:_7F3AA28C68BCD6C09C41994117779A29"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D4D953A79DC0AA984B7BF269861EB226"
+        "OwnerKey" = "8:_7E7005258B54DA19306F4E454FD680B4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_85574051E83997D7101E74DFF97A90FE"
+        "OwnerKey" = "8:_6C712FC951D0B2B980E183F37D8C50BC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_49C9C57A8AAFD92D036F19CDC991CE74"
+        "OwnerKey" = "8:_42A962B9A5964CB40B24D31711719E1E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_58052D621659904FDD3959FDA4E6D50B"
+        "OwnerKey" = "8:_09A9B487B535185802F2F26E42C37925"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_29BAC9A73A66F06581C418B39815D22B"
+        "OwnerKey" = "8:_FE4B67567E66F7C4DBF7DD6A7165146A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B2DD67A996E065DB61F18B0B861027D4"
+        "OwnerKey" = "8:_9D56F2F9462929CC8501D3A1C4A2BF35"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1CB4D8C55A623B100D847368D6A81F6A"
+        "OwnerKey" = "8:_BC88CE58A856C464232D709AF94E7653"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D04D29520B1AF31C3CCEDF40E2752653"
+        "OwnerKey" = "8:_FFD34F10224717276CE5A92B9E12E746"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_824DBC9E279F7E4C0B923C2B951052BA"
+        "OwnerKey" = "8:_7383AEFD5055764F8832B9D2D9805A07"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_52660CDC14D7864F1184390DEDD69C68"
+        "OwnerKey" = "8:_3AFAC30FEAA7FEEEE7829190B9A16996"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_367E0F760E8F9B2832BAB5CE52592B59"
+        "OwnerKey" = "8:_261CCF5EFB51C0E8E2F7A929236C1AEC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F5B2FA2507963FA68CE4FA0D7D9E650C"
+        "OwnerKey" = "8:_D535B568CC4A4DB3701B058184073E95"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2D004393CE0814690B89C8D248989AE8"
+        "OwnerKey" = "8:_3E756DC6D9745CF93C20484354C2F507"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_03FFB4842E8711D0D9177337C421DC91"
+        "OwnerKey" = "8:_582310B54E4E5604D87445075B46E7BF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_762B75D43E2E1006A3C09E6CAB872A9F"
+        "OwnerKey" = "8:_B77362595D155A5EDC6E7B0203A52E1B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_36FF5D8F9467B56A3DEBC09E7B52747D"
+        "OwnerKey" = "8:_07BFA22525FC7250FC98C8E068CF29D5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E76E542ABD6860B88DB2642EAD7B51E7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C074DE72B699FE8A2721D3A304B48405"
+        "OwnerKey" = "8:_253923E05AF1024DEC0EC167DF98FD6B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -634,13 +646,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FC0D7DD94B934617374C81DDC70CA795"
+        "OwnerKey" = "8:_60E5A69C56F7B9A0EF289146FF5CDD38"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9511B1D5FA7BD72725BB050966DF7DE8"
+        "OwnerKey" = "8:_95090F7EEA4EFACCADCD3DE32348EC85"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -738,20 +750,20 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_03FFB4842E8711D0D9177337C421DC91"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_07BFA22525FC7250FC98C8E068CF29D5"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Entypo, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_03FFB4842E8711D0D9177337C421DC91"
+                    "_07BFA22525FC7250FC98C8E068CF29D5"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.Entypo.dll"
+                    "Name" = "8:MahApps.Metro.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.Entypo.dll"
+            "SourcePath" = "8:MahApps.Metro.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -769,138 +781,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1CB4D8C55A623B100D847368D6A81F6A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.MaterialDesign, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_1CB4D8C55A623B100D847368D6A81F6A"
-                    {
-                    "Name" = "8:MahApps.Metro.IconPacks.MaterialDesign.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.MaterialDesign.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_21A8150344C5803928F5B1FBC8CAEC3A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_21A8150344C5803928F5B1FBC8CAEC3A"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Newtonsoft.Json.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2725D5C6609256EB7D69A53C6187F193"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Zondicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_2725D5C6609256EB7D69A53C6187F193"
-                    {
-                    "Name" = "8:MahApps.Metro.IconPacks.Zondicons.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.Zondicons.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_27A11C07A914F86AB92A5251785CF7D3"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.SimpleIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_27A11C07A914F86AB92A5251785CF7D3"
-                    {
-                    "Name" = "8:MahApps.Metro.IconPacks.SimpleIcons.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.SimpleIcons.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_29BAC9A73A66F06581C418B39815D22B"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_09A9B487B535185802F2F26E42C37925"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Microns, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_29BAC9A73A66F06581C418B39815D22B"
+                    "_09A9B487B535185802F2F26E42C37925"
                     {
                     "Name" = "8:MahApps.Metro.IconPacks.Microns.dll"
                     "Attributes" = "3:512"
@@ -924,20 +812,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2D004393CE0814690B89C8D248989AE8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0E1C383EA02A0FA54800648D05F3ED46"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.EvaIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Zondicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2D004393CE0814690B89C8D248989AE8"
+                    "_0E1C383EA02A0FA54800648D05F3ED46"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.EvaIcons.dll"
+                    "Name" = "8:MahApps.Metro.IconPacks.Zondicons.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.EvaIcons.dll"
+            "SourcePath" = "8:MahApps.Metro.IconPacks.Zondicons.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -955,14 +843,138 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_367E0F760E8F9B2832BAB5CE52592B59"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_12410C0929EF1B7EEC03DCF2E534A3C3"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Unicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_12410C0929EF1B7EEC03DCF2E534A3C3"
+                    {
+                    "Name" = "8:MahApps.Metro.IconPacks.Unicons.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MahApps.Metro.IconPacks.Unicons.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_253923E05AF1024DEC0EC167DF98FD6B"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:HtmlAgilityPack, Version=1.11.17.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_253923E05AF1024DEC0EC167DF98FD6B"
+                    {
+                    "Name" = "8:HtmlAgilityPack.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:HtmlAgilityPack.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_261CCF5EFB51C0E8E2F7A929236C1AEC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.FeatherIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_261CCF5EFB51C0E8E2F7A929236C1AEC"
+                    {
+                    "Name" = "8:MahApps.Metro.IconPacks.FeatherIcons.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MahApps.Metro.IconPacks.FeatherIcons.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2653F9DA1EFD9A6E5C8BAA0FF7D28327"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.SimpleIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_2653F9DA1EFD9A6E5C8BAA0FF7D28327"
+                    {
+                    "Name" = "8:MahApps.Metro.IconPacks.SimpleIcons.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MahApps.Metro.IconPacks.SimpleIcons.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3AFAC30FEAA7FEEEE7829190B9A16996"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.FontAwesome, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_367E0F760E8F9B2832BAB5CE52592B59"
+                    "_3AFAC30FEAA7FEEEE7829190B9A16996"
                     {
                     "Name" = "8:MahApps.Metro.IconPacks.FontAwesome.dll"
                     "Attributes" = "3:512"
@@ -986,20 +998,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_36FF5D8F9467B56A3DEBC09E7B52747D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3E756DC6D9745CF93C20484354C2F507"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Entypo, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_36FF5D8F9467B56A3DEBC09E7B52747D"
+                    "_3E756DC6D9745CF93C20484354C2F507"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.Core.dll"
+                    "Name" = "8:MahApps.Metro.IconPacks.Entypo.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.Core.dll"
+            "SourcePath" = "8:MahApps.Metro.IconPacks.Entypo.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -1017,20 +1029,71 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_49C9C57A8AAFD92D036F19CDC991CE74"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_42A962B9A5964CB40B24D31711719E1E"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Octicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Modern, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_49C9C57A8AAFD92D036F19CDC991CE74"
+                    "_42A962B9A5964CB40B24D31711719E1E"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.Octicons.dll"
+                    "Name" = "8:MahApps.Metro.IconPacks.Modern.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.Octicons.dll"
+            "SourcePath" = "8:MahApps.Metro.IconPacks.Modern.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4A7C2F74EF674742A276F75861B66A65"
+            {
+            "SourcePath" = "8:C:\\Users\\HAE\\OneDrive\\Bilder\\LCS VM bilder\\BetaBanner.png"
+            "TargetName" = "8:BetaBanner.png"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4E1A4C349418D178699C622CECF1B6FB"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Typicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_4E1A4C349418D178699C622CECF1B6FB"
+                    {
+                    "Name" = "8:MahApps.Metro.IconPacks.Typicons.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MahApps.Metro.IconPacks.Typicons.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -1068,76 +1131,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_52660CDC14D7864F1184390DEDD69C68"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Ionicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_52660CDC14D7864F1184390DEDD69C68"
-                    {
-                    "Name" = "8:MahApps.Metro.IconPacks.Ionicons.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.Ionicons.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_58052D621659904FDD3959FDA4E6D50B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Modern, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_58052D621659904FDD3959FDA4E6D50B"
-                    {
-                    "Name" = "8:MahApps.Metro.IconPacks.Modern.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.Modern.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_762B75D43E2E1006A3C09E6CAB872A9F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_582310B54E4E5604D87445075B46E7BF"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.BoxIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_762B75D43E2E1006A3C09E6CAB872A9F"
+                    "_582310B54E4E5604D87445075B46E7BF"
                     {
                     "Name" = "8:MahApps.Metro.IconPacks.BoxIcons.dll"
                     "Attributes" = "3:512"
@@ -1161,20 +1162,40 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_824DBC9E279F7E4C0B923C2B951052BA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5E50FA64582E4800BEA84F08704778FB"
+            {
+            "SourcePath" = "8:..\\LCSCarousel\\icons8-content.ico"
+            "TargetName" = "8:icons8-content.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_60E5A69C56F7B9A0EF289146FF5CDD38"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.JamIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_824DBC9E279F7E4C0B923C2B951052BA"
+                    "_60E5A69C56F7B9A0EF289146FF5CDD38"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.JamIcons.dll"
+                    "Name" = "8:ControlzEx.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.JamIcons.dll"
+            "SourcePath" = "8:ControlzEx.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -1192,14 +1213,76 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_85574051E83997D7101E74DFF97A90FE"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6C712FC951D0B2B980E183F37D8C50BC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Octicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_6C712FC951D0B2B980E183F37D8C50BC"
+                    {
+                    "Name" = "8:MahApps.Metro.IconPacks.Octicons.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MahApps.Metro.IconPacks.Octicons.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7383AEFD5055764F8832B9D2D9805A07"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Ionicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_7383AEFD5055764F8832B9D2D9805A07"
+                    {
+                    "Name" = "8:MahApps.Metro.IconPacks.Ionicons.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MahApps.Metro.IconPacks.Ionicons.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7E7005258B54DA19306F4E454FD680B4"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.PicolIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_85574051E83997D7101E74DFF97A90FE"
+                    "_7E7005258B54DA19306F4E454FD680B4"
                     {
                     "Name" = "8:MahApps.Metro.IconPacks.PicolIcons.dll"
                     "Attributes" = "3:512"
@@ -1223,14 +1306,45 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9511B1D5FA7BD72725BB050966DF7DE8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7F3AA28C68BCD6C09C41994117779A29"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.RPGAwesome, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_7F3AA28C68BCD6C09C41994117779A29"
+                    {
+                    "Name" = "8:MahApps.Metro.IconPacks.RPGAwesome.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MahApps.Metro.IconPacks.RPGAwesome.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_95090F7EEA4EFACCADCD3DE32348EC85"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_9511B1D5FA7BD72725BB050966DF7DE8"
+                    "_95090F7EEA4EFACCADCD3DE32348EC85"
                     {
                     "Name" = "8:System.Windows.Interactivity.dll"
                     "Attributes" = "3:512"
@@ -1254,20 +1368,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B2DD67A996E065DB61F18B0B861027D4"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_997D871986292867C07E794F71DAE29A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.MaterialLight, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B2DD67A996E065DB61F18B0B861027D4"
+                    "_997D871986292867C07E794F71DAE29A"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.MaterialLight.dll"
+                    "Name" = "8:MahApps.Metro.IconPacks.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.MaterialLight.dll"
+            "SourcePath" = "8:MahApps.Metro.IconPacks.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -1285,20 +1399,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B784BA20523A003B6311E97043E9669C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9D56F2F9462929CC8501D3A1C4A2BF35"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Typicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.MaterialDesign, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B784BA20523A003B6311E97043E9669C"
+                    "_9D56F2F9462929CC8501D3A1C4A2BF35"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.Typicons.dll"
+                    "Name" = "8:MahApps.Metro.IconPacks.MaterialDesign.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.Typicons.dll"
+            "SourcePath" = "8:MahApps.Metro.IconPacks.MaterialDesign.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -1316,20 +1430,113 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C074DE72B699FE8A2721D3A304B48405"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B77362595D155A5EDC6E7B0203A52E1B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:HtmlAgilityPack, Version=1.11.17.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C074DE72B699FE8A2721D3A304B48405"
+                    "_B77362595D155A5EDC6E7B0203A52E1B"
                     {
-                    "Name" = "8:HtmlAgilityPack.dll"
+                    "Name" = "8:MahApps.Metro.IconPacks.Core.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:HtmlAgilityPack.dll"
+            "SourcePath" = "8:MahApps.Metro.IconPacks.Core.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B7ADE56513BC71B1FDF3FDAB66C15486"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.WeatherIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B7ADE56513BC71B1FDF3FDAB66C15486"
+                    {
+                    "Name" = "8:MahApps.Metro.IconPacks.WeatherIcons.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MahApps.Metro.IconPacks.WeatherIcons.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B8E8DF3EFE69A726F2E565A0B435D050"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B8E8DF3EFE69A726F2E565A0B435D050"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Newtonsoft.Json.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BC88CE58A856C464232D709AF94E7653"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Material, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_BC88CE58A856C464232D709AF94E7653"
+                    {
+                    "Name" = "8:MahApps.Metro.IconPacks.Material.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MahApps.Metro.IconPacks.Material.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -1378,113 +1585,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D04D29520B1AF31C3CCEDF40E2752653"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D535B568CC4A4DB3701B058184073E95"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Material, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.EvaIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D04D29520B1AF31C3CCEDF40E2752653"
+                    "_D535B568CC4A4DB3701B058184073E95"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.Material.dll"
+                    "Name" = "8:MahApps.Metro.IconPacks.EvaIcons.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.Material.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D4D953A79DC0AA984B7BF269861EB226"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.RPGAwesome, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_D4D953A79DC0AA984B7BF269861EB226"
-                    {
-                    "Name" = "8:MahApps.Metro.IconPacks.RPGAwesome.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.RPGAwesome.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D518FCD53F2D2815FE41498607938E4D"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.WeatherIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_D518FCD53F2D2815FE41498607938E4D"
-                    {
-                    "Name" = "8:MahApps.Metro.IconPacks.WeatherIcons.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.WeatherIcons.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E76E542ABD6860B88DB2642EAD7B51E7"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_E76E542ABD6860B88DB2642EAD7B51E7"
-                    {
-                    "Name" = "8:MahApps.Metro.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MahApps.Metro.dll"
+            "SourcePath" = "8:MahApps.Metro.IconPacks.EvaIcons.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -1533,20 +1647,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F4E0F00CAABE04670961BA69ABCE0FB4"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FE4B67567E66F7C4DBF7DD6A7165146A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.Unicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.MaterialLight, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F4E0F00CAABE04670961BA69ABCE0FB4"
+                    "_FE4B67567E66F7C4DBF7DD6A7165146A"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.Unicons.dll"
+                    "Name" = "8:MahApps.Metro.IconPacks.MaterialLight.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.Unicons.dll"
+            "SourcePath" = "8:MahApps.Metro.IconPacks.MaterialLight.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -1564,82 +1678,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F5B2FA2507963FA68CE4FA0D7D9E650C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FFD34F10224717276CE5A92B9E12E746"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.FeatherIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks.JamIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F5B2FA2507963FA68CE4FA0D7D9E650C"
+                    "_FFD34F10224717276CE5A92B9E12E746"
                     {
-                    "Name" = "8:MahApps.Metro.IconPacks.FeatherIcons.dll"
+                    "Name" = "8:MahApps.Metro.IconPacks.JamIcons.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.FeatherIcons.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F9678A6F88524C3DD09BA22457DAFE1A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MahApps.Metro.IconPacks, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_F9678A6F88524C3DD09BA22457DAFE1A"
-                    {
-                    "Name" = "8:MahApps.Metro.IconPacks.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MahApps.Metro.IconPacks.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FC0D7DD94B934617374C81DDC70CA795"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_FC0D7DD94B934617374C81DDC70CA795"
-                    {
-                    "Name" = "8:ControlzEx.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:ControlzEx.dll"
+            "SourcePath" = "8:MahApps.Metro.IconPacks.JamIcons.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
@@ -1736,8 +1788,8 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Developers LCS Util"
         "ProductCode" = "8:{CD6F3374-346D-467A-898D-92E78D5F55DF}"
-        "PackageCode" = "8:{9DDB245C-1880-4FA1-BE8F-9585D75A10AB}"
-        "UpgradeCode" = "8:{7A80E56D-9A30-422B-B0BC-1178F6C269C2}"
+        "PackageCode" = "8:{7304DD06-8CC5-498D-ABA3-1EFE48E29AEA}"
+        "UpgradeCode" = "8:{F3AB9747-8B71-4239-8621-220981673E56}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -2285,7 +2337,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AD336E3429484067A38415976B50F126"
             {
-            "SourcePath" = "8:"
+            "SourcePath" = "8:..\\LCSCarousel\\obj\\Release\\LCSSimpleUtil.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"

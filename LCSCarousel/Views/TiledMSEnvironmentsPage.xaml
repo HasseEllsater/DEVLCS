@@ -1,0 +1,83 @@
+﻿<Page x:Class="LCSCarousel.Views.TiledMSEnvironmentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LCSCarousel.Views"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TiledMSEnvironmentsPage">
+
+    <Border Margin="10">
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <iconPacks:PackIconMaterialLight Width="48" Grid.Row="0"
+                                       Height="48"
+                                       Margin="10"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Foreground="{DynamicResource AccentBaseColorBrush}"
+                                       Kind="Account" />
+                <Canvas Grid.Column="0" Grid.Row="0" Width="Auto" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Rectangle
+                    Width="350"
+                    Height="60"
+                    Fill="{DynamicResource AccentBaseColorBrush}"
+                        />
+                    <TextBlock x:Name="MyRDP" Text="- Nothing here to see -"
+                    FontSize="32"
+                    Margin="8"
+                    Foreground="{DynamicResource IdealForegroundColorBrush}"  
+                    FontWeight="Light"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    />
+                </Canvas>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <WrapPanel Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="5"
+                   Width="Auto"
+                   Height="Auto"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top">
+
+                    <Controls:Tile  Name="LogOnToApplication" Title="{StaticResource LogOnTo365}"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="RoyalBlue"
+                           ToolTip="{StaticResource LogOnTo365}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           FontSize="14" FontWeight="Light"
+                           >
+                           <iconPacks:PackIconUnicons Width="40"
+                           Height="40"
+                           Kind="CloudDataConnection" />
+                    </Controls:Tile>
+
+                </WrapPanel>
+            </Grid>
+        </StackPanel>
+    </Border>
+</Page>

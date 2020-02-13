@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static LCSCarousel.MainWindow;
 
 namespace LCSCarousel.Views
 {
@@ -85,6 +86,10 @@ namespace LCSCarousel.Views
                     SelectedVMName.FontWeight = FontWeights.Light;
 
                     Open365.Visibility = Visibility.Visible;
+                    StartInstance.Visibility = Visibility.Visible;
+                    StopInstance.Visibility = Visibility.Visible;
+                    ShowPwd.Visibility = Visibility.Visible;
+
                     DataContext = myTerminal;
                     SelectedVMName.Content = string.Format(Properties.Resources.MyRDPTitle, myTerminal.DisplayName);
                     OpenTerminal.Visibility = Visibility.Visible;
@@ -141,5 +146,28 @@ namespace LCSCarousel.Views
             }
         }
 
+        private void StartInstance_Click(object sender, RoutedEventArgs e)
+        {
+            if (myTerminal == null) return;
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.StartStopRDPSession(myTerminal.EnvironmentId, VMAction.Start);
+
+        }
+
+        private void StopInstance_Click(object sender, RoutedEventArgs e)
+        {
+            if (myTerminal == null) return;
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.StartStopRDPSession(myTerminal.EnvironmentId, VMAction.Stop);
+
+        }
+
+        private void ShowPwd_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPasswordsDialog dlg = new ShowPasswordsDialog();
+            dlg.Owner = Application.Current.MainWindow as MainWindow;
+            dlg.rdpTerminal = myTerminal;
+            dlg.ShowDialog();
+        }
     }
 }

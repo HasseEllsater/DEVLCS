@@ -158,7 +158,18 @@ namespace LCSCarousel.Views
 
         private void DeployPackage_Click(object sender, RoutedEventArgs e)
         {
+            var viewModel = DataContext as MSHostedViewModel;
+            if (viewModel == null)
+            {
+                return;
+            }
 
+            if (viewModel.SelectedRDPTerminal != null)
+            {
+                var item = viewModel.SelectedRDPTerminal;
+                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.DeployPackage(item.EnvironmentId);
+            }
         }
 
         private void AvailableHotfix_Click(object sender, RoutedEventArgs e)

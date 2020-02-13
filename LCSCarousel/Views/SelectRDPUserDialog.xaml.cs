@@ -25,6 +25,9 @@ namespace LCSCarousel.Views
     {
         private RDPConnectionDetails selectedUser;
         private List<RDPConnectionDetails> _rdpList;
+
+        public bool SelectedEnvironment { get; internal set; }
+
         public void SetRDPList(List<RDPConnectionDetails> RdpList)
         { 
             _rdpList = RdpList;
@@ -46,6 +49,11 @@ namespace LCSCarousel.Views
             RDPConnectionDetailsViewModel viewModel = new RDPConnectionDetailsViewModel(_rdpList);
             //DataContext = viewModel.RDPConnectionDetailsList;
             UserGrid.ItemsSource = viewModel.RDPConnectionDetailsList;
+            DefaultUser.Visibility = Visibility.Collapsed;
+            if (SelectedEnvironment == true)
+            {
+                DefaultUser.Visibility = Visibility.Visible;
+            }
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
@@ -56,6 +64,14 @@ namespace LCSCarousel.Views
                 if (UserGrid.SelectedItem != null)
                 {
                     selectedUser = UserGrid.SelectedItem as RDPConnectionDetails;
+                    if(SelectedEnvironment == true)
+                    {
+                        if (DefaultUser.IsChecked == true)
+                        {
+                            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+                            mainWindow.setDefaultUser(selectedUser);
+                        }
+                    }
                     this.Close();
                 }
             }
@@ -69,6 +85,6 @@ namespace LCSCarousel.Views
         {
             this.Close();
         }
-
+    
     }
 }

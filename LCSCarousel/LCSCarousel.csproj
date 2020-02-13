@@ -128,6 +128,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -153,6 +154,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Enumerations.cs" />
     <Compile Include="Classes\Extensions.cs" />
     <Compile Include="Classes\FrameExt.cs" />
     <Compile Include="Classes\HttpClientHelper.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Classes\WebBrowserHelper.cs" />
     <Compile Include="Model\Credentials.cs" />
     <Compile Include="Model\RDPTerminals.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\CredentialsViewModel.cs" />
     <Compile Include="ViewModels\MSHostedViewModel.cs" />
     <Compile Include="ViewModels\CloudHostedViewModel.cs" />
@@ -220,6 +223,9 @@
     </Compile>
     <Compile Include="Views\ShowPasswordsDialog.xaml.cs">
       <DependentUpon>ShowPasswordsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TiledMSEnvironmentsPage.xaml.cs">
+      <DependentUpon>TiledMSEnvironmentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WaitPage.xaml.cs">
       <DependentUpon>WaitPage.xaml</DependentUpon>
@@ -302,6 +308,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TiledMSEnvironmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WaitPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -338,6 +348,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Hazze.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\DefaultVM.png" />
   </ItemGroup>
   <ItemGroup>
@@ -350,6 +363,12 @@
     <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons8-tapir-48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons8-content.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\icons8-checklist-100.ico" />

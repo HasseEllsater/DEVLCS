@@ -190,5 +190,29 @@ namespace LCSCarousel.Properties {
                 this["LoggedInUri"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseDefaultUser {
+            get {
+                return ((bool)(this["UseDefaultUser"]));
+            }
+            set {
+                this["UseDefaultUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DefaultUser {
+            get {
+                return ((string)(this["DefaultUser"]));
+            }
+            set {
+                this["DefaultUser"] = value;
+            }
+        }
     }
 }

@@ -223,6 +223,15 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear default user ({0}).
+        /// </summary>
+        internal static string ClearDefaultUserTitle {
+            get {
+                return ResourceManager.GetString("ClearDefaultUserTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The compare object is not an instance of the CloudHostedInstance class.
         /// </summary>
         internal static string CloudHostedInstance {
@@ -360,6 +369,15 @@ namespace LCSCarousel.Properties {
         internal static string MyRDPTitle {
             get {
                 return ResourceManager.GetString("MyRDPTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No default user is selected.
+        /// </summary>
+        internal static string NoDefaultUser {
+            get {
+                return ResourceManager.GetString("NoDefaultUser", resourceCulture);
             }
         }
         
