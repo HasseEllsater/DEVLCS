@@ -5,3 +5,5 @@
 /packages
 /LCSCarousel/bin/Debug
 /LCSCarousel/obj/Debug
+/LCSCarousel/obj/Release
+/.vs

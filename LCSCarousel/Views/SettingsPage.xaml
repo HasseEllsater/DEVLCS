@@ -77,24 +77,20 @@
                   DisplayMemberPath="{Binding DisplayName}" Width="250"
                   HorizontalAlignment="Left"/>
 
-            <Label Name="UserName" FontSize="18" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" 
+            <Label Name="UserName" FontSize="18" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
-               Content="Clear default user setting"/>
+               Content="Clear default VM user"/>
           
             <Button x:Name="ClearDefaultUser" 
                     Margin="{StaticResource ControlMargin}" 
-                    Padding="4" Height="32" Width="70" 
-                    Grid.Row="6" Grid.Column="0" 
-                    Content="Clear" HorizontalAlignment="Left" 
+                    Padding="4" Height="32" Width="Auto" 
+                    Grid.Row="5" Grid.Column="0" 
+                    Content="Clear default user" HorizontalAlignment="Left" 
                     Click="ClearDefaultUser_Click"></Button>
 
-            <Label FontSize="16" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" 
-               Foreground="{DynamicResource LabelTextBrush}"  
-               Padding="2" VerticalAlignment="Center"
-               Margin="{StaticResource ControlMargin}" 
-               Content="Select the default user when you start your VM"/>
+        
 
             <Label FontSize="18" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  

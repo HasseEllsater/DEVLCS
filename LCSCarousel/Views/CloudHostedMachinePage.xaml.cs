@@ -80,8 +80,14 @@ namespace LCSCarousel.Views
                 return;
             }
 
-            if(viewModel.SelectedRDPTerminal != null)
+            if (viewModel.SelectedRDPTerminal != null)
             {
+                if (Properties.Settings.Default.MimimizeOnStartRDP == true)
+                {
+                    MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+                    mainWindow.WindowState = WindowState.Minimized;
+                }
+
                 var item = viewModel.SelectedRDPTerminal;
                 foreach (var link in item.NavigationLinks)
                 {

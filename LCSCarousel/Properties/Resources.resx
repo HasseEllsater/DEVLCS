@@ -190,7 +190,7 @@
     <comment>Register browser version</comment>
   </data>
   <data name="ClearDefaultUserTitle" xml:space="preserve">
-    <value>Clear default user ({0})</value>
+    <value>Current default user ({0})</value>
     <comment>Show default user name</comment>
   </data>
   <data name="CloudHostedInstance" xml:space="preserve">
@@ -260,7 +260,7 @@ Display Name: {1}</value>
     <comment>My RDP title page</comment>
   </data>
   <data name="NoDefaultUser" xml:space="preserve">
-    <value>No default user is selected</value>
+    <value>Select the default user when you start your VM</value>
     <comment>No user selected yet</comment>
   </data>
   <data name="NoRDPUserSelected" xml:space="preserve">

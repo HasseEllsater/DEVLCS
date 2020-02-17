@@ -223,7 +223,7 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Clear default user ({0}).
+        ///   Looks up a localized string similar to Current default user ({0}).
         /// </summary>
         internal static string ClearDefaultUserTitle {
             get {
@@ -373,7 +373,7 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No default user is selected.
+        ///   Looks up a localized string similar to Select the default user when you start your VM.
         /// </summary>
         internal static string NoDefaultUser {
             get {

@@ -231,6 +231,7 @@ namespace LCSCarousel.Views
             Properties.Settings.Default.DefaultUser = "";
             Properties.Settings.Default.Save();
             ClearDefaultUser.IsEnabled = false;
+            UserName.Content = Properties.Resources.NoDefaultUser;
         }
     }
 }
