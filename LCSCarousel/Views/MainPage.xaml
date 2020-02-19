@@ -103,7 +103,7 @@
                            Margin="{StaticResource ControlMargin}"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
                            Background="{DynamicResource AccentBaseColorBrush}"
-                           ToolTip="{StaticResource PicProject}"
+                           ToolTip="{StaticResource ShowPwd}"
                            HorizontalTitleAlignment="Center"
                            Style="{StaticResource SmallTileStyle}"
                            FontSize="14" FontWeight="Light"
