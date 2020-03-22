@@ -15,7 +15,8 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
@@ -23,6 +24,10 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -52,7 +57,7 @@
                 />
             </Canvas>
 
-            <iconPacks:PackIconModern Width="48" Grid.Row="0" Grid.Column="2"
+            <iconPacks:PackIconModern Width="48" Grid.Row="0" Grid.Column="3"
                                        Height="48"
                                        Margin="10"
                                        HorizontalAlignment="Right"
@@ -67,7 +72,7 @@
                Margin="{StaticResource ControlMargin}" 
                Content="Pick your default VM"/>
 
-            <ComboBox Grid.Column="0" Grid.Row="4" x:Name="vmCombo" Padding="2"  Grid.ColumnSpan="3"
+            <ComboBox Grid.Column="0" Grid.Row="4" x:Name="vmCombo" Padding="2"  
                   Margin="{StaticResource ControlMargin}"  
                   Text="VM" SelectionChanged="vmCombo_SelectionChanged"
                   Controls:TextBoxHelper.ClearTextButton="True"
@@ -76,12 +81,6 @@
                   ItemsSource="{Binding AllWMS}"
                   DisplayMemberPath="{Binding DisplayName}" Width="250"
                   HorizontalAlignment="Left"/>
-
-            <Label Name="UserName" FontSize="18" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" 
-               Foreground="{DynamicResource LabelTextBrush}"  
-               Padding="2" VerticalAlignment="Center"
-               Margin="{StaticResource ControlMargin}" 
-               Content="Clear default VM user"/>
           
             <Button x:Name="ClearDefaultUser" 
                     Margin="{StaticResource ControlMargin}" 
@@ -90,7 +89,11 @@
                     Content="Clear default user" HorizontalAlignment="Left" 
                     Click="ClearDefaultUser_Click"></Button>
 
-        
+            <Label x:Name="UserName" FontSize="16" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" 
+               Foreground="{DynamicResource LabelTextBrush}"  
+               Padding="2" VerticalAlignment="Center"
+               Margin="{StaticResource ControlMargin}" 
+               Content="Clear default VM user"/>
 
             <Label FontSize="18" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
@@ -157,6 +160,29 @@
                                    VerticalAlignment="Center"
                                    Padding="4"
                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" Click="MinimizeSetting_Click"/>
+            
+            <Label FontSize="18" Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="3" 
+               Foreground="{DynamicResource LabelTextBrush}"  
+               Padding="2" VerticalAlignment="Center"
+               Margin="{StaticResource ControlMargin}" 
+               Content="Carousell options"/>
+            
+            <Label Grid.Column="0" Grid.Row="15" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Rotation speed"/>
+            <TextBox x:Name="RotationSpeed" 
+                     Grid.Column="0" Grid.Row="16" 
+                     Padding="2" Margin="{StaticResource ColumnMargin}"
+                     VerticalAlignment="Top"
+                     HorizontalContentAlignment="Stretch"
+                     Controls:TextBoxHelper.ClearTextButton="False"
+                     Controls:TextBoxHelper.IsWaitingForData="True"
+                     Controls:TextBoxHelper.UseFloatingWatermark="False"
+                     Controls:TextBoxHelper.Watermark="Rotation speed 100 is default"
+                     Controls:TextBoxHelper.WatermarkAlignment="Left"
+                     SpellCheck.IsEnabled="False"
+                     ToolTip="Set the rotation speed on the carousels, 100 default speed, over 100 faster, less slower" 
+                     Controls:TextBoxHelper.HasText="True"
+                     TextChanged="RotationSpeed_TextChanged"/>
+
         </Grid>
     </Border>
 </Page>

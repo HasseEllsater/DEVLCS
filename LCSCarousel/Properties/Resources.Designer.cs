@@ -223,6 +223,15 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelling refresh.
+        /// </summary>
+        internal static string CancellingRefresh {
+            get {
+                return ResourceManager.GetString("CancellingRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current default user ({0}).
         /// </summary>
         internal static string ClearDefaultUserTitle {
@@ -308,6 +317,33 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current active project : {0}.
+        /// </summary>
+        internal static string CurrentProjectName {
+            get {
+                return ResourceManager.GetString("CurrentProjectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Done.
+        /// </summary>
+        internal static string Done {
+            get {
+                return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fetching available packages for environment: 
         ///Environment Id: {0}
         ///Display Name: {1}.
@@ -342,6 +378,24 @@ namespace LCSCarousel.Properties {
         internal static string InitRefresh {
             get {
                 return ResourceManager.GetString("InitRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In progress....
+        /// </summary>
+        internal static string InProgress {
+            get {
+                return ResourceManager.GetString("InProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to login to LCS again to access all functions.
+        /// </summary>
+        internal static string LimitedSession {
+            get {
+                return ResourceManager.GetString("LimitedSession", resourceCulture);
             }
         }
         
@@ -382,11 +436,38 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error - No project selected.
+        /// </summary>
+        internal static string NoProjectSelected {
+            get {
+                return ResourceManager.GetString("NoProjectSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must pick a project to access it&apos;s resources.
+        /// </summary>
+        internal static string NoProjectSelectedInformation {
+            get {
+                return ResourceManager.GetString("NoProjectSelectedInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select the user you wish to use to sign in with.
         /// </summary>
         internal static string NoRDPUserSelected {
             get {
                 return ResourceManager.GetString("NoRDPUserSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No options valid for the refresh is selected, cancelling the refresh.
+        /// </summary>
+        internal static string NoRefreshOptionsSelected {
+            get {
+                return ResourceManager.GetString("NoRefreshOptionsSelected", resourceCulture);
             }
         }
         
@@ -436,7 +517,11 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Clearing Cache: {0}{1}Fetching Cloud hosted VM&apos;s: {2}{3}Fetching MS Hosted VM&apos;s: {4}.
+        ///   Looks up a localized string similar to Clearing Cache: {0}  
+        ///Fetching Cloud hosted VM&apos;s: {1}
+        ///Fetching MS Hosted VM&apos;s: {2}
+        ///Clearing credentials Cloud Hosted: {3}
+        ///Clearing credentials MS Hosted: {4}.
         /// </summary>
         internal static string RefreshProgress {
             get {
@@ -486,6 +571,33 @@ namespace LCSCarousel.Properties {
         internal static string SelectRDPUserTitle {
             get {
                 return ResourceManager.GetString("SelectRDPUserTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your session is logged out from LCS, log in again.
+        /// </summary>
+        internal static string SessionEnded {
+            get {
+                return ResourceManager.GetString("SessionEnded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cookie valid to :  {0}.
+        /// </summary>
+        internal static string SessionTime {
+            get {
+                return ResourceManager.GetString("SessionTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skipped.
+        /// </summary>
+        internal static string Skipped {
+            get {
+                return ResourceManager.GetString("Skipped", resourceCulture);
             }
         }
     }

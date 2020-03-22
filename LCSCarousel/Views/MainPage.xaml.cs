@@ -1,4 +1,5 @@
 ﻿using LCSCarousel.Classes;
+using LCSCarousel.Enums;
 using LCSCarousel.Model;
 using LCSCarousel.ViewModels;
 using MahApps.Metro.Controls.Dialogs;
@@ -27,11 +28,10 @@ namespace LCSCarousel.Views
     public partial class MainPage : Page
     {
         private RDPTerminal myTerminal;
-
-
         public MainPage()
         {
             InitializeComponent();
+
         }
 
         private void Settings_Click(object sender, RoutedEventArgs e)
@@ -47,67 +47,154 @@ namespace LCSCarousel.Views
         private void Project_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow.SelectProject(true);
+            mainWindow.SelectProject();
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow.RefreshAllInstances();
+            mainWindow.SetLastActivity(DateTime.Now);
+            SelectRefreshOptions SelectOptionsDlg = new SelectRefreshOptions
+            {
+                Owner = mainWindow
+            };
+
+            SelectOptionsDlg.ShowDialog();
+
+            bool refreshVM = SelectOptionsDlg.RefreshAllVms;
+            bool refreshCredentials = SelectOptionsDlg.RefreshCredentials;
+
+            if(refreshVM == false && refreshCredentials == false)
+            {
+                SharedMethods.StopDialog(Properties.Resources.CancellingRefresh, Properties.Resources.NoRefreshOptionsSelected);
+                return;
+            }
+
+            mainWindow.RefreshAllInstances(refreshVM, refreshCredentials);
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             SharedMethods.ConfirmLogout();
         }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        public void CheckSessionTime()
         {
             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-
-            List<CloudHostedInstance> allWMS = mainWindow.AllWMs;
-            if (allWMS.Count == 0)
+            mainWindow.CheckStartup();
+            SessionInfo.Title = mainWindow.Logouttime;
+            if (Properties.Settings.Default.LimitFunctions == true)
             {
-                mainWindow.EnableMenuOptions(false);
-                SelectedVMName.Content = Properties.Resources.NotSignedIn;
-                SelectedVMName.Background = Brushes.DarkRed;
-                SelectedVMName.Foreground = Brushes.White;
-                SelectedVMName.FontWeight = FontWeights.Bold;
+                UpdateStatus();
             }
             else
             {
-                mainWindow.EnableMenuOptions(true);
-                myTerminal = mainWindow.getMyRDP(Properties.Settings.Default.SelectedPersonalVM);
+                TurnOnAccess(mainWindow);
+            }
 
-                if (myTerminal != null)
-                {
-                    SelectedVMName.Background = Brushes.Transparent;
-                    SelectedVMName.Foreground = Brushes.Black;
-                    SelectedVMName.FontWeight = FontWeights.Light;
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            UpdateStatus();
+            mainWindow.SessionChangedEvent += CheckSessionTime;
+        }
 
-                    Open365.Visibility = Visibility.Visible;
-                    StartInstance.Visibility = Visibility.Visible;
-                    StopInstance.Visibility = Visibility.Visible;
-                    ShowPwd.Visibility = Visibility.Visible;
+        private void UpdateStatus()
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            SessionInfo.Title = mainWindow.Logouttime;
+            if (mainWindow.Logouttime == Properties.Resources.SessionEnded)
+            {
+                ForceLogon();
+            }
+            else
+            {
+                TurnOnAccess(mainWindow);
+            }
+            CurrentProject.Title = mainWindow.SelectedProjectName;
 
-                    DataContext = myTerminal;
-                    SelectedVMName.Content = string.Format(Properties.Resources.MyRDPTitle, myTerminal.DisplayName);
-                    OpenTerminal.Visibility = Visibility.Visible;
+        }
 
-                    if (myTerminal.ImageSource == Properties.Settings.Default.DefaultImage)
-                    {
-                        SelectedVMImage.Source = new BitmapImage(new Uri(Properties.Settings.Default.DefaultImage, UriKind.Relative));
-                    }
-                    else
-                    {
-                        Uri fileUri = new Uri(myTerminal.ImageSource);
-                        SelectedVMImage.Source = new BitmapImage(fileUri);
-                    }
-                }
+        private void TurnOnAccess(MainWindow mainWindow)
+        {
+            ToggleFunctions(Visibility.Visible);
+            if (Properties.Settings.Default.LimitFunctions == true)
+            {
+                ToggleFunctions(Visibility.Collapsed);
+            }
+
+            mainWindow.EnableMenuOptions(true);
+            if (Open365.Visibility != Visibility.Visible)
+            {
+                TurnOnMyTerminal();
             }
         }
 
-     
+        private void ForceLogon()
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.EnableMenuOptions(false);
+            SelectedVMName.Content = Properties.Resources.NotSignedIn;
+            SelectedVMName.Background = Brushes.DarkRed;
+            SelectedVMName.Foreground = Brushes.White;
+            SelectedVMName.FontWeight = FontWeights.Bold;
+        }
+
+        private void TurnOnMyTerminal()
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            myTerminal = mainWindow.GetMyRDP(Properties.Settings.Default.SelectedPersonalVM);
+
+            if (myTerminal != null)
+            {
+                SelectedVMName.Background = Brushes.Transparent;
+                SelectedVMName.Foreground = Brushes.Black;
+                SelectedVMName.FontWeight = FontWeights.Light;
+
+                Open365.Visibility = Visibility.Visible;
+
+                DataContext = myTerminal;
+                SelectedVMName.Content = string.Format(Properties.Resources.MyRDPTitle, myTerminal.DisplayName);
+                SelectedVMName.Visibility = Visibility.Hidden;
+                OpenTerminal.Visibility = Visibility.Visible;
+                OpenTerminal.Title = string.Format(Properties.Resources.MyRDPTitle, myTerminal.DisplayName);
+
+                if (myTerminal.ImageSource == Properties.Settings.Default.DefaultImage)
+                {
+                    SelectedVMImage.Source = new BitmapImage(new Uri(Properties.Settings.Default.DefaultImage, UriKind.Relative));
+                }
+                else
+                {
+                    Uri fileUri = new Uri(myTerminal.ImageSource);
+                    SelectedVMImage.Source = new BitmapImage(fileUri);
+                }
+            }
+        }
+        private void ToggleFunctions(Visibility visibility)
+        {
+            if(StartInstance.Visibility != visibility)
+            {
+                StartInstance.Visibility = visibility;
+            }
+
+            if (StopInstance.Visibility != visibility)
+            {
+                StopInstance.Visibility = visibility;
+            }
+            if (ShowPwd.Visibility != visibility)
+            {
+                ShowPwd.Visibility = visibility;
+            }
+            if (Project.Visibility != visibility)
+            {
+                Project.Visibility = visibility;
+            }
+            if (Refresh.Visibility != visibility)
+            {
+                Refresh.Visibility = visibility;
+            }
+
+        }
 
         private void OpenTerminal_Click(object sender, RoutedEventArgs e)
         {
@@ -119,8 +206,7 @@ namespace LCSCarousel.Views
 
         private void Open365_Click(object sender, RoutedEventArgs e)
         {
-            var viewModel = DataContext as RDPTerminal;
-            if (viewModel == null)
+            if (!(DataContext is RDPTerminal viewModel))
             {
                 return;
             }
@@ -164,9 +250,11 @@ namespace LCSCarousel.Views
 
         private void ShowPwd_Click(object sender, RoutedEventArgs e)
         {
-            ShowPasswordsDialog dlg = new ShowPasswordsDialog();
-            dlg.Owner = Application.Current.MainWindow as MainWindow;
-            dlg.rdpTerminal = myTerminal;
+            ShowPasswordsDialog dlg = new ShowPasswordsDialog
+            {
+                Owner = Application.Current.MainWindow as MainWindow,
+                RdpTerminal = myTerminal
+            };
             dlg.ShowDialog();
         }
     }

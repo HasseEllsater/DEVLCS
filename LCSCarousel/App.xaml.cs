@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LCSCarousel.Classes;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -15,13 +16,19 @@ namespace LCSCarousel
     /// </summary>
     public partial class App : Application
     {
-
+        //bool checkedStartup = false;
         private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
             ThemeHelper.ChooseTheme();
             Application.Current.MainWindow.Activate();
-        }
+            //if(checkedStartup == false)
+            //{
+            //    MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            //    mainWindow.CheckStartup();
+            //    checkedStartup = true;
+            //}
 
+        }
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
     
@@ -29,11 +36,7 @@ namespace LCSCarousel
             {
                 case "System.Net.Http" when e.Exception.Message == $"Response status code does not indicate success: 498 ().":
                     MessageBox.Show("Please login to LCS again. Your cookie is probably invalid or expired.");
-                    //var mainForm = GetMainForm();
-                    //mainForm.Cursor = Cursors.Default;
-                    //mainForm.SetLoginButtonEnabled();
                     break;
-
                 default:
                     throw e.Exception;
             }

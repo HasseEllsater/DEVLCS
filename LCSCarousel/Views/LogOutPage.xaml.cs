@@ -32,12 +32,8 @@ namespace LCSCarousel.Views
         {
             if(e.Uri == null || e.Uri.ToString().StartsWith("https://lcs.dynamics.com/Logon"))
             {
-                //if (e.Uri.ToString().StartsWith("https://lcs.dynamics.com/Logon"))
-                //{
-                    MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                    mainWindow.clearAndClose();
-
-                //}
+                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.ClearAndClose();
             }
 
         }

@@ -24,9 +24,7 @@ namespace LCSCarousel.Views
             WebBrowserHelper.FixBrowserVersion();
 
         }
-#pragma warning disable CA1822 // Mark members as static
         public async void LoggedIn()
-#pragma warning restore CA1822 // Mark members as static
         {
             SharedMethods.LogInConfirmation();
         }
@@ -53,7 +51,7 @@ namespace LCSCarousel.Views
                 if (Cancelled == false)
                 {
                     MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                    mainWindow.LoginToLCS();
+                    mainWindow.LoadOrSelectProject();
                 }
 
             }

@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace LCSCarousel
 {
@@ -19,9 +20,17 @@ namespace LCSCarousel
         private bool _disposed;
         private StringContent _stringContent;
 
+        internal void SetLastActivity()
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.SetLastActivity(DateTime.Now);
+
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>")]
         internal HttpClientHelper(CookieContainer cookieContainer)
         {
+
             //Use Tls1.2 as default transport layer
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
@@ -108,6 +117,8 @@ namespace LCSCarousel
                 if (node == null) return;
                 var token = node.Attributes["value"].Value;
                 _httpClient.DefaultRequestHeaders.Add("__RequestVerificationToken", token);
+
+
             }
         }
 
@@ -121,6 +132,8 @@ namespace LCSCarousel
                 result.EnsureSuccessStatusCode();
                 var responseBody = result.Content.ReadAsStringAsync().Result;
                 var response = JsonConvert.DeserializeObject<Response>(responseBody);
+
+
                 return response.Success;
             }
         }
@@ -154,6 +167,9 @@ namespace LCSCarousel
                 log.AppendLine($"{instance.DisplayName}: {validationResponse.Message}");
                 log.AppendLine();
             }
+
+            SetLastActivity();
+
             return log.ToString();
         }
 
@@ -167,6 +183,8 @@ namespace LCSCarousel
                 result.EnsureSuccessStatusCode();
                 var responseBody = result.Content.ReadAsStringAsync().Result;
                 var response = JsonConvert.DeserializeObject<Response>(responseBody);
+
+
                 return response.Success;
             }
         }
@@ -181,6 +199,8 @@ namespace LCSCarousel
                 result.EnsureSuccessStatusCode();
                 var responseBody = result.Content.ReadAsStringAsync().Result;
                 var response = JsonConvert.DeserializeObject<Response>(responseBody);
+
+
                 if (response.Success)
                 {
                     return $"Successfully deleted firewall rule {rule} for instance {instance.DisplayName}";
@@ -232,6 +252,9 @@ namespace LCSCarousel
                 }
             }
             while (numberOfProjectReturned == numberOfProjectsRequested);
+
+            SetLastActivity();
+
             return allProjects;
         }
 
@@ -275,6 +298,8 @@ namespace LCSCarousel
                 }
             }
             while (numberOfUsersReturned == numberOfUsersRequested);
+
+            SetLastActivity();
             return allUsers;
         }
 
@@ -296,6 +321,8 @@ namespace LCSCarousel
                     kb.Solution = RemoveUnwantedTags(kb.Solution);
                     kb.Title = RemoveUnwantedTags(kb.Title);
                 }
+
+                SetLastActivity();
                 return kbs;
             }
             catch
@@ -310,6 +337,9 @@ namespace LCSCarousel
             result.EnsureSuccessStatusCode();
             var responseBody = result.Content.ReadAsStringAsync().Result;
             var environments = JsonConvert.DeserializeObject<List<BuildInfoEnvironment>>(responseBody);
+
+            SetLastActivity();
+
             if (environments != null && environments.Count > 0)
             {
                 return environments.First().Value;
@@ -371,6 +401,7 @@ namespace LCSCarousel
         {
             var result = _httpClient.GetAsync($"{LcsUrl}/DeploymentPortal/GetCredentials/{LcsProjectId}?environmentId={environmentId}&deploymentItemName={itemName}&_={DateTimeOffset.Now.ToUnixTimeSeconds()}").Result;
             result.EnsureSuccessStatusCode();
+
             var responseBody = result.Content.ReadAsStringAsync().Result;
             var response = JsonConvert.DeserializeObject<Response>(responseBody);
             return response.Success && response.Data != null
@@ -384,6 +415,9 @@ namespace LCSCarousel
             result.EnsureSuccessStatusCode();
             var responseBody = result.Content.ReadAsStringAsync().Result;
             var response = JsonConvert.DeserializeObject<Response>(responseBody);
+
+            SetLastActivity();
+
             return response.Success && response.Data != null ? response.Data.ToString() : null;
         }
 
@@ -397,6 +431,9 @@ namespace LCSCarousel
             {
                 response.BuildInfoTreeView.RemoveAll(x => x.ParentId == null);
             }
+
+            SetLastActivity();
+
             return response;
         }
 
@@ -425,6 +462,9 @@ namespace LCSCarousel
                     MissingMemberHandling = MissingMemberHandling.Ignore
                 };
                 var NSG = JsonConvert.DeserializeObject<NetworkSecurityGroup>(response.Data.ToString(), settings);
+
+                SetLastActivity();
+
                 return NSG;
             }
             catch
@@ -473,6 +513,9 @@ namespace LCSCarousel
                 }
             }
             while (numberOfPackagesReturned == numberOfPackagesRequested);
+
+            SetLastActivity();
+
             return packageList;
         }
 
@@ -488,6 +531,7 @@ namespace LCSCarousel
             //check RDP availability
             foreach (var vm in instance.Instances)
             {
+
                 var result = _httpClient.GetAsync($"{LcsUrl}/DeploymentPortal/IsRdpResourceAvailable/{LcsProjectId}/?topologyInstanceId={instance.InstanceId}&virtualMachineInstanceName={vm.MachineName}&deploymentItemName={vm.ItemName}&azureSubscriptionId={instance.AzureSubscriptionId}&group=0&isARMTopology={instance.IsARMTopology}&nsgWarningDisplayed=true&_={DateTimeOffset.Now.ToUnixTimeSeconds()}").Result;
                 result.EnsureSuccessStatusCode();
                 var responseBody = result.Content.ReadAsStringAsync().Result;
@@ -554,6 +598,7 @@ namespace LCSCarousel
         {
             var result = _httpClient.GetAsync($"{LcsUrl}/RainierProject/GetProject/{projectId}?_={DateTimeOffset.Now.ToUnixTimeSeconds()}").Result;
             result.EnsureSuccessStatusCode();
+            SetLastActivity();
 
             var responseBody = result.Content.ReadAsStringAsync().Result;
             var response = JsonConvert.DeserializeObject<Response>(responseBody);
@@ -605,6 +650,7 @@ namespace LCSCarousel
                     }
                 }
             }
+
             return list.OrderBy(x => x.InstanceId).ToList();
         }
 
@@ -616,6 +662,8 @@ namespace LCSCarousel
                 SetRequestVerificationToken($"{LcsUrl}/V2");
                 var result = _httpClient.PostAsync($"{LcsUrl}/Environment/StartSandboxServicing/{LcsProjectId}", _stringContent).Result;
                 result.EnsureSuccessStatusCode();
+                SetLastActivity();
+
                 var responseBody = result.Content.ReadAsStringAsync().Result;
                 return JsonConvert.DeserializeObject<Response>(responseBody);
             }
@@ -623,6 +671,7 @@ namespace LCSCarousel
 
         internal async Task<bool> StartStopDeployment(CloudHostedInstance instance, string action)
         {
+
             var parameters = $"{action}=&ActivityId={instance.ActivityId}&ProductName={WebUtility.UrlEncode(instance.ProductName)}&TopologyName={instance.TopologyName}&TopologyInstanceId={instance.InstanceId}&AzureSubscriptionId={instance.AzureSubscriptionId}&EnvironmentGroup=0";
             using (_stringContent = new StringContent(parameters, Encoding.UTF8, "application/x-www-form-urlencoded"))
             {
@@ -642,6 +691,7 @@ namespace LCSCarousel
                 SetRequestVerificationToken($"{LcsUrl}/V2");
                 var result = _httpClient.PostAsync($"{LcsUrl}/Environment/ValidateSandboxServicing/{LcsProjectId}", _stringContent).Result;
                 result.EnsureSuccessStatusCode();
+                SetLastActivity();
                 var responseBody = result.Content.ReadAsStringAsync().Result;
                 return JsonConvert.DeserializeObject<Response>(responseBody);
             }
@@ -681,6 +731,7 @@ namespace LCSCarousel
         {
             var result = _httpClient.GetAsync($"{LcsUrl}/RainierProject/RetrieveTenantPlans/{LcsProjectId}?_={DateTimeOffset.Now.ToUnixTimeSeconds()}").Result;
             result.EnsureSuccessStatusCode();
+            SetLastActivity();
 
             var responseBody = result.Content.ReadAsStringAsync().Result;
             var response = JsonConvert.DeserializeObject<Response>(responseBody);
@@ -695,6 +746,7 @@ namespace LCSCarousel
             {
                 var result = _httpClient.GetAsync($"{LcsUrl}/RainierSettings/GetUpcomingCalendars/{LcsProjectId}/?id={LcsProjectId}&_={DateTimeOffset.Now.ToUnixTimeSeconds()}").Result;
                 result.EnsureSuccessStatusCode();
+                SetLastActivity();
 
                 var responseBody = result.Content.ReadAsStringAsync().Result;
                 var response = JsonConvert.DeserializeObject<Response>(responseBody);

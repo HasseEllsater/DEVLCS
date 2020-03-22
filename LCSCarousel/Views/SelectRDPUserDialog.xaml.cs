@@ -69,7 +69,7 @@ namespace LCSCarousel.Views
                         if (DefaultUser.IsChecked == true)
                         {
                             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                            mainWindow.setDefaultUser(selectedUser);
+                            mainWindow.SetDefaultUser(selectedUser);
                         }
                     }
                     this.Close();

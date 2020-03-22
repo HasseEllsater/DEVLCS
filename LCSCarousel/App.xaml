@@ -177,9 +177,9 @@
             
             
             <system:String x:Key="ShowPwd">Show passwords</system:String>
-            <system:String x:Key="StartInstance">Start instance</system:String>
-            <system:String x:Key="StopInstance">Stop instance</system:String>
-            <system:String x:Key="LogOnTo365">Log on to D365FO</system:String>
+            <system:String x:Key="StartInstance">Start VM</system:String>
+            <system:String x:Key="StopInstance">Stop VM</system:String>
+            <system:String x:Key="LogOnTo365">Open D365FO</system:String>
             <system:String x:Key="InstanceId">Instance Id</system:String>
             <system:String x:Key="DeploymentStatus">Status</system:String>
             <system:String x:Key="ApplicationRelease">Release</system:String>
@@ -188,6 +188,7 @@
             <system:String x:Key="LoginToLCS">Log in to LCS</system:String>
             <system:String x:Key="LogoutFromLCS">Log out from LCS</system:String>
             <system:String x:Key="RefreshInstances">Refresh instances for project</system:String>
+            <system:String x:Key="RefreshInstancesInformation">If you are connecting to LCS due to session timeout and already have a valid cache for that project you can set the refresh options to "Off"</system:String>
             <system:String x:Key="EditVMProperties">Edit VM properties</system:String>
             <system:String x:Key="PicVMImage">Select the image to use for your VM</system:String>
             <system:String x:Key="PicProject">Select the LCS project to use</system:String>

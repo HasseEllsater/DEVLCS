@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Navigation;
 using MahApps.Metro.Controls;
 using LCSCarousel.ViewModels;
@@ -8,13 +7,9 @@ using MenuItem = LCSCarousel.ViewModels.MenuItem;
 using MahApps.Metro.Controls.Dialogs;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Windows.Data;
-using System.Collections.ObjectModel;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
-using LCSCarousel;
 using System.Globalization;
 using LCSCarousel.Views;
 using Newtonsoft.Json;
@@ -23,9 +18,9 @@ using LCSCarousel.Classes;
 using System.Diagnostics;
 using LCSCarousel.Model;
 using System.Windows.Input;
-using System.Web.ClientServices.Providers;
 using System.Configuration;
-using System.Reflection;
+using LCSCarousel.Enums;
+using IKriv.Threading.Tasks;
 
 namespace LCSCarousel
 {
@@ -36,27 +31,116 @@ namespace LCSCarousel
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1060:Move pinvokes to native methods class", Justification = "<Pending>")]
     public partial class MainWindow : MetroWindow, IDisposable
     {
-#pragma warning disable CA1802 // Use literals where appropriate
+        #region members and properties
         private static readonly string _lcsDiagUrl = "https://diag.lcs.dynamics.com";
         private static readonly string _lcsUpdateUrl = "https://update.lcs.dynamics.com";
-        //private ViewModels.MenuItem myRDPMenuItem { get; set; }
-        private ViewModels.MenuItem myCloudHostedMenuItem { get; set; }
-        private ViewModels.MenuItem myMSHostedMenuItem { get; set; }
+        private ViewModels.MenuItem MyCloudHostedMenuItem { get; set; }
+        private ViewModels.MenuItem MyMSHostedMenuItem { get; set; }
         private Uri LoggedInUri;
-        private RDPConnectionDetails selectedDefaultUser;
-
-        private ViewModels.MenuItem mySettingsMenuItem { get; set; }
+        private ViewModels.MenuItem MySettingsMenuItem { get; set; }
         private static readonly string _lcsUrl = "https://lcs.dynamics.com";
-
-#pragma warning restore CA1802 // Use literals where appropriate
-
         private const int InternetCookieHttponly = 0x2000;
         private bool _disposed;
-        private bool sessionStarted;
-
         private HttpClientHelper httpClientHelper;
         private LcsProject SelectedProject;
         private List<ProjectInstance> Instances;
+        private List<LcsProject> Projects;
+        private List<CloudHostedInstance> SaasInstancesList;
+        private List<CloudHostedInstance> CloudHostedInstancesList;
+        List<RDPConnectionDetailsCache> UserCredentialsCloud = new List<RDPConnectionDetailsCache>();
+        List<RDPConnectionDetailsCache> UserCredentialsSAAS= new List<RDPConnectionDetailsCache>();
+
+        private List<DeployablePackage> Packages = new List<DeployablePackage>();
+        public string Logouttime { get; set; }
+        private List<InstanceAttribute> InstanceAttributeList;
+        private List<CloudHostedInstance> AllVMsList;
+        private bool ClearVMStatus { get; set; }
+        private bool ClearSaaSStatus { get; set; }
+        private bool ClearCloudHostStatus { get; set; }
+        private bool GetPackagesStatus { get; set; }
+        private bool RefreshCredentialsCloudStatus { get; set; }
+        private bool RefreshCredentialsMSHostedStatus { get; set; }
+
+        public string SelectedProjectName
+        {
+            get
+            {
+                if(SelectedProject == null)
+                {
+                    return Properties.Resources.NoProjectSelected;
+                }
+                return string.Format(Properties.Resources.CurrentProjectName,SelectedProject.Name); 
+            }
+        }
+        public List<CloudHostedInstance> CloudHosted
+        {
+            get
+            {
+                return CloudHostedInstancesList;
+            }
+        }
+        public List<CloudHostedInstance> MSHosted
+        {
+            get
+            {
+                return SaasInstancesList;
+            }
+        }
+        public List<CloudHostedInstance> AllWMs
+        {
+            get
+            {
+                return AllVMsList;
+            }
+        }
+
+        public List<InstanceAttribute> InstanceAttributes
+        {
+            get
+            {
+                return InstanceAttributeList;
+            }
+        }
+
+
+        public CookieContainer Cookies { get; set; }
+        #endregion
+
+        [DllImport("wininet.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+        private static extern bool InternetGetCookieEx(string url, string cookieName, StringBuilder cookieData, ref int size, Int32 dwFlags, IntPtr lpReserved);
+
+        #region base methods
+        public MainWindow()
+        {
+            InitializeComponent();
+            this.Icon = null;
+            Navigation.Navigation.Frame = new FrameExt() { NavigationUIVisibility = NavigationUIVisibility.Hidden };
+            Navigation.Navigation.Frame.Navigated += SplitViewFrame_OnNavigated;
+
+            // Navigate to the home page.
+            this.Loaded += (sender, args) => Navigation.Navigation.Navigate(new Uri("Views/MainPage.xaml", UriKind.RelativeOrAbsolute));
+
+        }
+        private void SplitViewFrame_OnNavigated(object sender, NavigationEventArgs e)
+        {
+            this.HamburgerMenuControl.Content = e.Content;
+            this.HamburgerMenuControl.SelectedItem = e.ExtraData ?? ((ShellViewModel)this.DataContext).GetItem(e.Uri);
+            this.HamburgerMenuControl.SelectedOptionsItem = e.ExtraData ?? ((ShellViewModel)this.DataContext).GetOptionsItem(e.Uri);
+            GoBackButton.Visibility = Navigation.Navigation.Frame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void GoBack_OnClick(object sender, RoutedEventArgs e)
+        {
+            Navigation.Navigation.GoBack();
+        }
+        private void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
+        {
+            if (e.InvokedItem is MenuItem menuItem && menuItem.IsNavigation)
+            {
+                Navigation.Navigation.Navigate(menuItem.NavigationDestination, menuItem);
+            }
+        }
+        #endregion
 
         internal List<RDPConnectionDetails> GetUsers(CloudHostedInstance instance)
         {
@@ -68,12 +152,7 @@ namespace LCSCarousel
             return rdpList;
         }
 
-        private List<LcsProject> Projects;
-        private List<CloudHostedInstance> SaasInstancesList;
-        private List<CloudHostedInstance> CloudHostedInstancesList;
-        private List<DeployablePackage> Packages = new List<DeployablePackage>();
-
-        internal RDPTerminal getMyRDP(string selectedPersonalVM)
+        internal RDPTerminal GetMyRDP(string selectedPersonalVM)
         {
             RDPTerminal personalTerminal = null;
             foreach (var instance in AllVMsList)
@@ -108,96 +187,7 @@ namespace LCSCarousel
 
             return personalTerminal;
         }
-
-        private List<InstanceAttribute> InstanceAttributeList;
-        private List<CloudHostedInstance> AllVMsList;
-        private bool ClearVMStatus { get; set; }
-        private bool ClearSaaSStatus { get; set; }
-        private bool ClearCloudHostStatus { get; set; }
-        private bool GetPackagesStatus { get; set; }
-
-        public enum VMAction
-        {
-            Start,
-            Stop
-        }
-        public enum HotfixesType
-        {
-            Metadata = 8,
-            PlatformBinary = 11,
-            ApplicationBinary = 9,
-            CriticalMetadata = 16
-        }
-
-        public List<CloudHostedInstance> CloudHosted
-        {
-            get
-            {
-                return CloudHostedInstancesList;
-            }
-        }
-        public List<CloudHostedInstance> MSHosted
-        {
-            get
-            {
-                return SaasInstancesList;
-            }
-        }
-        public List<CloudHostedInstance> AllWMs
-        {
-            get
-            {
-                return AllVMsList;
-            }
-        }
-
-
-        public List<InstanceAttribute> InstanceAttributes
-        {
-            get
-            {
-                return InstanceAttributeList;
-            }
-        }
-
-
-        public CookieContainer Cookies { get; set; }
-
-        [DllImport("wininet.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-        private static extern bool InternetGetCookieEx(string url, string cookieName, StringBuilder cookieData, ref int size, Int32 dwFlags, IntPtr lpReserved);
-
-        public MainWindow()
-        {
-            InitializeComponent();
-            this.Icon = null;
-            Navigation.Navigation.Frame = new FrameExt() { NavigationUIVisibility = NavigationUIVisibility.Hidden };
-            Navigation.Navigation.Frame.Navigated += SplitViewFrame_OnNavigated;
-
-            // Navigate to the home page.
-            this.Loaded += (sender, args) => Navigation.Navigation.Navigate(new Uri("Views/MainPage.xaml", UriKind.RelativeOrAbsolute));
-
-        }
-        private void SplitViewFrame_OnNavigated(object sender, NavigationEventArgs e)
-        {
-            this.HamburgerMenuControl.Content = e.Content;
-            this.HamburgerMenuControl.SelectedItem = e.ExtraData ?? ((ShellViewModel)this.DataContext).GetItem(e.Uri);
-            this.HamburgerMenuControl.SelectedOptionsItem = e.ExtraData ?? ((ShellViewModel)this.DataContext).GetOptionsItem(e.Uri);
-            GoBackButton.Visibility = Navigation.Navigation.Frame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
-        }
-
-        private void GoBack_OnClick(object sender, RoutedEventArgs e)
-        {
-            Navigation.Navigation.GoBack();
-        }
-        private void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
-        {
-            if (e.InvokedItem is MenuItem menuItem && menuItem.IsNavigation)
-            {
-                Navigation.Navigation.Navigate(menuItem.NavigationDestination, menuItem);
-            }
-        }
-
-        public void LoginToLCS()
+        public void LoadOrSelectProject()
         {
             Cookies = MainWindow.GetUriCookieContainer();
             if (Cookies != null)
@@ -212,33 +202,84 @@ namespace LCSCarousel
                 {
                     httpClientHelper.ChangeLcsProjectId(SelectedProject.Id.ToString(CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name)));
                 }
-                Navigation.Navigation.Navigate(new Uri("Views/WaitPage.xaml", UriKind.RelativeOrAbsolute));
                 SelectProject();
             }
-
+            Navigation.Navigation.Navigate(new Uri("Views/MainPage.xaml", UriKind.RelativeOrAbsolute));
         }
-        public void SelectProject(bool showWait = false)
+        public void SelectProject()
+        
         {
             if (httpClientHelper is null)
             {
                 SharedMethods.NotLoggedIn();
                 return;
             }
-            SelectProjectDialog dlg = new SelectProjectDialog();
-            dlg.HttpClientHelper = httpClientHelper;
-            dlg.Owner = this;
-            dlg.ShowDialog();
-            SelectedProject = dlg.LcsProject;
-            if (SelectedProject != null)
+            LcsProject selected = ShowProjectListAndSelect();
+
+            if(selected is null)
             {
-                if(showWait == true)
-                {
-                    Navigation.Navigation.Navigate(new Uri("Views/WaitPage.xaml", UriKind.RelativeOrAbsolute));
-                }
-                httpClientHelper.ChangeLcsProjectId(SelectedProject.Id.ToString(CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name)));
-                RefreshAllInstances();
+                SharedMethods.StopDialog(Properties.Resources.NoProjectSelected, Properties.Resources.NoProjectSelectedInformation);
+                return;
             }
+
+            if (SelectedProject == null)
+            {
+                SelectedProject = selected;
+                SwitchProjectForcedRefresh();
+                return;
+            }
+
+            if (SelectedProject.Id != selected.Id)
+            {
+                SelectedProject = selected;
+                SwitchProjectForcedRefresh();
+                return;
+            }
+
+            ChoseRefreshOption();
         }
+
+        private LcsProject ShowProjectListAndSelect()
+        {
+            SelectProjectDialog dlg = new SelectProjectDialog
+            {
+                HttpClientHelper = httpClientHelper,
+                Owner = this
+            };
+
+            dlg.ShowDialog();
+            LcsProject selected = dlg.LcsProject;
+            return selected;
+        }
+
+        private void ChoseRefreshOption()
+        {
+            SelectRefreshOptions SelectOptionsDlg = new SelectRefreshOptions
+            {
+                Owner = this
+            };
+
+            SelectOptionsDlg.ShowDialog();
+
+            bool refreshVM = SelectOptionsDlg.RefreshAllVms;
+            bool refreshCredentials = SelectOptionsDlg.RefreshCredentials;
+
+            if (refreshVM == false && refreshCredentials == false)
+            {
+                SharedMethods.StopDialog(Properties.Resources.CancellingRefresh, Properties.Resources.NoRefreshOptionsSelected);
+                return;
+            }
+            Navigation.Navigation.Navigate(new Uri("Views/WaitPage.xaml", UriKind.RelativeOrAbsolute));
+            RefreshAllInstances(refreshVM, refreshCredentials);
+        }
+
+        private void SwitchProjectForcedRefresh()
+        {
+            Navigation.Navigation.Navigate(new Uri("Views/WaitPage.xaml", UriKind.RelativeOrAbsolute));
+            httpClientHelper.ChangeLcsProjectId(SelectedProject.Id.ToString(CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name)));
+            RefreshAllInstances(true, true);
+        }
+
         private static CookieContainer GetUriCookieContainer()
         {
             CookieContainer cookies = null;
@@ -267,9 +308,12 @@ namespace LCSCarousel
                 cookies.SetCookies(new Uri(_lcsUpdateUrl), Properties.Settings.Default.cookie);
                 cookies.SetCookies(new Uri(_lcsDiagUrl), Properties.Settings.Default.cookie);
             }
+ 
             return cookies;
         }
 
+        public delegate void SessionChanged();
+        public event SessionChanged SessionChangedEvent;
 
         /// Dispose
         /// </summary>
@@ -291,55 +335,64 @@ namespace LCSCarousel
                 httpClientHelper?.Dispose();
             }
         }
-        static void ToggleConfigEncryption(string exeConfigName)
+
+        public void SetLastActivity(DateTime _lastActivity)
         {
-            // Takes the executable file name without the
-            // .config extension.
-            try
+            Properties.Settings.Default.LastActivity = _lastActivity;
+
+            DateTime sessionTimeOut = _lastActivity.AddMinutes(60.0);
+
+            Properties.Settings.Default.SessionTimeOut = sessionTimeOut;
+            Logouttime = string.Format(Properties.Resources.SessionTime, sessionTimeOut.ToString());
+
+            Properties.Settings.Default.SessionStatus = Logouttime;
+            Properties.Settings.Default.Save();
+
+        }
+        internal void CheckStartup()
+        {
+            DateTime sessionTimeOut = Properties.Settings.Default.LastActivity.AddMinutes(60.0);
+            DateTime session24Hours = Properties.Settings.Default.LastActivity.AddHours(24.00);
+            Properties.Settings.Default.SessionTimeOut = sessionTimeOut;
+
+            DateTime DateTimeNow = DateTime.Now;
+            Properties.Settings.Default.LimitFunctions = false;
+
+            Logouttime = string.Format(Properties.Resources.SessionTime, sessionTimeOut.ToString());
+
+            if(sessionTimeOut > DateTimeNow)
             {
-                // Open the configuration file and retrieve 
-                // the connectionStrings section.
-                Configuration config = ConfigurationManager.OpenExeConfiguration(exeConfigName);
-
-                ConnectionStringsSection section =
-                    config.GetSection("LCSCarousel.Properties.Settings")
-                    as ConnectionStringsSection;
-
-
-                if (section.SectionInformation.IsProtected)
-                {
-                    // Remove encryption.
-                    section.SectionInformation.UnprotectSection();
-                }
-                else
-                {
-                    // Encrypt the section.
-                    section.SectionInformation.ProtectSection(
-                        "DataProtectionConfigurationProvider");
-                }
-                // Save the current configuration.
-                config.Save();
-
-                Console.WriteLine("Protected={0}",
-                    section.SectionInformation.IsProtected);
+                Properties.Settings.Default.LimitFunctions = false;
             }
-            catch (Exception ex)
+
+            if(sessionTimeOut < DateTimeNow && sessionTimeOut < session24Hours)
             {
-                Console.WriteLine(ex.Message);
+                Logouttime = Properties.Resources.LimitedSession;
+                Properties.Settings.Default.LimitFunctions = true;
             }
+
+            if(DateTimeNow > session24Hours)        
+            {
+                Logouttime = Properties.Resources.SessionEnded;
+                Properties.Settings.Default.LimitFunctions = true;
+            }
+
+            Properties.Settings.Default.SessionStatus = Logouttime;
+            Properties.Settings.Default.Save();
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
-//            ToggleConfigEncryption("LCSSimpleUtil.exe");
-
             Instances = JsonConvert.DeserializeObject<List<ProjectInstance>>(Properties.Settings.Default.instances) ?? new List<ProjectInstance>();
             Projects = JsonConvert.DeserializeObject<List<LcsProject>>(Properties.Settings.Default.projects) ?? new List<LcsProject>();
             AllVMsList = JsonConvert.DeserializeObject<List<CloudHostedInstance>>(Properties.Settings.Default.AllWMs) ?? new List<CloudHostedInstance>();
+            UserCredentialsCloud = JsonConvert.DeserializeObject<List<RDPConnectionDetailsCache>>(Properties.Settings.Default.CloudHostedCredentials) ?? new List<RDPConnectionDetailsCache>();
+            UserCredentialsSAAS  = JsonConvert.DeserializeObject<List<RDPConnectionDetailsCache>>(Properties.Settings.Default.MSHostedCredentials) ?? new List<RDPConnectionDetailsCache>();
 
             GetMenuItems();
+            //CheckStartup();
 
             InstanceAttributeList = JsonConvert.DeserializeObject<List<InstanceAttribute>>(Properties.Settings.Default.instanceattributes) ?? new List<InstanceAttribute>();
+
             if(!string.IsNullOrEmpty(Properties.Settings.Default.LoggedInUri))
             {
                 LoggedInUri = new Uri(Properties.Settings.Default.LoggedInUri);
@@ -357,7 +410,9 @@ namespace LCSCarousel
                     LcsUpdateUrl = _lcsUpdateUrl,
                     LcsDiagUrl = _lcsDiagUrl
                 };
+
                 SelectedProject = GetLcsProjectFromCookie();
+
                 if (SelectedProject != null)
                 {
                     httpClientHelper.ChangeLcsProjectId(SelectedProject.Id.ToString(CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name)));
@@ -376,8 +431,35 @@ namespace LCSCarousel
                     }
                 }
             }
-
+            StartTimer();
         }
+
+
+
+        private async void StartTimer()
+        {
+            using (var timer = new TaskTimer(15000).Start())
+            {
+                foreach (var tick in timer)
+                {
+                    await tick;
+                    CheckStartup();
+                    CheckIfRefreshPossible();
+                    SessionChangedEvent?.Invoke();
+                }
+            }
+        }
+
+        private void CheckIfRefreshPossible()
+        {
+            if (Logouttime != Properties.Resources.SessionEnded)
+            {
+                DateTime timeOut = Properties.Settings.Default.SessionTimeOut;
+                DateTime timeNow = DateTime.Now;
+
+            }
+        }
+
         private LcsProject GetLcsProjectFromCookie()
         {
             var cookies = Cookies.GetCookies(new Uri(_lcsUrl));
@@ -390,82 +472,135 @@ namespace LCSCarousel
             }
             return null;
         }
-        private async void RefreshCloudHosted(bool reloadFromLcs = true)
+        private async void RefreshCloudHosted(bool refreshAllWM,bool refreshCredentials)
         {
-            bool t = await Task.Run(() => performReloadCloudHosted(reloadFromLcs)).ConfigureAwait(true);
+            bool t = await Task.Run(() => PerformReloadCloudHosted(refreshAllWM, refreshCredentials)).ConfigureAwait(true);
         }
-        private bool performReloadCloudHosted(bool reloadFromLcs = true)
+        private bool PerformReloadCloudHosted(bool refreshAllWM, bool refreshCredentials)
         {
-            if (reloadFromLcs)
+            try
             {
-                CloudHostedInstancesList = httpClientHelper.GetCheInstances();
-                if (CloudHostedInstancesList != null)
+                if (refreshAllWM == true)
                 {
-                    if (Instances.Exists(x => x.LcsProjectId == SelectedProject.Id))
+                    CloudHostedInstancesList = httpClientHelper.GetCheInstances();
+                    if (CloudHostedInstancesList != null)
                     {
-                        Instances.Where(x => x.LcsProjectId == SelectedProject.Id)
-                            .Select(x => { x.CheInstances = CloudHostedInstancesList; return x; })
-                                .ToList();
+                        if (Instances.Exists(x => x.LcsProjectId == SelectedProject.Id))
+                        {
+                            Instances.Where(x => x.LcsProjectId == SelectedProject.Id)
+                                .Select(x => { x.CheInstances = CloudHostedInstancesList; return x; })
+                                    .ToList();
+                        }
+
+                        Properties.Settings.Default.instances = JsonConvert.SerializeObject(Instances, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+                        AddToAllWMsList(CloudHostedInstancesList);
                     }
-
-                    Properties.Settings.Default.instances = JsonConvert.SerializeObject(Instances, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
-                    Properties.Settings.Default.Save();
-
                 }
+                if (refreshCredentials == true)
+                {
+                    CacheCredentials(CloudHostedInstancesList, LCSEnvironments.CHE);
+                    RefreshCredentialsCloudStatus = true;
+                }
+
+                Properties.Settings.Default.Save();
+                ClearCloudHostStatus = true;
             }
-            else
+            catch (Exception ex)
             {
-                var projectInstance = Instances?.FirstOrDefault(x => x.LcsProjectId.Equals(SelectedProject.Id));
-                if (projectInstance != null)
-                    CloudHostedInstancesList = projectInstance.CheInstances;
+                SharedMethods.StopDialog(Properties.Resources.Error, ex.Message);
             }
-            AddToAllWMsList(CloudHostedInstancesList);
-            ClearCloudHostStatus = true;
             return ClearCloudHostStatus;
 
         }
-        private async void ClearAllWmsList()
+
+        private void CacheCredentials(List<CloudHostedInstance> cloudHostedInstancesList, LCSEnvironments environment)
         {
-            bool t = await Task.Run(() => ClearVM()).ConfigureAwait(true);
+            List<RDPConnectionDetailsCache> rdpConnectionDetails = new List<RDPConnectionDetailsCache>();
+            foreach (var (instance, connectionDetails, connectionCache) in from CloudHostedInstance instance in cloudHostedInstancesList
+                                                                           let instanceConnectionDetails = httpClientHelper.GetRdpConnectionDetails(instance)
+                                                                           from RDPConnectionDetails connectionDetails in instanceConnectionDetails
+                                                                           let connectionCache = new RDPConnectionDetailsCache()
+                                                                           select (instance, connectionDetails, connectionCache))
+            {
+                connectionCache.Address = connectionDetails.Address;
+                connectionCache.Domain = connectionDetails.Domain;
+                connectionCache.EnvironmentId = instance.EnvironmentId;
+                connectionCache.Machine = connectionDetails.Machine;
+                connectionCache.Password = connectionDetails.Password;
+                connectionCache.Port = connectionDetails.Port;
+                connectionCache.Username = connectionDetails.Username;
+                rdpConnectionDetails.Add(connectionCache);
+            }
+
+            if (environment == LCSEnvironments.CHE)
+            {
+                Properties.Settings.Default.CloudHostedCredentials = JsonConvert.SerializeObject(rdpConnectionDetails, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+            }
+            if(environment == LCSEnvironments.SAAS)
+            {
+                Properties.Settings.Default.MSHostedCredentials = JsonConvert.SerializeObject(rdpConnectionDetails, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+            }
         }
-        private bool ClearVM()
+
+        private async void ClearAllWmsList(bool refreshAllWM, bool refreshCredentials)
         {
-            AllVMsList.Clear();
+            bool t = await Task.Run(() => ClearVM(refreshAllWM, refreshCredentials)).ConfigureAwait(true);
+        }
+        private bool ClearVM(bool refreshAllWM, bool refreshCredentials)
+        {
+            if(refreshAllWM == true)
+            {
+                AllVMsList.Clear();
+            }
+            if(refreshCredentials == true)
+            {
+                UserCredentialsSAAS.Clear();
+                UserCredentialsCloud.Clear();
+            }
             ClearVMStatus = true;
             return ClearVMStatus;
         }
-        private bool performReloadSaas(bool reloadFromLcs = true)
+        private bool PerformReloadSaas(bool refreshAllWM, bool refreshCredentials)
         {
-            if (reloadFromLcs)
+            try
             {
-                SaasInstancesList = httpClientHelper.GetSaasInstances();
-
-                if (SaasInstancesList != null)
+                if (refreshAllWM == true)
                 {
-                    if (Instances.Exists(x => x.LcsProjectId == SelectedProject.Id))
-                    {
-                        Instances.Where(x => x.LcsProjectId == SelectedProject.Id)
-                            .Select(x => { x.SaasInstances = SaasInstancesList; return x; })
-                                .ToList();
-                    }
+                    SaasInstancesList = httpClientHelper.GetSaasInstances();
 
-                    Properties.Settings.Default.instances = JsonConvert.SerializeObject(Instances, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
-                    Properties.Settings.Default.Save();
+                    if (SaasInstancesList != null)
+                    {
+                        if (Instances.Exists(x => x.LcsProjectId == SelectedProject.Id))
+                        {
+                            Instances.Where(x => x.LcsProjectId == SelectedProject.Id)
+                                .Select(x => { x.SaasInstances = SaasInstancesList; return x; })
+                                    .ToList();
+                        }
+                        AddToAllWMsList(SaasInstancesList);
+                        Properties.Settings.Default.instances = JsonConvert.SerializeObject(Instances, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+                    }
                 }
+                if (refreshCredentials == true)
+                {
+                    CacheCredentials(SaasInstancesList, LCSEnvironments.SAAS);
+                    RefreshCredentialsMSHostedStatus = true;
+                }
+
+                Properties.Settings.Default.Save();
             }
-            else
+            catch (Exception ex)
             {
-                var projectInstance = Instances?.FirstOrDefault(x => x.LcsProjectId.Equals(SelectedProject.Id));
-                if (projectInstance != null)
-                    SaasInstancesList = projectInstance.SaasInstances;
+                SharedMethods.StopDialog(Properties.Resources.Error, ex.Message);
             }
-            AddToAllWMsList(SaasInstancesList);
+
+     
+
             ClearSaaSStatus = true;
             return ClearSaaSStatus;
         }
-        private async void RefreshSaas(bool reloadFromLcs = true)
+        private async void RefreshSaas(bool refreshAllWM, bool refreshCredentials)
         {
-            bool t = await Task.Run(() => performReloadSaas(reloadFromLcs)).ConfigureAwait(true);
+            bool t = await Task.Run(() => PerformReloadSaas(refreshAllWM, refreshCredentials)).ConfigureAwait(true);
         }
 
         private void AddToAllWMsList(List<CloudHostedInstance> cloudHostedInstancesList)
@@ -476,7 +611,6 @@ namespace LCSCarousel
             }
         }
 
-
         public void AddInstance(int _projectId)
         {
             if (!Instances.Exists(x => x.LcsProjectId == _projectId))
@@ -485,10 +619,10 @@ namespace LCSCarousel
                 {
                     LcsProjectId = _projectId,
                 };
+
                 Instances.Add(instance);
                 Properties.Settings.Default.instances = JsonConvert.SerializeObject(Instances, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
                 Properties.Settings.Default.Save();
-
             }
 
         }
@@ -503,73 +637,139 @@ namespace LCSCarousel
                 SharedMethods.NotLoggedIn();
                 return false;
             }
+            if(Logouttime == Properties.Resources.SessionEnded)
+            {
+                SharedMethods.NotLoggedIn();
+                return false;
+            }
             return true;
         }
-        internal async void RefreshAllInstances()
+        internal async void RefreshAllInstances(bool refreshAllWM, bool refreshCredentials)
         {
-            if (CheckLogin() == true)
+
+            try
             {
-                var mySettings = new MetroDialogSettings()
+                if (CheckLogin() == true)
                 {
-                    NegativeButtonText = "Close now",
-                    AnimateShow = false,
-                    AnimateHide = false,
-                    ColorScheme = this.MetroDialogOptions.ColorScheme
-                };
+                    var mySettings = new MetroDialogSettings()
+                    {
+                        NegativeButtonText = "Close now",
+                        AnimateShow = false,
+                        AnimateHide = false,
+                        ColorScheme = this.MetroDialogOptions.ColorScheme
+                    };
 
-                string message = string.Format(Properties.Resources.InitRefresh, Environment.NewLine, Environment.NewLine);
+                    string message = string.Format(Properties.Resources.InitRefresh, Environment.NewLine, Environment.NewLine);
 
-                var controller = await this.ShowProgressAsync("Please wait...", message, settings: mySettings).ConfigureAwait(true);
-                controller.SetIndeterminate();
+                    var controller = await this.ShowProgressAsync("Please wait...", message, settings: mySettings).ConfigureAwait(true);
+                    controller.SetIndeterminate();
 
-                ClearSaaSStatus = false;
-                ClearCloudHostStatus = false;
-                ClearVMStatus = false;
+                    ClearSaaSStatus = false;
+                    ClearCloudHostStatus = false;
+                    ClearVMStatus = false;
+                    RefreshCredentialsCloudStatus = false;
+                    RefreshCredentialsMSHostedStatus = false;
 
-                ClearAllWmsList();
-                RefreshCloudHosted();
-                RefreshSaas();
+                    ClearAllWmsList(refreshAllWM, refreshCredentials);
+                    RefreshCloudHosted(refreshAllWM, refreshCredentials);
+                    RefreshSaas(refreshAllWM, refreshCredentials);
 
-                while (true)
-                {
-                    string clearProgress = "In Progress";
+                    string clearProgress = Properties.Resources.InProgress;
                     string clearSaaSProgress = clearProgress;
                     string clearCloudProgress = clearProgress;
+                    string clearCredentialsCloudProgress = clearProgress;
+                    string clearCredentialsMSProgress = clearProgress;
 
-                    if (ClearVMStatus == true)
+
+                    if (refreshAllWM == false)
                     {
-                        clearProgress = "Done";
+                        clearProgress = Properties.Resources.Skipped;
+                        clearSaaSProgress = clearProgress;
+                        clearCloudProgress = clearProgress;
                     }
-                    if (ClearSaaSStatus == true)
+                    if (refreshCredentials == false)
                     {
-                        clearSaaSProgress = "Done";
+                        clearCredentialsCloudProgress = Properties.Resources.Skipped;
+                        clearCredentialsMSProgress = clearCredentialsCloudProgress;
                     }
-                    if (ClearCloudHostStatus == true)
+
+
+                    while (true)
                     {
-                        clearCloudProgress = "Done";
+
+                        if (ClearVMStatus == true)
+                        {
+                            if (refreshAllWM == true && clearProgress != Properties.Resources.Skipped)
+                            {
+                                clearProgress = Properties.Resources.Done;
+                            }
+                        }
+                        if (ClearSaaSStatus == true)
+                        {
+                            if (refreshAllWM == true && clearSaaSProgress != Properties.Resources.Skipped)
+                            {
+                                clearSaaSProgress = Properties.Resources.Done;
+                            }
+                        }
+                        if (ClearCloudHostStatus == true)
+                        {
+                            if (refreshAllWM == true && clearCloudProgress != Properties.Resources.Skipped)
+
+                            {
+                                clearCloudProgress = Properties.Resources.Done;
+                            }
+                        }
+                        if (RefreshCredentialsCloudStatus == true && refreshCredentials == true)
+                        {
+                            clearCredentialsCloudProgress = Properties.Resources.Done;
+                        }
+                        if (RefreshCredentialsMSHostedStatus == true && refreshCredentials == true)
+                        {
+                            clearCredentialsMSProgress = Properties.Resources.Done;
+                        }
+
+                        message = string.Format(Properties.Resources.RefreshProgress, clearProgress, clearCloudProgress, clearSaaSProgress, clearCredentialsCloudProgress, clearCredentialsMSProgress);
+                        controller.SetMessage(message);
+
+                        if (controller.IsCanceled)
+                            break; //canceled progressdialog auto closes.
+
+                        if (refreshAllWM == true)
+                        {
+                            if (ClearSaaSStatus == true && ClearVMStatus == true && ClearCloudHostStatus == true)
+                            {
+                                Properties.Settings.Default.AllWMs = JsonConvert.SerializeObject(AllVMsList, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+                                Properties.Settings.Default.Save();
+                                break;
+                            }
+
+                        }
+                        if (refreshCredentials == true)
+                        {
+                            if (RefreshCredentialsCloudStatus == true && RefreshCredentialsMSHostedStatus && true)
+                            {
+                                break;
+                            }
+                        }
+                        if (refreshAllWM == false && refreshCredentials == false)
+                        {
+                            break;
+                        }
+
+                        await Task.Delay(2000).ConfigureAwait(true);
                     }
 
-                    message = string.Format(Properties.Resources.RefreshProgress, clearProgress, Environment.NewLine, clearCloudProgress, Environment.NewLine, clearSaaSProgress);
-                    controller.SetMessage(message);
-
-                    if (controller.IsCanceled)
-                        break; //canceled progressdialog auto closes.
-
-
-                    if (ClearSaaSStatus == true && ClearVMStatus == true && ClearCloudHostStatus == true)
-                    {
-                        Properties.Settings.Default.AllWMs = JsonConvert.SerializeObject(AllVMsList, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
-                        Properties.Settings.Default.Save();
-
-                        break;
-                    }
-                    await Task.Delay(2000).ConfigureAwait(true);
+                    await controller.CloseAsync().ConfigureAwait(true);
+                    EnableMenuOptions(true);
+                    Navigation.Navigation.Navigate(new Uri("Views/MainPage.xaml", UriKind.RelativeOrAbsolute));
                 }
 
-                await controller.CloseAsync().ConfigureAwait(true);
-                EnableMenuOptions(true);
-                Navigation.Navigation.Navigate(new Uri("Views/MainPage.xaml", UriKind.RelativeOrAbsolute));
             }
+            catch (Exception ex)
+            {
+                SharedMethods.StopDialog(Properties.Resources.Error, ex.Message);
+            }
+
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>")]
@@ -582,18 +782,18 @@ namespace LCSCarousel
             }
 
             CloudHostedInstance selectedInstance = null;
-            foreach (CloudHostedInstance instance in AllVMsList)
+            foreach (var instance in from CloudHostedInstance instance in AllVMsList
+                                     where instance.EnvironmentId == _environmentId
+                                     select instance)
             {
-                if (instance.EnvironmentId == _environmentId)
-                {
-                    selectedInstance = instance;
-                    break;
-                }
+                selectedInstance = instance;
+                break;
             }
+
             if (selectedInstance != null)
             {
                
-                RDPConnectionDetails rdpEntry = getRDPEntry(selectedInstance);
+                RDPConnectionDetails rdpEntry = GetRDPEntry(selectedInstance);
 
                 if (rdpEntry != null)
                 {
@@ -603,7 +803,7 @@ namespace LCSCarousel
                     }
                     using (new RdpCredentials(rdpEntry.Address, $"{rdpEntry.Domain}\\{rdpEntry.Username}", rdpEntry.Password))
                     {
-                        var rdcProcess = createProcess(rdpEntry);
+                        var rdcProcess = CreateProcess(rdpEntry);
                         rdcProcess.Start();
                     }
 
@@ -611,7 +811,7 @@ namespace LCSCarousel
             }
             return;
         }
-        internal RDPConnectionDetails getRDPEntry(CloudHostedInstance selectedInstance)
+        internal RDPConnectionDetails GetRDPEntry(CloudHostedInstance selectedInstance)
         {
             RDPConnectionDetails rdpEntry = null;
             bool isSelectedEnvironment = false;
@@ -619,19 +819,61 @@ namespace LCSCarousel
             string environmentId = Properties.Settings.Default.SelectedPersonalVM;
             if(selectedInstance.EnvironmentId == environmentId)
             {
-                rdpEntry = getDefaultUser();
+                rdpEntry = GetDefaultUser();
                 isSelectedEnvironment = true;
             }
 
             if (rdpEntry is null)
             {
+                List<RDPConnectionDetails> rdpList = null;
                 if (selectedInstance != null)
                 {
-                    List<RDPConnectionDetails> rdpList = null;
+                    rdpList = new List<RDPConnectionDetails>();
                     using (new WaitCursor())
                     {
-                        rdpList = httpClientHelper.GetRdpConnectionDetails(selectedInstance);
+                        if (UserCredentialsCloud.Count > 0)
+                        {
+
+                            rdpList.AddRange(from RDPConnectionDetailsCache connectionCache in UserCredentialsCloud
+                                             where connectionCache.EnvironmentId == selectedInstance.EnvironmentId
+                                             let connection = new RDPConnectionDetails
+                                             {
+                                                 Address = connectionCache.Address,
+                                                 Domain = connectionCache.Domain,
+                                                 Machine = connectionCache.Machine,
+                                                 Password = connectionCache.Password,
+                                                 Port = connectionCache.Port,
+                                                 Username = connectionCache.Username
+                                             }
+                                             select connection);
+                        }
+                        if (UserCredentialsSAAS.Count > 0)
+                        {
+
+                            rdpList.AddRange(from RDPConnectionDetailsCache connectionCache in UserCredentialsSAAS
+                                             where connectionCache.EnvironmentId == selectedInstance.EnvironmentId
+                                             let connection = new RDPConnectionDetails
+                                             {
+                                                 Address = connectionCache.Address,
+                                                 Domain = connectionCache.Domain,
+                                                 Machine = connectionCache.Machine,
+                                                 Password = connectionCache.Password,
+                                                 Port = connectionCache.Port,
+                                                 Username = connectionCache.Username
+                                             }
+                                             select connection);
+                        }
                     }
+
+                    if(rdpList.Count == 0)
+                    {
+                        using (new WaitCursor())
+                        {
+                            rdpList = httpClientHelper.GetRdpConnectionDetails(selectedInstance);
+                            SetLastActivity(DateTime.Now);
+                        }
+                    }
+
                     if (rdpList.Count > 1)
                     {
                         rdpEntry = ChooseRdpLogonUser(rdpList, isSelectedEnvironment);
@@ -641,18 +883,18 @@ namespace LCSCarousel
                         rdpEntry = rdpList.First();
                     }
                 }
-
             }
 
             return rdpEntry;
         }
-        internal Process createProcess(RDPConnectionDetails rdpEntry)
+        internal Process CreateProcess(RDPConnectionDetails rdpEntry)
         {
             Process process = new Process();
 
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-
-            startInfo.FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe");
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe")
+            };
 
             string arguments = "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}";
 
@@ -669,7 +911,7 @@ namespace LCSCarousel
                 }
                 else
                 {
-                    string resolution = getResolution();
+                    string resolution = GetResolution();
                     arguments = string.Format("{0} {1}", arguments, resolution);
                 }
             }
@@ -687,7 +929,7 @@ namespace LCSCarousel
 
         }
 
-        private string getResolution()
+        private string GetResolution()
         {
             double value = Properties.Settings.Default.Resolution;
             string resolution;
@@ -767,7 +1009,6 @@ namespace LCSCarousel
             return resolution;
         }
 
-
         internal void StartStopRDPSession(string _environmentId, VMAction _action)
         {
             if (httpClientHelper is null)
@@ -789,7 +1030,6 @@ namespace LCSCarousel
 
             if (selectedInstance != null)
             {
-
                 string action = string.Empty;
                 string message = string.Empty;
                 if (_action == VMAction.Start)
@@ -803,6 +1043,7 @@ namespace LCSCarousel
                     message = string.Format(Properties.Resources.ConfirmStopInstance, selectedInstance.DisplayName);
                 }
 
+                SetLastActivity(DateTime.Now);
                 ConfirmStartStopInstance(selectedInstance, action, message);
             }
         }
@@ -816,8 +1057,10 @@ namespace LCSCarousel
                 {
                     if (selectedInstance != null)
                     {
-                        var tasks = new List<Task>();
-                        tasks.Add(Task.Run(() => new HttpClientHelper(Cookies) { LcsUrl = _lcsUrl, LcsUpdateUrl = _lcsUpdateUrl, LcsDiagUrl = _lcsDiagUrl, LcsProjectId = SelectedProject.Id.ToString() }.StartStopDeployment(selectedInstance, action)));
+                        var tasks = new List<Task>
+                        {
+                            Task.Run(() => new HttpClientHelper(Cookies) { LcsUrl = _lcsUrl, LcsUpdateUrl = _lcsUpdateUrl, LcsDiagUrl = _lcsDiagUrl, LcsProjectId = SelectedProject.Id.ToString() }.StartStopDeployment(selectedInstance, action))
+                        };
                         Task.WhenAll(tasks).Wait();
                     }
                 }
@@ -854,47 +1097,19 @@ namespace LCSCarousel
             }
             if (selectedInstance != null)
             {
-                AddFirewallExceptionDialog dlg = new AddFirewallExceptionDialog();
-                dlg.selectedInstance = selectedInstance;
-                dlg.Owner = this;
+                AddFirewallExceptionDialog dlg = new AddFirewallExceptionDialog
+                {
+                    selectedInstance = selectedInstance,
+                    Owner = this
+                };
                 dlg.ShowDialog();
             }
         }
-        internal void FindAvailableHotfixes(string environmentId)
+        private async void GetPackages(CloudHostedInstance _instance)
         {
-            if (httpClientHelper is null)
-            {
-                SharedMethods.NotLoggedIn();
-                return;
-            }
-
-            CloudHostedInstance selectedInstance = null;
-
-            foreach (CloudHostedInstance instance in AllVMsList)
-            {
-                if (instance.EnvironmentId == environmentId)
-                {
-                    selectedInstance = instance;
-                    break;
-                }
-            }
-            if (selectedInstance != null)
-            {
-                //RemoveFirewallException dlg = new RemoveFirewallException();
-                //dlg.selectedInstance = selectedInstance;
-                //dlg.Owner = this;
-                //dlg.ShowDialog();
-                //if (dlg.NSGRule != null)
-                //{
-                //    ConfirmRemoval(dlg.NSGRule, selectedInstance);
-                //}
-            }
+            bool t = await Task.Run(() => PerformGetPackages(_instance)).ConfigureAwait(true);
         }
-        private async void getPackages(CloudHostedInstance _instance)
-        {
-            bool t = await Task.Run(() => performGetPackages(_instance)).ConfigureAwait(true);
-        }
-        private bool performGetPackages(CloudHostedInstance _instance)
+        private bool PerformGetPackages(CloudHostedInstance _instance)
         {
             if (_instance != null)
             {
@@ -925,7 +1140,7 @@ namespace LCSCarousel
             }
             if (selectedInstance != null)
             {
-                getPackages(selectedInstance);
+                GetPackages(selectedInstance);
             }
 
             var mySettings = new MetroDialogSettings()
@@ -953,8 +1168,10 @@ namespace LCSCarousel
 
             if (Packages.Count > 0)
             {
-                DeployPackageDialog dlg = new DeployPackageDialog();
-                dlg.Owner = this;
+                DeployPackageDialog dlg = new DeployPackageDialog
+                {
+                    Owner = this
+                };
                 dlg.SetPackagesList(Packages);
                 dlg.ShowDialog();
                 DeployablePackage selectedPackage = dlg.DeployablePackage;
@@ -1002,9 +1219,11 @@ namespace LCSCarousel
             }
             if (selectedInstance != null)
             {
-                RemoveFirewallException dlg = new RemoveFirewallException();
-                dlg.selectedInstance = selectedInstance;
-                dlg.Owner = this;
+                RemoveFirewallException dlg = new RemoveFirewallException
+                {
+                    SelectedInstance = selectedInstance,
+                    Owner = this
+                };
                 dlg.ShowDialog();
                 if (dlg.NSGRule != null)
                 {
@@ -1021,11 +1240,14 @@ namespace LCSCarousel
             {
                 if (res == MessageDialogResult.Affirmative)
                 {
+                    SetLastActivity(DateTime.Now);
+
                     using (new WaitCursor())
                     {
-                        var tasks = new List<Task<string>>();
-
-                        tasks.Add(Task.Run(() => httpClientHelper.DeleteNsgRule(selectedInstance, nSGRule.Name)));
+                        List<Task<string>> tasks = new List<Task<string>>
+                        {
+                            Task.Run(() => httpClientHelper.DeleteNsgRule(selectedInstance, nSGRule.Name))
+                        };
                         //tasks.Add(Task.Run(() => new HttpClientHelper(Cookies) { LcsUrl = _lcsUrl, LcsUpdateUrl = _lcsUpdateUrl, LcsDiagUrl = _lcsDiagUrl, LcsProjectId = SelectedProject.Id.ToString() }.DeleteNsgRule(selectedInstance, nSGRule.Name)));
                         Task.WhenAll(tasks).Wait();
                     }
@@ -1051,8 +1273,12 @@ namespace LCSCarousel
             {
                 using (new WaitCursor())
                 {
-                    var tasks = new List<Task>();
-                    tasks.Add(Task.Run(() => httpClientHelper.AddNsgRule(selectedInstance, name, address)));
+                    SetLastActivity(DateTime.Now);
+
+                    List<Task> tasks = new List<Task>
+                    {
+                        Task.Run(() => httpClientHelper.AddNsgRule(selectedInstance, name, address))
+                    };
                     //asks.Add(Task.Run(() => new HttpClientHelper(Cookies) { LcsUrl = _lcsUrl, LcsUpdateUrl = _lcsUpdateUrl, LcsDiagUrl = _lcsDiagUrl, LcsProjectId = SelectedProject.Id.ToString() }.AddNsgRule(selectedInstance, name, address)));
                     Task.WhenAll(tasks).Wait();
                 }
@@ -1070,40 +1296,41 @@ namespace LCSCarousel
 
         internal NetworkSecurityGroup GetNetworkSecurityGroup(CloudHostedInstance selectedInstance)
         {
-            if (httpClientHelper is null) return null;
+            if (httpClientHelper is null)
+            {
+                SharedMethods.NotLoggedIn();
+                return null;
+            }
 
             return httpClientHelper.GetNetworkSecurityGroup(selectedInstance);
         }
         private void GetMenuItems()
         {
             ShellViewModel viewmodel = (ShellViewModel)this.DataContext;
-
-            //myRDPMenuItem = viewmodel.GetItem(new Uri("Views/MyRDPPage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
-            myCloudHostedMenuItem = viewmodel.GetItem(new Uri("Views/CloudHostedMachinePage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
-            myMSHostedMenuItem = viewmodel.GetItem(new Uri("Views/MSHostedPage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
-            mySettingsMenuItem = viewmodel.GetOptionsItem(new Uri("Views/SettingsPage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
+            MyCloudHostedMenuItem = viewmodel.GetItem(new Uri("Views/CloudHostedMachinePage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
+            MyMSHostedMenuItem = viewmodel.GetItem(new Uri("Views/MSHostedPage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
+            MySettingsMenuItem = viewmodel.GetOptionsItem(new Uri("Views/SettingsPage.xaml", UriKind.RelativeOrAbsolute)) as ViewModels.MenuItem;
         }
         internal void EnableCloudHosted(bool enable)
         {
-            myCloudHostedMenuItem.IsEnabled = enable;
+            MyCloudHostedMenuItem.IsEnabled = enable;
         }
         internal void EnableMSHosted(bool enable)
         {
-            myMSHostedMenuItem.IsEnabled = enable;
+            MyMSHostedMenuItem.IsEnabled = enable;
         }
         public void EnableMenuOptions(bool enable)
         {
-            //myRDPMenuItem.IsEnabled = enable;
-            myCloudHostedMenuItem.IsEnabled = enable;
-            myMSHostedMenuItem.IsEnabled = enable;
-            mySettingsMenuItem.IsEnabled = enable;
+            MyCloudHostedMenuItem.IsEnabled = enable;
+            MyMSHostedMenuItem.IsEnabled = enable;
+            MySettingsMenuItem.IsEnabled = enable;
             if(CloudHosted == null || CloudHosted.Count == 0)
             {
-                myCloudHostedMenuItem.IsEnabled = false;
+                MyCloudHostedMenuItem.IsEnabled = false;
             }
             if(MSHosted == null || MSHosted.Count == 0)
             {
-                myMSHostedMenuItem.IsEnabled = false;
+                MyMSHostedMenuItem.IsEnabled = false;
             }
 
         }
@@ -1137,11 +1364,7 @@ namespace LCSCarousel
         }
         public void SetLoggedInUri(Uri loggedInUri)
         {
-            if(loggedInUri == null)
-            {
-                throw new Exception(Properties.Resources.NullURI);
-            }
-            LoggedInUri = loggedInUri;
+            LoggedInUri = loggedInUri ?? throw new Exception(Properties.Resources.NullURI);
             Properties.Settings.Default.LoggedInUri = LoggedInUri.ToString();
             Properties.Settings.Default.Save();
         }
@@ -1149,12 +1372,12 @@ namespace LCSCarousel
         {
             return LoggedInUri;
         }
-        internal void goToLogoutPage()
+        internal void GoToLogoutPage()
         {
             Navigation.Navigation.Navigate(new Uri("Views/LogOutPage.xaml", UriKind.RelativeOrAbsolute));
 
         }
-        internal void clearAndClose()
+        internal void ClearAndClose(bool _close = true)
         {
             Properties.Settings.Default.projects = "";
             Properties.Settings.Default.instances = "";
@@ -1165,30 +1388,34 @@ namespace LCSCarousel
             Properties.Settings.Default.Save();
 
             ClearLocalList();
-            Application.Current.MainWindow.Close();
+            if(_close == true)
+            {
+                Application.Current.MainWindow.Close();
+            }
         }
-        internal void setPersonalVM(string environmentId)
+        internal void SetPersonalVM(string environmentId)
         {
             Properties.Settings.Default.SelectedPersonalVM = environmentId;
             Properties.Settings.Default.Save();
         }
-        internal void setDefaultUser(RDPConnectionDetails selectedUser)
+        internal void SetDefaultUser(RDPConnectionDetails selectedUser)
         {
             Properties.Settings.Default.DefaultUser = JsonConvert.SerializeObject(selectedUser, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
             Properties.Settings.Default.Save();
         }
-        internal RDPConnectionDetails getDefaultUser()
+        internal RDPConnectionDetails GetDefaultUser()
         {
             RDPConnectionDetails connectionDetails;
             connectionDetails = JsonConvert.DeserializeObject<RDPConnectionDetails>(Properties.Settings.Default.DefaultUser);
 
             return connectionDetails;
         }
+
     }
 
     public class WaitCursor : IDisposable
     {
-        private Cursor _previousCursor;
+        private readonly Cursor _previousCursor;
 
         public WaitCursor()
         {

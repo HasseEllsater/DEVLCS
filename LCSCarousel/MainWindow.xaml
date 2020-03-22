@@ -12,14 +12,14 @@
          Loaded="MetroWindow_Loaded" 
          BorderThickness="0" 
          GlowBrush="Black"
-         ResizeMode="CanResizeWithGrip">
+         ResizeMode="CanResizeWithGrip" MinHeight="700" MinWidth="800">
     
         <controls:MetroWindow.DataContext>
-            <viewModels:ShellViewModel />
+            <viewModels:ShellViewModel/>
         </controls:MetroWindow.DataContext>
 
         <controls:MetroWindow.LeftWindowCommands>
-            <controls:WindowCommands ShowSeparators="False">
+            <controls:WindowCommands ShowSeparators="False" >
                 <Button x:Name="GoBackButton"
                         Width="{Binding ElementName=HamburgerMenuControl, Path=CompactPaneLength}"
                         Click="GoBack_OnClick">
@@ -29,8 +29,7 @@
         </controls:MetroWindow.LeftWindowCommands>
 
         <Grid>
-
-            <Grid.Resources>
+             <Grid.Resources>
                 <DataTemplate x:Key="MenuItemTemplate"
                               DataType="{x:Type viewModels:MenuItem}">
                     <Grid Height="48">
@@ -52,7 +51,7 @@
                 </DataTemplate>
             </Grid.Resources>
 
-            <controls:HamburgerMenu x:Name="HamburgerMenuControl"
+        <controls:HamburgerMenu x:Name="HamburgerMenuControl"
                                     IsPaneOpen="False"
                                     ItemsSource="{Binding Menu}"
                                     OptionsItemsSource="{Binding OptionsMenu}"
@@ -61,5 +60,6 @@
                                     OptionsItemTemplate="{StaticResource MenuItemTemplate}"
                                     DisplayMode="CompactInline"
                                     Style="{StaticResource HamburgerMenuCreatorsStyle}" />
-        </Grid>
+    </Grid>
+
 </controls:MetroWindow>

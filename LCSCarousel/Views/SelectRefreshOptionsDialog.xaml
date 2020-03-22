@@ -1,0 +1,113 @@
+﻿<controls:MetroWindow
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls" x:Class="LCSCarousel.Views.SelectRefreshOptions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        ShowMinButton="False"
+        ShowMaxRestoreButton="False"
+        ShowIconOnTitleBar="False"
+        ShowCloseButton="False"
+        ShowTitleBar="False"
+        mc:Ignorable="d"
+        Title="Select cache options" Height="320" Width="500"
+        WindowStartupLocation="CenterOwner" FontFamily="Segoe UI" 
+        ResizeMode="CanResizeWithGrip" >
+
+    <Border Margin="10">
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <iconPacks:PackIconModern Width="48" Grid.Row="0" Grid.Column="0"
+                                       Height="48"
+                                       Margin="10"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Foreground="{DynamicResource AccentBaseColorBrush}"
+                                       Kind="Refresh" />
+
+            <Canvas Grid.Column="0" Grid.Row="0" Width="180" Height="60" 
+                            HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Rectangle
+                    Width="285"
+                    Height="60"
+                    Fill="{DynamicResource AccentBaseColorBrush}"
+                    />
+                <TextBlock Text="Local Cache options"
+                FontSize="32"
+                Margin="8"
+                Foreground="{DynamicResource IdealForegroundColorBrush}"  
+                FontWeight="Light"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                />
+            </Canvas>
+
+            <Label FontSize="16" Grid.Column="0" Grid.Row="1"
+                   Foreground="{DynamicResource LabelTextBrush}"  
+                   Padding="2" VerticalAlignment="Top"
+                   Margin="{StaticResource ControlMargin}" 
+                   FontWeight="Light">
+                <Label.Content>
+                    <AccessText TextWrapping="Wrap" 
+                                Text="{DynamicResource RefreshInstancesInformation}"/>
+                </Label.Content>
+            </Label>
+
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <controls:ToggleSwitch x:Name="RefreshAllWM"
+                                   Margin="{StaticResource ControlMargin}" FontSize="16" FontWeight="Light"
+                                   IsChecked="True"
+                                   OffLabel="Refresh all VM's - Off"
+                                   OnLabel="Refresh all VM's - On"
+                                   Grid.Row="0" 
+                                   VerticalAlignment="Center"
+                                   Padding="4"
+                                   ToolTip="{StaticResource SpanTip}"
+                                   Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" />
+
+                <controls:ToggleSwitch x:Name="CacheCredentials"
+                                   Margin="{StaticResource ControlMargin}" FontSize="16" FontWeight="Light"
+                                   IsChecked="True"
+                                   OffLabel="Refresh cached credentials - Off"
+                                   OnLabel="Refresh cached credentials - On"
+                                   ToolTip="{StaticResource MultimonTip}"
+                                   Grid.Row="1" 
+                                   VerticalAlignment="Center"
+                                   Padding="4"
+                                   Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" />
+                
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="OKButton" Margin="{StaticResource ControlMargin}" Padding="4" 
+                        Content="OK" Grid.Column="0" Grid.Row="0" Height="32" Width="60" 
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Click="OKButton_Click"/>
+            </Grid>
+        </Grid>
+    </Border>
+</controls:MetroWindow>

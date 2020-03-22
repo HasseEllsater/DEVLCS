@@ -8,12 +8,14 @@
       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainPage" FontFamily="Segoe UI" Loaded="Page_Loaded">
+      FontFamily="Segoe UI" Loaded="Page_Loaded"
+      Style="{DynamicResource  PageStyle}" >
 
     <Border Margin="10">
-        <Grid>
+        <Grid Height="Auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
@@ -21,6 +23,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -49,6 +53,7 @@
                 VerticalAlignment="Center"
                 />
             </Canvas>
+
             <WrapPanel Grid.Row="1"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
@@ -61,7 +66,7 @@
                 <Controls:Tile Name="Open365" Title="{StaticResource LogOnTo365}"
                            Margin="{StaticResource ControlMargin}"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
-                           Background="{DynamicResource AccentBaseColorBrush}"
+                           Background="MediumSlateBlue"
                            ToolTip="{StaticResource LogOnTo365}"
                            HorizontalTitleAlignment="Center"
                            Style="{StaticResource SmallTileStyle}"
@@ -70,6 +75,19 @@
                     <iconPacks:PackIconUnicons Width="40"
                                           Height="40"
                                           Kind="CloudDataConnection" />
+                </Controls:Tile>
+                <Controls:Tile Name="OpenTerminal" Title="My RDP"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="{DynamicResource AccentBaseColorBrush}"
+                           FontSize="14" FontWeight="Light"
+                           ToolTip="{StaticResource OpenMyRDPTip}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource SmallTileStyle}"
+                           Visibility="Collapsed" Click="OpenTerminal_Click">
+                    <Image x:Name="SelectedVMImage" Source="{Binding ImageSource}" Height="Auto" Width="Auto"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                    </Image>
                 </Controls:Tile>
                 <Controls:Tile  Name="StartInstance" Title="{StaticResource StartInstance}"
                            Margin="{StaticResource ControlMargin}"
@@ -172,25 +190,38 @@
                                           Kind="Refresh" />
                 </Controls:Tile>
 
+                <Controls:Tile Name="CurrentProject" Title="Current Project"
+                           Margin="{StaticResource ControlMargin}"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="{DynamicResource AccentBaseColorBrush}"
+                           FontSize="14" FontWeight="Light"
+                           ToolTip="{StaticResource RefreshInstances}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource LargeTileStyle}">
+                    <iconPacks:PackIconModern Width="40"
+                                          Height="40"
+                                          Kind="OfficeProject" />
+                </Controls:Tile>
 
+                <Controls:Tile Name="SessionInfo" Title="Cookie status" VerticalContentAlignment="Center"
+                           Margin="{StaticResource ControlMargin}" 
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}"
+                           Background="{DynamicResource AccentBaseColorBrush}"
+                           FontSize="14" FontWeight="Light"
+                           ToolTip="{StaticResource RefreshInstances}"
+                           HorizontalTitleAlignment="Center"
+                           Style="{StaticResource LargeTileStyle}">
+                    <iconPacks:PackIconMaterial Width="40"
+                                          Height="40"
+                                          Kind="Cookie" Foreground="SaddleBrown" />
+                </Controls:Tile>
 
             </WrapPanel>
-
-            <Label x:Name="SelectedVMName" Grid.Row="5" FontFamily="Segoe UI" FontSize="20" FontWeight="Light" Content="No default VM is selected" 
-               Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left" ></Label>
-
-            <Button x:Name="OpenTerminal" Visibility="Hidden" Click="OpenTerminal_Click" Grid.Row="6" Grid.Column="0" Width="Auto" 
-                        HorizontalAlignment="Left" VerticalAlignment="Bottom" 
-                        Background="{StaticResource  WindowBackgroundBrush}" Cursor="Hand" ToolTip="{StaticResource OpenMyRDPTip}">
-                <Button.Content>
-                    <Image x:Name="SelectedVMImage" Source="{Binding ImageSource}" Height="250" Width="Auto" 
-                       HorizontalAlignment="Left" VerticalAlignment="Bottom" Cursor="Hand">
-                        <Image.Effect>
-                            <DropShadowEffect Direction="225" Color="#FFB6C2CB" ShadowDepth="10" BlurRadius="14" />
-                        </Image.Effect>
-                    </Image>
-                </Button.Content>
-            </Button>
+            <Label x:Name="SelectedVMName" Grid.Row="8" FontFamily="Segoe UI" FontSize="24" FontWeight="Light" Content="No default VM is selected" 
+            Foreground="{DynamicResource IdealForegroundColorBrush}" HorizontalAlignment="Left" ></Label>
+           <!-- <Label x:Name="SessionInfo" Grid.Row="6" FontFamily="Segoe UI" FontSize="20" FontWeight="Light" Content="Cookie" 
+            Foreground="{DynamicResource IdealForegroundColorBrush}" HorizontalAlignment="Left" ></Label>-->
+            
         </Grid>
     </Border>
 </Page>

@@ -15,8 +15,13 @@
         CHE = 1,
         SAAS = 2
     }
-
+    public enum VMAction
+    {
+        Start,
+        Stop
+    }
     #region LCS enums
+
     public enum ProjectDocScope { Methodology = 0, Artifact = 1 }
 
     public enum WorkItemStatus { Inactive = 0, Active = 1, Closed = 2, Unknown = 3 }

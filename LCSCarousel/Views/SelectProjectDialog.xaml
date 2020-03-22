@@ -13,7 +13,7 @@
         ShowCloseButton="False"
         ShowTitleBar="False"
         mc:Ignorable="d"
-        Title="Projects" Height="Auto" Width="700"
+        Title="Projects" Height="400" Width="700"
         Loaded="MetroWindow_Loaded"
         WindowStartupLocation="CenterOwner" FontFamily="Segoe UI" 
         ResizeMode="CanResizeWithGrip">

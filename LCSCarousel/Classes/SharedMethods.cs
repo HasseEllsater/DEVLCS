@@ -16,7 +16,7 @@ namespace LCSCarousel.Classes
             if (res == MessageDialogResult.Affirmative)
             {
                 MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                mainWindow.goToLogoutPage();
+                mainWindow.GoToLogoutPage();
             }
         }
         public async static void LogInConfirmation()

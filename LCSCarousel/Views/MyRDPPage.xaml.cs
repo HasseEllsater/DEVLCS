@@ -1,4 +1,5 @@
-﻿using LCSCarousel.Model;
+﻿using LCSCarousel.Enums;
+using LCSCarousel.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -48,7 +49,7 @@ namespace LCSCarousel.Views
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            myTerminal = mainWindow.getMyRDP(Properties.Settings.Default.SelectedPersonalVM);
+            myTerminal = mainWindow.GetMyRDP(Properties.Settings.Default.SelectedPersonalVM);
 
             if (myTerminal is null)
             {
@@ -72,7 +73,7 @@ namespace LCSCarousel.Views
         {
             ShowPasswordsDialog dlg = new ShowPasswordsDialog();
             dlg.Owner = Application.Current.MainWindow as MainWindow;
-            dlg.rdpTerminal = myTerminal;
+            dlg.RdpTerminal = myTerminal;
             dlg.ShowDialog();
         }
 

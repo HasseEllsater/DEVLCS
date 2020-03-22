@@ -214,5 +214,98 @@ namespace LCSCarousel.Properties {
                 this["DefaultUser"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public string RotationSpeed {
+            get {
+                return ((string)(this["RotationSpeed"]));
+            }
+            set {
+                this["RotationSpeed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color BackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["BackColor"]));
+            }
+            set {
+                this["BackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LastActivity {
+            get {
+                return ((global::System.DateTime)(this["LastActivity"]));
+            }
+            set {
+                this["LastActivity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime SessionTimeOut {
+            get {
+                return ((global::System.DateTime)(this["SessionTimeOut"]));
+            }
+            set {
+                this["SessionTimeOut"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SessionStatus {
+            get {
+                return ((string)(this["SessionStatus"]));
+            }
+            set {
+                this["SessionStatus"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LimitFunctions {
+            get {
+                return ((bool)(this["LimitFunctions"]));
+            }
+            set {
+                this["LimitFunctions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CloudHostedCredentials {
+            get {
+                return ((string)(this["CloudHostedCredentials"]));
+            }
+            set {
+                this["CloudHostedCredentials"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MSHostedCredentials {
+            get {
+                return ((string)(this["MSHostedCredentials"]));
+            }
+            set {
+                this["MSHostedCredentials"] = value;
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using LCSCarousel.Classes;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace LCSCarousel.Views
     /// </summary>
     public partial class RemoveFirewallException : MetroWindow
     {
-        public CloudHostedInstance selectedInstance { set; get; }
+        public CloudHostedInstance SelectedInstance { set; get; }
         private NetworkSecurityGroup NetworkSecurityGroup;
         public NSGRule NSGRule { get; set; }
         public RemoveFirewallException()
@@ -33,12 +34,16 @@ namespace LCSCarousel.Views
             using(new WaitCursor())
             {
                 MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                NetworkSecurityGroup = mainWindow.GetNetworkSecurityGroup(selectedInstance);
+                NetworkSecurityGroup = mainWindow.GetNetworkSecurityGroup(SelectedInstance);
                 if (NetworkSecurityGroup != null)
                 {
                     DataContext = NetworkSecurityGroup.Rules.OrderBy(f => f.Name);
                     RulesGrid.ItemsSource = NetworkSecurityGroup.Rules.OrderBy(f => f.Name);
 
+                }
+                else
+                {
+                    SharedMethods.NotLoggedIn();
                 }
             }
 

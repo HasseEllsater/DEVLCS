@@ -7,12 +7,26 @@
       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:WPFCarouselControl="clr-namespace:LCSCarousel.WPFCarouselControl"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
+      MinHeight="600" MinWidth="800"
       Title="CloudHostedMachinePage" FontFamily="Segoe UI" Loaded="Page_Loaded" >
-
+    
     <Border Margin="10">
-        <StackPanel>
-            <Grid>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+
+                <Grid  Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto"/>
@@ -43,7 +57,7 @@
                 </Canvas>
             </Grid>
 
-                <Grid>
+                <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
@@ -60,34 +74,36 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Row="1" Grid.Column="0" Content="{StaticResource OpenRDPTip}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="OpenRDP" Click="OpenRDP_Click" ToolTip="{StaticResource OpenRDP}" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
+                    <Button Background="MediumSlateBlue" x:Name="OpenRDP" Click="OpenRDP_Click" ToolTip="{StaticResource OpenRDP}" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
                         <Button.Content>
                             <iconPacks:PackIconMaterial Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
+                                       Foreground="{DynamicResource IdealForegroundColorBrush}"
                                        Kind="RemoteDesktop" />
                         </Button.Content>
                     </Button>
                     <Label Grid.Row="1" Grid.Column="1" Content="{StaticResource LogOnTo365}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="LogOnToApplication" Click="LogOnToApplication_Click" ToolTip="{StaticResource LogOnTo365}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
+                    <Button Background="MediumSlateBlue" x:Name="LogOnToApplication" Click="LogOnToApplication_Click" ToolTip="{StaticResource LogOnTo365}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
                         <Button.Content>
                             <iconPacks:PackIconUnicons Width="32" Height="32"
-                                           Foreground="{DynamicResource AccentBaseColorBrush}"
+                                           Foreground="{DynamicResource IdealForegroundColorBrush}"
                                            Kind="CloudDataConnection" />
                         </Button.Content>
                     </Button>
                     <Label Grid.Row="1" Grid.Column="2" Content="{StaticResource StartInstance}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="StartInstance" Click="StartInstance_Click" ToolTip="{StaticResource StartInstance}" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
+                    <Button x:Name="StartInstance" Click="StartInstance_Click" ToolTip="{StaticResource StartInstance}" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" 
+                            Margin="{StaticResource ControlMargin}" Cursor="Hand" Background="DarkGreen">
                         <Button.Content>
                             <iconPacks:PackIconFontAwesome Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
+                                       Foreground="{DynamicResource IdealForegroundColorBrush}"
                                        Kind="PlayCircleRegular" />
                         </Button.Content>
                     </Button>
                     <Label Grid.Row="1" Grid.Column="3" Content="{StaticResource StopInstance}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="StopInstance" Click="StopInstance_Click" ToolTip="{StaticResource StopInstance}" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
+                    <Button x:Name="StopInstance" Click="StopInstance_Click" ToolTip="{StaticResource StopInstance}" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" 
+                            Background="DarkRed" Margin="{StaticResource ControlMargin}" Cursor="Hand">
                         <Button.Content>
                             <iconPacks:PackIconFontAwesome Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
+                                       Foreground="{DynamicResource IdealForegroundColorBrush}"
                                        Kind="StopCircleRegular" />
                         </Button.Content>
                     </Button>
@@ -115,96 +131,106 @@
                                        Kind="FilePlus" />
                         </Button.Content>
                     </Button>
-                    <Label Visibility="Collapsed" Grid.Column="2" Grid.Row="3" Padding="4" FontSize="14" Foreground="{DynamicResource LabelTextBrush}"  HorizontalAlignment ="Center" Margin="4,4,5,0" Content="Available Hotfixes"/>
-                    <Button Visibility="Collapsed" Grid.Column="2" Grid.Row="2"  x:Name="AvailableHotfix" Click="AvailableHotfix_Click" ToolTip="{StaticResource ApplyHotfixTip}" HorizontalAlignment="Center" Margin="42,4,41,0" Cursor="Hand">
-                        <Button.Content>
-                            <iconPacks:PackIconMaterial Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
-                                       Kind="AutoFix" />
-                        </Button.Content>
-                    </Button>
-                </Grid>
+                  </Grid>
+            </StackPanel>
             
-            <Grid Margin="{StaticResource ControlMargin}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="15"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="15"/>
-                    <ColumnDefinition Width="20"/>
-                </Grid.ColumnDefinitions>
+            <DockPanel Grid.Row="2"  Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid Margin="{StaticResource ControlMargin}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="40"/>
-                </Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
 
-                <Button Grid.Row="1" Grid.Column="0" Name="_buttonLeftManyArrow" Style="{StaticResource StyleLeftArrow}" Click="_buttonLeftManyArrow_Click"/>
-                <Button Grid.Row="1" Grid.Column="4" Name="_buttonRightManyArrow" Style="{StaticResource StyleRightArrow}" Click="_buttonRightManyArrow_Click"/>
-                
-                <WPFCarouselControl:CarouselControl Grid.Row="7" Grid.Column="2" x:Name="_carouselRDPTerminals" 
-                                                    ItemsSource="{Binding RDPTerminals}" SelectedItem="{Binding SelectedRDPTerminals,Mode=TwoWay}" 
-                                                    ShowRotation="True"  TiltInDegrees="10" AutoSizeToParent="true" RotationSpeed="100" 
-                                                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <WPFCarouselControl:CarouselControl.Style>
-                        <Style TargetType="WPFCarouselControl:CarouselControl">
-                            <Setter Property="CarouselItemTemplate" >
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <Border BorderThickness="1" BorderBrush="Gray" Background="Black" Width="Auto" Height="140">
-                                            <Grid>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="22"/>
-                                                    <RowDefinition Height="*"/>
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                </Grid.ColumnDefinitions>
-                                                <Label Grid.Row="0" Content="{Binding DisplayName}" Foreground="{DynamicResource IdealForegroundColorBrush}" 
-                                                       Background="Transparent" FontSize="16" FontFamily="Segoe UI" Style="{StaticResource labelStyleCentred}" 
-                                                       DockPanel.Dock="Bottom" Height="Auto" Width="Auto" />
+                    <Button Grid.Row="1" Grid.Column="0" Name="_buttonLeftManyArrow" Style="{StaticResource StyleLeftArrow}" Click="_buttonLeftManyArrow_Click"/>
+                    <Button Grid.Row="1" Grid.Column="4" Name="_buttonRightManyArrow" Style="{StaticResource StyleRightArrow}" Click="_buttonRightManyArrow_Click"/>
+
+                    <WPFCarouselControl:CarouselControl Grid.Row="1" Grid.Column="2" x:Name="Carousel" 
+                                                        ItemsSource="{Binding RDPTerminals}" 
+                                                        SelectedItem="{Binding SelectedRDPTerminals,Mode=TwoWay}"  
+                                                        TiltInDegrees="10" 
+                                                        AutoSizeToParent="true" 
+                                                        RotationSpeed="100"  
+                                                        HorizontalAlignment="Stretch" 
+                                                        VerticalAlignment="Stretch" 
+                                                        ShowRotation="True" >
+                        <WPFCarouselControl:CarouselControl.Style>
+                            <Style TargetType="WPFCarouselControl:CarouselControl">
+                                <Setter Property="CarouselItemTemplate" >
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Border BorderThickness="1" 
+                                                    BorderBrush="Gray" 
+                                                    Background="Black" 
+                                                    Width="Auto" 
+                                                    Height="170">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="22"/>
+                                                        <RowDefinition Height="1*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Row="0" Content="{Binding DisplayName}" 
+                                                           Foreground="{DynamicResource IdealForegroundColorBrush}" 
+                                                           Background="Transparent" FontSize="16" FontFamily="Segoe UI" 
+                                                           Style="{StaticResource labelStyleCentred}" 
+                                                           DockPanel.Dock="Bottom" Height="Auto" Width="Auto" />
                                                     <Border Grid.Row="1" BorderThickness="0" Background="White">
-                                                    <Image Grid.Row="1" Source="{Binding ImageSource}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="Auto">
-                                                        <Image.Effect>
-                                                            <DropShadowEffect Direction="225" Color="#FFB6C2CB" ShadowDepth="10" BlurRadius="14" />
-                                                        </Image.Effect>
-                                                    </Image>
-                                                </Border>
-                                            </Grid>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </WPFCarouselControl:CarouselControl.Style>
-                </WPFCarouselControl:CarouselControl>
-            </Grid>
-            <Grid Margin="{StaticResource ControlMargin}" VerticalAlignment="Bottom" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
+                                                        <Image Grid.Row="1" Source="{Binding ImageSource}" 
+                                                               VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                                               Height="Auto" Width="Auto">
+                                                            <Image.Effect>
+                                                                <DropShadowEffect Direction="225" Color="#FFB6C2CB" ShadowDepth="10" BlurRadius="14" />
+                                                            </Image.Effect>
+                                                        </Image>
+                                                    </Border>
+                                                </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </WPFCarouselControl:CarouselControl.Style>
+                    </WPFCarouselControl:CarouselControl>
+                </Grid>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Height="Auto" Width="Auto" VerticalAlignment="Bottom">
+                <Grid Margin="{StaticResource ControlMargin}" VerticalAlignment="Center" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="150"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="1" Grid.Column="0" Content="{StaticResource InstanceId}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-                <Label Grid.Row="2" Grid.Column="0" Content="{Binding SelectedRDPTerminal.InstanceId}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-                <Label Grid.Row="1" Grid.Column="1" Content="{StaticResource DeploymentStatus}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-                <Label Grid.Row="2" Grid.Column="1" Content="{Binding SelectedRDPTerminal.DeploymentStatus}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-                <Label Grid.Row="1" Grid.Column="2" Content="{StaticResource ApplicationRelease}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-                <Label Grid.Row="2" Grid.Column="2" Content="{Binding SelectedRDPTerminal.ApplicationRelease}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-                <Label Grid.Row="1" Grid.Column="3" Content="{StaticResource PlattformReleaseName}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-                <Label Grid.Row="2" Grid.Column="3" Content="{Binding SelectedRDPTerminal.CurrentPlatformReleaseName}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-                <Label Grid.Row="1" Grid.Column="4" Content="{StaticResource TopologyType}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-                <Label Grid.Row="2" Grid.Column="4" Content="{Binding SelectedRDPTerminal.TopologyType}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-            </Grid>
-        </StackPanel>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="{StaticResource InstanceId}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="{Binding SelectedRDPTerminal.InstanceId}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="{StaticResource DeploymentStatus}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedRDPTerminal.DeploymentStatus}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="0" Grid.Column="2" Content="{StaticResource ApplicationRelease}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="1" Grid.Column="2" Content="{Binding SelectedRDPTerminal.ApplicationRelease}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="0" Grid.Column="3" Content="{StaticResource PlattformReleaseName}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="{Binding SelectedRDPTerminal.CurrentPlatformReleaseName}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="0" Grid.Column="4" Content="{StaticResource TopologyType}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="1" Grid.Column="4" Content="{Binding SelectedRDPTerminal.TopologyType}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                </Grid>
+            </DockPanel>
+        </Grid>
     </Border>
 </Page>

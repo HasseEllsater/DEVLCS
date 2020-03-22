@@ -1,4 +1,5 @@
 ﻿using LCSCarousel;
+using LCSCarousel.Model;
 using LCSCarousel.Mvvm;
 using Newtonsoft.Json;
 using System;

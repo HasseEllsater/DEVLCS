@@ -1,4 +1,5 @@
-﻿using LCSCarousel.Model;
+﻿using LCSCarousel.Classes;
+using LCSCarousel.Model;
 using LCSCarousel.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,7 @@ namespace LCSCarousel.ViewModels
                     {
                         UserCredentials.Add(new Model.UserCredentials()
                         {
+                            EnvironmentId = instance.EnvironmentId,
                             UserId = value.Key,
                             Password = value.Value
                         });
@@ -89,6 +91,7 @@ namespace LCSCarousel.ViewModels
                     {
                         UserCredentials.Add(new Model.UserCredentials()
                         {
+                            EnvironmentId = instance.EnvironmentId,
                             UserId = value.Key,
                             Password = value.Value
                         });
@@ -102,32 +105,40 @@ namespace LCSCarousel.ViewModels
         {
             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
             UserCredentials = new System.Collections.ObjectModel.ObservableCollection<Model.UserCredentials>();
-
-            if (terminal != null)
+            try
             {
-                var credentials = new Dictionary<string, string>();
-                var instance = terminal;
-                foreach (var vm in instance.Instances)
+                if (terminal != null)
                 {
-                    var creds = mainWindow.GetCredentials(instance.EnvironmentId, vm.ItemName);
-                    credentials = credentials.Concat(creds).GroupBy(d => d.Key).ToDictionary(d => d.Key, d => d.First().Value);
-                }
-                foreach (var cred in instance.SqlAzureCredentials.Select(x => x.DeploymentItemName).Distinct())
-                {
-                    var creds = mainWindow.GetCredentials(instance.EnvironmentId, cred);
-                    credentials = credentials.Concat(creds).GroupBy(d => d.Key).ToDictionary(d => d.Key, d => d.First().Value);
-                }
-
-                foreach (var value in credentials)
-                {
-                    UserCredentials.Add(new Model.UserCredentials()
+                    var credentials = new Dictionary<string, string>();
+                    var instance = terminal;
+                    foreach (var vm in instance.Instances)
                     {
-                        UserId = value.Key,
-                        Password = value.Value
-                    });
+                        var creds = mainWindow.GetCredentials(instance.EnvironmentId, vm.ItemName);
+                        credentials = credentials.Concat(creds).GroupBy(d => d.Key).ToDictionary(d => d.Key, d => d.First().Value);
+                    }
+                    foreach (var cred in instance.SqlAzureCredentials.Select(x => x.DeploymentItemName).Distinct())
+                    {
+                        var creds = mainWindow.GetCredentials(instance.EnvironmentId, cred);
+                        credentials = credentials.Concat(creds).GroupBy(d => d.Key).ToDictionary(d => d.Key, d => d.First().Value);
+                    }
 
+                    foreach (var value in credentials)
+                    {
+                        UserCredentials.Add(new Model.UserCredentials()
+                        {
+                            EnvironmentId = instance.EnvironmentId,
+                            UserId = value.Key,
+                            Password = value.Value
+                        });
+
+                    }
+                    UserCredentials.BubbleSort();
                 }
-                UserCredentials.BubbleSort();
+
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
     }

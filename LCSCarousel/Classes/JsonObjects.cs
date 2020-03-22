@@ -454,7 +454,37 @@ namespace LCSCarousel
         public int StartIndex { get; set; }
         public int TotalCount { get; set; }
     }
+    public class RDPConnectionDetailsCache 
+    {
+        public string EnvironmentId { get; set; }
+        public string Address { get; set; }
+        public string Domain { get; set; }
+        public string Machine { get; set; }
+        public string Password { get; set; }
+        public string Port { get; set; }
+        public string Username { get; set; }
+        public int CompareTo(object obj)
+        {
+            if (obj is null)
+            {
+                throw new Exception(Properties.Resources.CompareObjIsNull);
+            }
 
+            var connectionDetails = obj as RDPConnectionDetails;
+            if (connectionDetails is null)
+            {
+                throw new Exception(Properties.Resources.ObjIsNotRDPTerminal);
+            }
+
+#pragma warning disable CA1307 // Specify StringComparison
+            return Username.CompareTo(connectionDetails.Username);
+#pragma warning restore CA1307 // Specify StringComparison
+        }
+        public override string ToString()
+        {
+            return Username;
+        }
+    }
     public class RDPConnectionDetails : IComparable
     {
         public string Address { get; set; }

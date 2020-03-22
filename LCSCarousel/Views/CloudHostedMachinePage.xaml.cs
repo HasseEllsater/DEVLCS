@@ -1,22 +1,10 @@
-﻿using LCSCarousel;
+﻿using LCSCarousel.Enums;
 using LCSCarousel.Model;
 using LCSCarousel.ViewModels;
-using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static LCSCarousel.MainWindow;
 
 namespace LCSCarousel.Views
@@ -30,28 +18,28 @@ namespace LCSCarousel.Views
         {
             InitializeComponent();
             DataContext = new CloudHostedViewModel();
-            _carouselRDPTerminals.SelectionChanged += _carouselRDPTerminals_SelectionChanged;
+            Carousel.RotationSpeed = Convert.ToInt32(Properties.Settings.Default.RotationSpeed);
+            Carousel.SelectionChanged += _carouselRDPTerminals_SelectionChanged;
         }
 
         private void _carouselRDPTerminals_SelectionChanged(FrameworkElement selectedElement)
         {
-            var viewModel = DataContext as CloudHostedViewModel;
-            if (viewModel == null)
+            if (!(DataContext is CloudHostedViewModel viewModel))
             {
                 return;
             }
 
-            viewModel.SelectedRDPTerminal = selectedElement.DataContext as Model.RDPTerminal;
+            viewModel.SelectedRDPTerminal = selectedElement.DataContext as RDPTerminal;
         }
 
         private void _buttonLeftManyArrow_Click(object sender, RoutedEventArgs e)
         {
-            _carouselRDPTerminals.RotateIncrement(-5);
+            Carousel.RotateIncrement(-5);
         }
 
         private void _buttonRightManyArrow_Click(object sender, RoutedEventArgs e)
         {
-            _carouselRDPTerminals.RotateIncrement(5);
+            Carousel.RotateIncrement(5);
         }
 
         private void EditSelectedVM_Click(object sender, RoutedEventArgs e)
@@ -65,37 +53,35 @@ namespace LCSCarousel.Views
         private void ShowPassword_Click(object sender, RoutedEventArgs e)
         {
 
-            ShowPasswordsDialog dlg = new ShowPasswordsDialog();
-            dlg.Owner = Application.Current.MainWindow as MainWindow;
-            dlg.CloudHostedViewModel = DataContext as CloudHostedViewModel;
+            ShowPasswordsDialog dlg = new ShowPasswordsDialog
+            {
+                Owner = Application.Current.MainWindow as MainWindow,
+                CloudHostedViewModel = DataContext as CloudHostedViewModel
+            };
 
             dlg.ShowDialog();
         }
 
         private void LogOnToApplication_Click(object sender, RoutedEventArgs e)
         {
-            var viewModel = DataContext as CloudHostedViewModel;
-            if (viewModel == null)
+            if (DataContext is CloudHostedViewModel viewModel)
             {
-                return;
-            }
-
-            if (viewModel.SelectedRDPTerminal != null)
-            {
-                if (Properties.Settings.Default.MimimizeOnStartRDP == true)
+                if (viewModel.SelectedRDPTerminal != null)
                 {
-                    MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                    mainWindow.WindowState = WindowState.Minimized;
-                }
-
-                var item = viewModel.SelectedRDPTerminal;
-                foreach (var link in item.NavigationLinks)
-                {
-                    if (link.DisplayName == "Log on to environment")
+                    if (Properties.Settings.Default.MimimizeOnStartRDP == true)
                     {
-                        
-                        Process.Start(link.NavigationUri);
-                        break;
+                        MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+                        mainWindow.WindowState = WindowState.Minimized;
+                    }
+                    var item = viewModel.SelectedRDPTerminal;
+                    foreach (var link in item.NavigationLinks)
+                    {
+                        if (link.DisplayName == "Log on to environment")
+                        {
+
+                            Process.Start(link.NavigationUri);
+                            break;
+                        }
                     }
                 }
             }
@@ -103,8 +89,7 @@ namespace LCSCarousel.Views
 
         private void OpenRDP_Click(object sender, RoutedEventArgs e)
         {
-            var viewModel = DataContext as CloudHostedViewModel;
-            if (viewModel == null)
+            if (!(DataContext is CloudHostedViewModel viewModel))
             {
                 return;
             }
@@ -122,8 +107,7 @@ namespace LCSCarousel.Views
         {
             using(new WaitCursor())
             {
-                var viewModel = DataContext as CloudHostedViewModel;
-                if (viewModel == null)
+                if (!(DataContext is CloudHostedViewModel viewModel))
                 {
                     return;
                 }
@@ -141,8 +125,7 @@ namespace LCSCarousel.Views
         {
             using (new WaitCursor())
             {
-                var viewModel = DataContext as CloudHostedViewModel;
-                if (viewModel == null)
+                if (!(DataContext is CloudHostedViewModel viewModel))
                 {
                     return;
                 }
@@ -170,12 +153,27 @@ namespace LCSCarousel.Views
             //viewModel.SelectedRDPTerminal = myTerminal;
             //_carouselRDPTerminals.SelectedItem = viewModel.SelectedRDPTerminal;
 
+            if (Properties.Settings.Default.LimitFunctions == true)
+            {
+                ToggleFunctions(false);
+            }
+            else
+            {
+                ToggleFunctions(true);
+            }
+ 
         }
+        private void ToggleFunctions(bool _enabled)
+        {
+            StartInstance.IsEnabled = _enabled;
+            StopInstance.IsEnabled  = _enabled;
+            ShowPassword.IsEnabled  = _enabled;
+            DeployPackage.IsEnabled = _enabled;
 
+        }
         private void DeployPackage_Click(object sender, RoutedEventArgs e)
         {
-            var viewModel = DataContext as CloudHostedViewModel;
-            if (viewModel == null)
+            if (!(DataContext is CloudHostedViewModel viewModel))
             {
                 return;
             }
@@ -188,21 +186,6 @@ namespace LCSCarousel.Views
             }
         }
 
-        private void AvailableHotfix_Click(object sender, RoutedEventArgs e)
-        {
-            var viewModel = DataContext as CloudHostedViewModel;
-            if (viewModel == null)
-            {
-                return;
-            }
 
-            if (viewModel.SelectedRDPTerminal != null)
-            {
-                var item = viewModel.SelectedRDPTerminal;
-                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                mainWindow.FindAvailableHotfixes(item.EnvironmentId);
-            }
-
-        }
     }
 }

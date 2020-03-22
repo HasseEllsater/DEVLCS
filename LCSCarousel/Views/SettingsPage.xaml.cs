@@ -26,11 +26,28 @@ namespace LCSCarousel.Views
         private List<CloudHostedInstance> allWMS;
         private string environmentId;
 
+        public static readonly DependencyProperty ColorsProperty = DependencyProperty.Register("Colors",
+                          typeof(List<KeyValuePair<string, Color>>),
+                          typeof(SettingsPage),
+                          new PropertyMetadata(default(List<KeyValuePair<string, Color>>)));
+
+        public List<KeyValuePair<string, Color>> Colors
+        {
+            get { return (List<KeyValuePair<string, Color>>)GetValue(ColorsProperty); }
+            set { SetValue(ColorsProperty, value); }
+        }
         public SettingsPage()
         {
             InitializeComponent();
-        }
+            this.DataContext = this;
 
+            this.Colors = typeof(Colors)
+                .GetProperties()
+                .Where(prop => typeof(Color).IsAssignableFrom(prop.PropertyType))
+                .Select(prop => new KeyValuePair<String, Color>(prop.Name, (Color)prop.GetValue(null)))
+                .ToList();
+        }
+  
         private void vmCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (vmCombo.SelectedIndex != -1)
@@ -39,7 +56,7 @@ namespace LCSCarousel.Views
                 if (cloudHostedInstance != null)
                 {
                     MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                    mainWindow.setPersonalVM(cloudHostedInstance.EnvironmentId);
+                    mainWindow.SetPersonalVM(cloudHostedInstance.EnvironmentId);
                     if(cloudHostedInstance.EnvironmentId != environmentId)
                     {
                         ClearDefaultUser_Click(null, null);
@@ -76,7 +93,7 @@ namespace LCSCarousel.Views
             Resolution.Value = Properties.Settings.Default.Resolution;
             Multimon.IsChecked = Properties.Settings.Default.Multimon;
 
-            RDPConnectionDetails connectionDetails = mainWindow.getDefaultUser();
+            RDPConnectionDetails connectionDetails = mainWindow.GetDefaultUser();
             if (connectionDetails == null)
             {
                 ClearDefaultUser.IsEnabled = false;
@@ -87,6 +104,8 @@ namespace LCSCarousel.Views
                 ClearDefaultUser.IsEnabled = true;
                 UserName.Content = string.Format(Properties.Resources.ClearDefaultUserTitle,connectionDetails.Username);
             }
+
+            RotationSpeed.Text = Properties.Settings.Default.RotationSpeed;
 
         }
       
@@ -232,6 +251,12 @@ namespace LCSCarousel.Views
             Properties.Settings.Default.Save();
             ClearDefaultUser.IsEnabled = false;
             UserName.Content = Properties.Resources.NoDefaultUser;
+        }
+
+        private void RotationSpeed_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Properties.Settings.Default.RotationSpeed = RotationSpeed.Text;
+            Properties.Settings.Default.Save();
         }
     }
 }

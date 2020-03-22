@@ -8,6 +8,7 @@ namespace LCSCarousel.Model
 {
     public class UserCredentials : IComparable
     {
+        public string EnvironmentId { get; set; }
         public string UserId { get; set; }
         public string Password { get; set; }
         public int CompareTo(object obj)

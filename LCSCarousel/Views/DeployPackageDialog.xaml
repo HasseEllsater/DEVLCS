@@ -12,7 +12,7 @@
         ShowIconOnTitleBar="False"
         ShowCloseButton="False"
         ShowTitleBar="False"
-        Title="DeployPackageDialog" Height="550" Width="800" 
+        Title="Packages" Height="550" Width="800" 
         WindowStartupLocation="CenterOwner" FontFamily="Segoe UI" 
         ResizeMode="CanResizeWithGrip">
     <Border Margin="10">

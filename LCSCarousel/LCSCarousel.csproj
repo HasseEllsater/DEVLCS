@@ -163,6 +163,7 @@
     <Compile Include="Classes\RDPCredentials.cs" />
     <Compile Include="Classes\SharedMethods.cs" />
     <Compile Include="Classes\String2DatConverter.cs" />
+    <Compile Include="Classes\TaskTimer.cs" />
     <Compile Include="Classes\ThemeColor.cs" />
     <Compile Include="Classes\ThemeManagerHelper.cs" />
     <Compile Include="Classes\WebBrowserHelper.cs" />
@@ -217,6 +218,9 @@
     </Compile>
     <Compile Include="Views\SelectRDPUserDialog.xaml.cs">
       <DependentUpon>SelectRDPUserDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectRefreshOptionsDialog.xaml.cs">
+      <DependentUpon>SelectRefreshOptionsDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -299,6 +303,10 @@
     <Page Include="Views\SelectRDPUserDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectRefreshOptionsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SettingsPage.xaml">
       <SubType>Designer</SubType>

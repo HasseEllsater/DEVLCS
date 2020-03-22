@@ -33,21 +33,21 @@
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Developers LCS util - by Hasse Ellsäter" 
                            FontSize="18" FontWeight="Light" Padding="2" FontFamily="Segoe UI" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                <TextBlock Grid.Row="0" Grid.Column="1" FontFamily="Segoe UI" FontSize="18" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Top">           
-                <Hyperlink NavigateUri="https://github.com/HasseEllsater" RequestNavigate="Hyperlink_RequestNavigate">Devloper LCS Util</Hyperlink>
+                <TextBlock Grid.Row="0" Grid.Column="1" FontFamily="Segoe UI" FontSize="18" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Top" >           
+                <Hyperlink NavigateUri="https://github.com/HasseEllsater" Foreground="{DynamicResource IdealForegroundColorBrush}" RequestNavigate="Hyperlink_RequestNavigate">Devloper LCS Util</Hyperlink>
                 </TextBlock>
 
                 <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="The Carousel control - by Leif Simon Goodwin" 
                            FontSize="18" FontWeight="Light" Padding="2" FontFamily="Segoe UI" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBlock Grid.Row="1" Grid.Column="1" FontFamily="Segoe UI" FontSize="18" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Top">           
-                <Hyperlink NavigateUri="https://www.codeproject.com/Articles/4051491/A-Custom-WPF-Carousel-Control" RequestNavigate="Hyperlink_RequestNavigate">A Custom WPF Carousel Control</Hyperlink>
+                <TextBlock Grid.Row="1" Grid.Column="1" FontFamily="Segoe UI" FontSize="18" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Top" >           
+                <Hyperlink NavigateUri="https://www.codeproject.com/Articles/4051491/A-Custom-WPF-Carousel-Control" Foreground="{DynamicResource IdealForegroundColorBrush}" RequestNavigate="Hyperlink_RequestNavigate">A Custom WPF Carousel Control</Hyperlink>
                 </TextBlock>
 
                 <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Text="Based on the 2LCS sample - by Tomek Melissa" 
                            FontSize="18" FontWeight="Light" Padding="2" FontFamily="Segoe UI" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                
-                <TextBlock Grid.Row="2" Grid.Column="1" FontFamily="Segoe UI" FontSize="18" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Top">           
-                <Hyperlink NavigateUri="https://github.com/microsoft/2LCS" RequestNavigate="Hyperlink_RequestNavigate">2LCS - Lifecycle Services companion app</Hyperlink>
+
+                <TextBlock Grid.Row="2" Grid.Column="1" FontFamily="Segoe UI" FontSize="18" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Top" >           
+                <Hyperlink NavigateUri="https://github.com/microsoft/2LCS" Foreground="{DynamicResource IdealForegroundColorBrush}" RequestNavigate="Hyperlink_RequestNavigate">2LCS - Lifecycle Services companion app</Hyperlink>
                 </TextBlock>
             
             </Grid>

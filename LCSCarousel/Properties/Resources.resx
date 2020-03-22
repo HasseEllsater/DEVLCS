@@ -189,6 +189,10 @@
     <value>Brower version must be set</value>
     <comment>Register browser version</comment>
   </data>
+  <data name="CancellingRefresh" xml:space="preserve">
+    <value>Cancelling refresh</value>
+    <comment>Cancel refresh dialog title</comment>
+  </data>
   <data name="ClearDefaultUserTitle" xml:space="preserve">
     <value>Current default user ({0})</value>
     <comment>Show default user name</comment>
@@ -229,6 +233,18 @@ Do you want to proceed?</value>
     <value>The credentials list is not valid, ensure that the list is not null, wrong use of function: RDPConnectionDetailsViewModel(List&lt;RDPConnectionDetails&gt; rdpList)</value>
     <comment>Error in credentials list</comment>
   </data>
+  <data name="CurrentProjectName" xml:space="preserve">
+    <value>Current active project : {0}</value>
+    <comment>Current selected project</comment>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+    <comment>Work done</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>An error occured</value>
+    <comment>Exception thrown</comment>
+  </data>
   <data name="FetchingPackages" xml:space="preserve">
     <value>Fetching available packages for environment: 
 Environment Id: {0}
@@ -247,6 +263,14 @@ Display Name: {1}</value>
     <value>Clearing Cache: In progress{0}Fetching Cloud hosted VM's: In progress{1}Fetching MS Hosted VM's: In progress</value>
     <comment>Initial message in refresh function</comment>
   </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>In progress...</value>
+    <comment>Progress message</comment>
+  </data>
+  <data name="LimitedSession" xml:space="preserve">
+    <value>You need to login to LCS again to access all functions</value>
+    <comment>One hour session closed</comment>
+  </data>
   <data name="LoggedIn" xml:space="preserve">
     <value>You are now logged in to LCS</value>
     <comment>Successful login</comment>
@@ -263,9 +287,21 @@ Display Name: {1}</value>
     <value>Select the default user when you start your VM</value>
     <comment>No user selected yet</comment>
   </data>
+  <data name="NoProjectSelected" xml:space="preserve">
+    <value>Error - No project selected</value>
+    <comment>Must select a project</comment>
+  </data>
+  <data name="NoProjectSelectedInformation" xml:space="preserve">
+    <value>You must pick a project to access it's resources</value>
+    <comment>Must select a project to continue</comment>
+  </data>
   <data name="NoRDPUserSelected" xml:space="preserve">
     <value>Select the user you wish to use to sign in with</value>
     <comment>No user selected</comment>
+  </data>
+  <data name="NoRefreshOptionsSelected" xml:space="preserve">
+    <value>No options valid for the refresh is selected, cancelling the refresh</value>
+    <comment>No valid options given</comment>
   </data>
   <data name="NotLoggedIn" xml:space="preserve">
     <value>You are not logged in to LCS, do you wish to login now?</value>
@@ -288,7 +324,11 @@ Display Name: {1}</value>
     <comment>General wait title</comment>
   </data>
   <data name="RefreshProgress" xml:space="preserve">
-    <value>Clearing Cache: {0}{1}Fetching Cloud hosted VM's: {2}{3}Fetching MS Hosted VM's: {4}</value>
+    <value>Clearing Cache: {0}  
+Fetching Cloud hosted VM's: {1}
+Fetching MS Hosted VM's: {2}
+Clearing credentials Cloud Hosted: {3}
+Clearing credentials MS Hosted: {4}</value>
     <comment>Ongoing refresh</comment>
   </data>
   <data name="RemoveFirewallRule" xml:space="preserve">
@@ -310,5 +350,17 @@ Display Name: {1}</value>
   <data name="SelectRDPUserTitle" xml:space="preserve">
     <value>Select RDP User</value>
     <comment>Select RDP user warning</comment>
+  </data>
+  <data name="SessionEnded" xml:space="preserve">
+    <value>Your session is logged out from LCS, log in again</value>
+    <comment>Logged out from LCS</comment>
+  </data>
+  <data name="SessionTime" xml:space="preserve">
+    <value>Cookie valid to :  {0}</value>
+    <comment>Session counter</comment>
+  </data>
+  <data name="Skipped" xml:space="preserve">
+    <value>Skipped</value>
+    <comment>Work skipped</comment>
   </data>
 </root>
