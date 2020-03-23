@@ -3,6 +3,8 @@ This app is intended for developers to help them to manage vm's in a simple way.
 
 Feel free to download and contribute. The UI is based on MahApps.Metro (great library!) and ControlzEx components.
 
+You will find some info on how to use it on my blog https://memyselfandax.wordpress.com/2020/03/23/the-purpose-of-devlcs/
+
 # Visual Studio 2019
 This is built with visual studio 2019, use nuget to get the referenced librarys used by this app.
 The solution also consist of a setup program that let you easily distribute the app within your project. To be able to load the setup program in Visual Studio the Extension "Microsoft Visual Studio Installer Project" must be installed first.
