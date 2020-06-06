@@ -26,26 +26,11 @@ namespace LCSCarousel.Views
         private List<CloudHostedInstance> allWMS;
         private string environmentId;
 
-        public static readonly DependencyProperty ColorsProperty = DependencyProperty.Register("Colors",
-                          typeof(List<KeyValuePair<string, Color>>),
-                          typeof(SettingsPage),
-                          new PropertyMetadata(default(List<KeyValuePair<string, Color>>)));
 
-        public List<KeyValuePair<string, Color>> Colors
-        {
-            get { return (List<KeyValuePair<string, Color>>)GetValue(ColorsProperty); }
-            set { SetValue(ColorsProperty, value); }
-        }
         public SettingsPage()
         {
             InitializeComponent();
             this.DataContext = this;
-
-            this.Colors = typeof(Colors)
-                .GetProperties()
-                .Where(prop => typeof(Color).IsAssignableFrom(prop.PropertyType))
-                .Select(prop => new KeyValuePair<String, Color>(prop.Name, (Color)prop.GetValue(null)))
-                .ToList();
         }
   
         private void vmCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -106,6 +91,7 @@ namespace LCSCarousel.Views
             }
 
             RotationSpeed.Text = Properties.Settings.Default.RotationSpeed;
+
 
         }
       
@@ -257,6 +243,16 @@ namespace LCSCarousel.Views
         {
             Properties.Settings.Default.RotationSpeed = RotationSpeed.Text;
             Properties.Settings.Default.Save();
+        }
+
+        private void Filter_Click(object sender, RoutedEventArgs e)
+        {
+            FilterDialog dlg = new FilterDialog()
+            {
+                Owner = Application.Current.MainWindow as MainWindow
+            };
+
+            dlg.ShowDialog();
         }
     }
 }

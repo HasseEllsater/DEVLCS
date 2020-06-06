@@ -10,20 +10,53 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|Any CPU.Build.0 = Debug|x64
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|x64.ActiveCfg = Debug|x64
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|x64.Build.0 = Debug|x64
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|x86.ActiveCfg = Debug|x86
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Debug|x86.Build.0 = Debug|x86
 		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Release|x64.ActiveCfg = Release|x64
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Release|x64.Build.0 = Release|x64
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Release|x86.ActiveCfg = Release|x86
+		{B7F7C08D-E193-4AAE-BFDD-93A009103DF9}.Release|x86.Build.0 = Release|x86
 		{75293B28-52B5-470B-81DF-3562C844B985}.Debug|Any CPU.ActiveCfg = Debug
+		{75293B28-52B5-470B-81DF-3562C844B985}.Debug|Any CPU.Build.0 = Debug
+		{75293B28-52B5-470B-81DF-3562C844B985}.Debug|x64.ActiveCfg = Debug
+		{75293B28-52B5-470B-81DF-3562C844B985}.Debug|x64.Build.0 = Debug
+		{75293B28-52B5-470B-81DF-3562C844B985}.Debug|x86.ActiveCfg = Debug
+		{75293B28-52B5-470B-81DF-3562C844B985}.Debug|x86.Build.0 = Debug
 		{75293B28-52B5-470B-81DF-3562C844B985}.Release|Any CPU.ActiveCfg = Release
+		{75293B28-52B5-470B-81DF-3562C844B985}.Release|x64.ActiveCfg = Release
+		{75293B28-52B5-470B-81DF-3562C844B985}.Release|x64.Build.0 = Release
+		{75293B28-52B5-470B-81DF-3562C844B985}.Release|x86.ActiveCfg = Release
+		{75293B28-52B5-470B-81DF-3562C844B985}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31C25B90-94D9-4529-87E5-E0325EF83DFC}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/d365devsweden
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LCSCarousel\\LCSCarousel.csproj
+		SccProjectName1 = LCSCarousel
+		SccLocalPath1 = LCSCarousel
+		SccProjectUniqueName2 = SimpleLCSSetup\\SimpleLCSSetup.vdproj
+		SccProjectName2 = SimpleLCSSetup
+		SccLocalPath2 = SimpleLCSSetup
 	EndGlobalSection
 EndGlobal

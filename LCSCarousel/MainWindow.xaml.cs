@@ -47,8 +47,14 @@ namespace LCSCarousel
         private List<LcsProject> Projects;
         private List<CloudHostedInstance> SaasInstancesList;
         private List<CloudHostedInstance> CloudHostedInstancesList;
+        private List<EnvironmentState> EnvironmentStatesList;
+        private List<PlatformReleaseInformation> PlatformReleaseInformationList;
+        private List<ReleaseInformation> ReleaseInformationList;
+        private FilterValues filterValues;
+
         List<RDPConnectionDetailsCache> UserCredentialsCloud = new List<RDPConnectionDetailsCache>();
         List<RDPConnectionDetailsCache> UserCredentialsSAAS= new List<RDPConnectionDetailsCache>();
+
 
         private List<DeployablePackage> Packages = new List<DeployablePackage>();
         public string Logouttime { get; set; }
@@ -60,6 +66,7 @@ namespace LCSCarousel
         private bool GetPackagesStatus { get; set; }
         private bool RefreshCredentialsCloudStatus { get; set; }
         private bool RefreshCredentialsMSHostedStatus { get; set; }
+
 
         public string SelectedProjectName
         {
@@ -238,6 +245,62 @@ namespace LCSCarousel
 
             ChoseRefreshOption();
         }
+        public List<EnvironmentState> GetEnvironmentStatesList()
+        {
+            return EnvironmentStatesList;
+        }
+
+        public List<ReleaseInformation> GetReleaseInformation()
+        {
+            return ReleaseInformationList;
+        }
+
+        public List<PlatformReleaseInformation> GetPlatformReleaseInformation()
+        {
+            return PlatformReleaseInformationList;
+        }
+        public void SetFilter(bool active, EnvironmentState environmentState, ReleaseInformation releaseInformation, PlatformReleaseInformation platformReleaseInformation)
+        {
+            filterValues = new FilterValues()
+            { 
+                Active = active,
+                environmentState = environmentState,
+                platformReleaseInformation = platformReleaseInformation,
+                releaseInformation = releaseInformation
+            };
+            Properties.Settings.Default.FilterValues = JsonConvert.SerializeObject(filterValues, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+        }
+        public FilterValues GetFilter()
+        {
+            return filterValues;
+        }
+        public void AddEnvironmentState(EnvironmentState _state)
+        {
+            var environmentState = EnvironmentStatesList.FirstOrDefault(x => x.StateNum.Equals(_state.StateNum));
+            if(environmentState == null)
+            {
+                EnvironmentStatesList.Add(_state);
+                Properties.Settings.Default.EnvironmentStatesList = JsonConvert.SerializeObject(EnvironmentStatesList, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+            }
+        }
+
+        public void AddReleaseInformation(ReleaseInformation _releaseinformation, PlatformReleaseInformation _platformReleaseInformation)
+        {
+            var releaseinformation = ReleaseInformationList.FirstOrDefault(x => x.Release.Equals(_releaseinformation.Release));
+            if (releaseinformation == null)
+            {
+                ReleaseInformationList.Add(_releaseinformation);
+                Properties.Settings.Default.ReleaseInformationList = JsonConvert.SerializeObject(ReleaseInformationList, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+            }
+
+            var platformreleaseinformation = PlatformReleaseInformationList.FirstOrDefault(x => x.PlatformRelease.Equals(_platformReleaseInformation.PlatformRelease));
+            if(platformreleaseinformation == null)
+            {
+                PlatformReleaseInformationList.Add(_platformReleaseInformation);
+                Properties.Settings.Default.PlatformReleaseInformationList = JsonConvert.SerializeObject(PlatformReleaseInformationList, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+
+            }
+        }
 
         private LcsProject ShowProjectListAndSelect()
         {
@@ -308,7 +371,7 @@ namespace LCSCarousel
                 cookies.SetCookies(new Uri(_lcsUpdateUrl), Properties.Settings.Default.cookie);
                 cookies.SetCookies(new Uri(_lcsDiagUrl), Properties.Settings.Default.cookie);
             }
- 
+     
             return cookies;
         }
 
@@ -351,7 +414,7 @@ namespace LCSCarousel
         }
         internal void CheckStartup()
         {
-            DateTime sessionTimeOut = Properties.Settings.Default.LastActivity.AddMinutes(60.0);
+            DateTime sessionTimeOut = Properties.Settings.Default.LastActivity.AddMinutes(59.0);
             DateTime session24Hours = Properties.Settings.Default.LastActivity.AddHours(24.00);
             Properties.Settings.Default.SessionTimeOut = sessionTimeOut;
 
@@ -387,6 +450,31 @@ namespace LCSCarousel
             AllVMsList = JsonConvert.DeserializeObject<List<CloudHostedInstance>>(Properties.Settings.Default.AllWMs) ?? new List<CloudHostedInstance>();
             UserCredentialsCloud = JsonConvert.DeserializeObject<List<RDPConnectionDetailsCache>>(Properties.Settings.Default.CloudHostedCredentials) ?? new List<RDPConnectionDetailsCache>();
             UserCredentialsSAAS  = JsonConvert.DeserializeObject<List<RDPConnectionDetailsCache>>(Properties.Settings.Default.MSHostedCredentials) ?? new List<RDPConnectionDetailsCache>();
+
+            EnvironmentStatesList = JsonConvert.DeserializeObject<List<EnvironmentState>>(Properties.Settings.Default.EnvironmentStatesList) ?? new List<EnvironmentState>();
+            PlatformReleaseInformationList = JsonConvert.DeserializeObject<List<PlatformReleaseInformation>>(Properties.Settings.Default.PlatformReleaseInformationList) ?? new List<PlatformReleaseInformation>();
+            ReleaseInformationList = JsonConvert.DeserializeObject<List<ReleaseInformation>>(Properties.Settings.Default.ReleaseInformationList) ?? new List<ReleaseInformation>();
+            
+            //EnvironmentStatesList.Clear();
+            //PlatformReleaseInformationList.Clear();
+            //ReleaseInformationList.Clear();
+            //Properties.Settings.Default.EnvironmentStatesList = string.Empty;
+            //Properties.Settings.Default.PlatformReleaseInformationList = string.Empty;
+            //Properties.Settings.Default.ReleaseInformationList = string.Empty;
+            //Properties.Settings.Default.FilterValues = string.Empty;
+
+            if (string.IsNullOrEmpty(Properties.Settings.Default.FilterValues))
+            {
+                filterValues = new FilterValues()
+                {
+                    Active = false
+                };
+            }
+            else
+            {
+                filterValues = JsonConvert.DeserializeObject<FilterValues>(Properties.Settings.Default.FilterValues);
+            }
+
 
             GetMenuItems();
             //CheckStartup();
@@ -756,8 +844,10 @@ namespace LCSCarousel
                             break;
                         }
 
-                        await Task.Delay(2000).ConfigureAwait(true);
+                        await Task.Delay(200).ConfigureAwait(true);
                     }
+
+                    updateFilterSettings();
 
                     await controller.CloseAsync().ConfigureAwait(true);
                     EnableMenuOptions(true);
@@ -771,7 +861,35 @@ namespace LCSCarousel
             }
 
         }
+        private void updateFilterSettings()
+        {
+            foreach (CloudHostedInstance instance in AllWMs)
+            {
 
+                EnvironmentState envState = new EnvironmentState()
+                {
+                    StateDescription = instance.DeploymentStatus,
+                    StateNum = instance.DeploymentState
+                };
+                
+                AddEnvironmentState(envState);
+
+                PlatformReleaseInformation platformReleaseInformation = new PlatformReleaseInformation()
+                {
+                    PlatformRelease = instance.CurrentPlatformReleaseName
+                };
+
+                ReleaseInformation releaseinformation = new ReleaseInformation()
+                {
+                    Release = instance.CurrentApplicationReleaseName
+                };
+
+                if (platformReleaseInformation.PlatformRelease != null && releaseinformation.Release != null)
+                {
+                    AddReleaseInformation(releaseinformation, platformReleaseInformation);
+                }
+            }
+        }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>")]
         internal void OpenRDPSession(string _environmentId)
         {

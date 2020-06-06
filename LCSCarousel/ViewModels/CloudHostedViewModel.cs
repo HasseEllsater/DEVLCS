@@ -1,4 +1,6 @@
 ﻿using LCSCarousel;
+using LCSCarousel.Classes;
+using LCSCarousel.Enums;
 using LCSCarousel.Model;
 using LCSCarousel.Mvvm;
 using Newtonsoft.Json;
@@ -37,6 +39,8 @@ namespace LCSCarousel.ViewModels
             List<InstanceAttribute> instanceAttributes = mainWindow.InstanceAttributes;
             mainWindow.EnableCloudHosted(false);
 
+            FilterValues filterValues = mainWindow.GetFilter();
+
             if (cloudHostedTerminals != null)
             {
                 foreach (CloudHostedInstance instance in cloudHostedTerminals)
@@ -49,24 +53,51 @@ namespace LCSCarousel.ViewModels
                         imageSource = instanceAttribute.ImageSource;
                     }
 
-                    RDPTerminals.Add(new Model.RDPTerminal()
+                    EnvironmentState envState = new EnvironmentState()
+                    { 
+                        StateDescription = instance.DeploymentStatus,
+                        StateNum = instance.DeploymentState
+                    };
+                    mainWindow.AddEnvironmentState(envState);
+
+                    bool okToAdd = false;
+                    if (filterValues.Active == true)
                     {
-                        InstanceId = instance.InstanceId,
-                        DeploymentStatus = instance.DeploymentStatus,
-                        ApplicationRelease = instance.CurrentApplicationReleaseName,
-                        CurrentPlatformReleaseName = instance.CurrentPlatformReleaseName,
-                        TopologyType = instance.TopologyType,
-                        DisplayName = instance.DisplayName,
-                        EnvironmentId = instance.EnvironmentId,
-                        Instances = instance.Instances,
-                        SqlAzureCredentials = instance.SqlAzureCredentials,
-                        NavigationLinks = instance.NavigationLinks,
-                        ImageSource = imageSource
-                    });
+                        if (instance.DeploymentStatus == filterValues.environmentState.StateDescription
+                            && instance.CurrentApplicationReleaseName == filterValues.releaseInformation.Release
+                            && instance.CurrentPlatformReleaseName == filterValues.platformReleaseInformation.PlatformRelease)
+                        {
+                            okToAdd = true;
+                        }
+                    
+                    }
+                    else
+                    {
+                        okToAdd = true;
+                    }
+
+                    if (okToAdd == true)
+                    {
+                        RDPTerminals.Add(new Model.RDPTerminal()
+                        {
+                            InstanceId = instance.InstanceId,
+                            DeploymentStatus = instance.DeploymentStatus,
+                            ApplicationRelease = instance.CurrentApplicationReleaseName,
+                            CurrentPlatformReleaseName = instance.CurrentPlatformReleaseName,
+                            TopologyType = instance.TopologyType,
+                            DisplayName = instance.DisplayName,
+                            EnvironmentId = instance.EnvironmentId,
+                            Instances = instance.Instances,
+                            SqlAzureCredentials = instance.SqlAzureCredentials,
+                            NavigationLinks = instance.NavigationLinks,
+                            ImageSource = imageSource
+                        });
+                    }
+
                 }
                 if(RDPTerminals.Count > 0)
                 {
-                    RDPTerminals.BubbleSort();
+                    //RDPTerminals.BubbleSort();
                     SelectedRDPTerminal = RDPTerminals[0];
                     mainWindow.EnableCloudHosted(true);
                 }

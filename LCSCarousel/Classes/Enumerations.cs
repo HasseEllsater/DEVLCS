@@ -100,7 +100,7 @@
 
     public enum DeploymentStatus { Undefined = 0, Succeeded = 1, Failed = 2, Canceled = 3, StateTransitionIncomplete = 4 }
 
-    public enum DeploymentState { Undefined = 0, Active = 1, Paused = 2, Finished = 3, Starting = 4, Stopping = 5, Stopped = 6, Deleting = 7, Deallocating = 8, Deallocated = 9, Deleted = 10, Servicing = 11, Recovering = 12, SafeMode = 13, Restoring = 14, Swapping = 15, SwapRollingBack = 16, RotatingSecrets = 17, CommitingSwap = 18, Swapped = 19, ServicingRollback = 20, DatabaseRestoreRollback = 21, Migrating = 22, RestartingServices = 23, DatabaseNeedsUpgrade = 24, ValidatingDataUpgrade = 25, ExecutingSQLCommand = 26, ExecutingGenevaAction = 27, MigratingToSF = 28, MigratedToSF = 29, CDSConfiguring = 30, ScalingOut = 31, InfrastructureMaintenance = 32, PreparingForMigration = 33, PreppedForMigration = 34, ConfiguringFirewallRules = 35 }
+    public enum DeploymentState { Undefined = 0, Active = 1, Paused = 2, Deployed = 3, Starting = 4, Stopping = 5, Stopped = 6, Deleting = 7, Deallocating = 8, Deallocated = 9, Deleted = 10, Servicing = 11, Recovering = 12, SafeMode = 13, Restoring = 14, Swapping = 15, SwapRollingBack = 16, RotatingSecrets = 17, CommitingSwap = 18, Swapped = 19, ServicingRollback = 20, DatabaseRestoreRollback = 21, Migrating = 22, RestartingServices = 23, DatabaseNeedsUpgrade = 24, ValidatingDataUpgrade = 25, ExecutingSQLCommand = 26, ExecutingGenevaAction = 27, MigratingToSF = 28, MigratedToSF = 29, CDSConfiguring = 30, ScalingOut = 31, InfrastructureMaintenance = 32, PreparingForMigration = 33, PreppedForMigration = 34, ConfiguringFirewallRules = 35 }
 
     public enum LocalAgentEnums_DeploymentStatus { None = 0, Warning = 1, Failed = 2, StateTransitionIncomplete = 3 }
 

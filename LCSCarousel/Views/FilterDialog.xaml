@@ -1,0 +1,99 @@
+﻿<controls:MetroWindow x:Class="LCSCarousel.Views.FilterDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LCSCarousel.Enums"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:viewModels="clr-namespace:LCSCarousel.ViewModels"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        ShowMinButton="False"
+        ShowMaxRestoreButton="False"
+        ShowIconOnTitleBar="False"
+        ShowCloseButton="False"
+        ShowTitleBar="False"
+        mc:Ignorable="d"
+        Title="Set Filter" Height="240" Width="550"
+        WindowStartupLocation="CenterOwner"
+        FontFamily="Segoe UI" Loaded="MetroWindow_Loaded" >
+    
+    <Border Margin="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="90" />
+            </Grid.RowDefinitions>
+            <Canvas Grid.Column="0" Grid.Row="0" Width="180" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Rectangle
+                    Width="270"
+                    Height="60"
+                    Fill="{DynamicResource AccentBaseColorBrush}"
+                />
+                <TextBlock Text="Filter settings"
+                FontSize="32"
+                Margin="8"
+                Foreground="{DynamicResource IdealForegroundColorBrush}"  
+                FontWeight="Light"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                />
+            </Canvas>
+
+            <iconPacks:PackIconModern Width="48" Grid.Row="0" Grid.Column="3"
+                                       Height="48"
+                                       Margin="10"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Foreground="{DynamicResource AccentBaseColorBrush}"
+                                       Kind="Filter"/>
+
+            <Label Grid.Column="0" Grid.Row="1" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Status"/>
+
+            <ComboBox Grid.Column="0" Grid.Row="2" x:Name="Status" Padding="2"  
+                  Margin="{StaticResource ControlMargin}"  
+                  VerticalAlignment="Top"
+                  DisplayMemberPath="{Binding StateDescription}" 
+                  ItemsSource="{Binding EnvironmentState}" Width="Auto"/>
+        
+            <Label Grid.Column="1" Grid.Row="1" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Release"/>
+
+            <ComboBox Grid.Column="1" Grid.Row="2" x:Name="Release" Padding="2"  
+                  Margin="{StaticResource ControlMargin}"  
+                  VerticalAlignment="Top" 
+                  DisplayMemberPath="{Binding Release}"/>
+
+            <Label Grid.Column="2" Grid.Row="1" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Platform release"/>
+
+            <ComboBox Grid.Column="2" Grid.Row="2" x:Name="PlatformRelease" Padding="2"  
+                  Margin="{StaticResource ControlMargin}"  
+                  VerticalAlignment="Top" 
+                  DisplayMemberPath="{Binding PlatformRelease}" />
+            
+            <Label Grid.Column="3" Grid.Row="1" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Activate filter"/>
+            <controls:ToggleSwitch x:Name="ActivateFilter"
+                                   Margin="{StaticResource ControlMargin}" FontSize="18" FontWeight="Light"
+                                   IsChecked="False"
+                                   OffLabel="Off"
+                                   OnLabel="On"
+                                   Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3"
+                                   VerticalAlignment="Center"
+                                   Padding="2"
+                                   ToolTip="{StaticResource SpanTip}"
+                                   Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" />
+            
+            <Button x:Name="ApplyFilter" Click="ApplyFilter_Click" Margin="{StaticResource ControlMargin}" Padding="2" Content="Apply" Grid.Column="2" Grid.Row="4" Height="32" Width="Auto"/>
+            <Button x:Name="Close" Click="Close_Click" Margin="{StaticResource ControlMargin}" Padding="2" Content="Close" Grid.Column="3" Grid.Row="4" Height="32" Width="Auto"/>
+        </Grid>
+    </Border>
+</controls:MetroWindow>

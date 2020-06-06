@@ -251,6 +251,18 @@ Environment Id: {0}
 Display Name: {1}</value>
     <comment>Status message for packages</comment>
   </data>
+  <data name="FilterDialogInformation" xml:space="preserve">
+    <value>Filter settings</value>
+    <comment>Title for filter messages</comment>
+  </data>
+  <data name="FilterNotActive" xml:space="preserve">
+    <value>The filter is cleared all objects will be shown in the carousel</value>
+    <comment>Filter turned off</comment>
+  </data>
+  <data name="FilterNotComplete" xml:space="preserve">
+    <value>You must set all values in the filter condition</value>
+    <comment>Set all values in the filter dialog</comment>
+  </data>
   <data name="FirewallRuleNotCorrect" xml:space="preserve">
     <value>Both name and IP address is required for a new rule, press Cancel to close, OK to re-enter the correct values.</value>
     <comment>Incomplete rule</comment>

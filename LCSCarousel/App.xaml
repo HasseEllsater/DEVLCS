@@ -181,6 +181,8 @@
             <system:String x:Key="StopInstance">Stop VM</system:String>
             <system:String x:Key="LogOnTo365">Open D365FO</system:String>
             <system:String x:Key="InstanceId">Instance Id</system:String>
+            <system:String x:Key="FilterIsActive">Content is filtered</system:String>
+            <system:String x:Key="NoFilterIsActive">No filter is active</system:String>
             <system:String x:Key="DeploymentStatus">Status</system:String>
             <system:String x:Key="ApplicationRelease">Release</system:String>
             <system:String x:Key="PlattformReleaseName">Plattform release</system:String>
@@ -190,6 +192,8 @@
             <system:String x:Key="RefreshInstances">Refresh instances for project</system:String>
             <system:String x:Key="RefreshInstancesInformation">If you are connecting to LCS due to session timeout and already have a valid cache for that project you can set the refresh options to "Off"</system:String>
             <system:String x:Key="EditVMProperties">Edit VM properties</system:String>
+            <system:String x:Key="FilterContentTip">Filter the content in the carousel</system:String>
+            <system:String x:Key="FilterContent">Filter Carousel content</system:String>
             <system:String x:Key="PicVMImage">Select the image to use for your VM</system:String>
             <system:String x:Key="PicProject">Select the LCS project to use</system:String>
             <system:String x:Key="AddFirewallException">Add a firewall exception</system:String>

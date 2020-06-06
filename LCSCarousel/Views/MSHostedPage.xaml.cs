@@ -1,4 +1,5 @@
-﻿using LCSCarousel.Enums;
+﻿using LCSCarousel.Classes;
+using LCSCarousel.Enums;
 using LCSCarousel.ViewModels;
 using System;
 using System.Diagnostics;
@@ -205,6 +206,16 @@ namespace LCSCarousel.Views
             else
             {
                 ToggleFunctions(true);
+            }
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            FilterValues filterValues = mainWindow.GetFilter();
+            if (filterValues.Active == true)
+            {
+                FilterStatus.Content = FindResource("FilterIsActive").ToString();
+            }
+            else
+            {
+                FilterStatus.Content = FindResource("NoFilterIsActive").ToString();
             }
 
         }

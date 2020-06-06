@@ -69,7 +69,11 @@
                     Navigated="browser_Navigated" 
                     LoadCompleted="browser_LoadCompleted"
                     Name="browser" 
-                    Grid.Row="0" Grid.Column="0"/>
+                    Grid.Row="0" Grid.Column="0" />
+
+                <Label Name="Wait" Visibility="Hidden" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28">Please wait...</Label>
+
+
             </Grid>
 
         </Grid>

@@ -355,6 +355,33 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter settings.
+        /// </summary>
+        internal static string FilterDialogInformation {
+            get {
+                return ResourceManager.GetString("FilterDialogInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The filter is cleared all objects will be shown in the carousel.
+        /// </summary>
+        internal static string FilterNotActive {
+            get {
+                return ResourceManager.GetString("FilterNotActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must set all values in the filter condition.
+        /// </summary>
+        internal static string FilterNotComplete {
+            get {
+                return ResourceManager.GetString("FilterNotComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Both name and IP address is required for a new rule, press Cancel to close, OK to re-enter the correct values..
         /// </summary>
         internal static string FirewallRuleNotCorrect {

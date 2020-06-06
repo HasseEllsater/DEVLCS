@@ -1,4 +1,5 @@
-﻿using LCSCarousel.Enums;
+﻿using LCSCarousel.Classes;
+using LCSCarousel.Enums;
 using LCSCarousel.Model;
 using LCSCarousel.ViewModels;
 using System;
@@ -20,6 +21,7 @@ namespace LCSCarousel.Views
             DataContext = new CloudHostedViewModel();
             Carousel.RotationSpeed = Convert.ToInt32(Properties.Settings.Default.RotationSpeed);
             Carousel.SelectionChanged += _carouselRDPTerminals_SelectionChanged;
+            
         }
 
         private void _carouselRDPTerminals_SelectionChanged(FrameworkElement selectedElement)
@@ -161,7 +163,19 @@ namespace LCSCarousel.Views
             {
                 ToggleFunctions(true);
             }
- 
+
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            FilterValues filterValues = mainWindow.GetFilter();
+            if(filterValues.Active == true)
+            {
+                FilterStatus.Content = FindResource("FilterIsActive").ToString();
+            }
+            else
+            {
+                FilterStatus.Content = FindResource("NoFilterIsActive").ToString();
+            }
+
+
         }
         private void ToggleFunctions(bool _enabled)
         {
@@ -185,7 +199,5 @@ namespace LCSCarousel.Views
                 mainWindow.DeployPackage(item.EnvironmentId);
             }
         }
-
-
     }
 }

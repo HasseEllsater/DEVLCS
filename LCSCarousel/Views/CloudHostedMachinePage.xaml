@@ -21,6 +21,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
@@ -131,7 +132,7 @@
                                        Kind="FilePlus" />
                         </Button.Content>
                     </Button>
-                  </Grid>
+                </Grid>
             </StackPanel>
             
             <DockPanel Grid.Row="2"  Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
@@ -171,7 +172,7 @@
                                                     BorderBrush="Gray" 
                                                     Background="Black" 
                                                     Width="Auto" 
-                                                    Height="170">
+                                                    Height="210">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="22"/>
@@ -204,7 +205,8 @@
                     </WPFCarouselControl:CarouselControl>
                 </Grid>
             </DockPanel>
-            <DockPanel Grid.Row="3" Height="Auto" Width="Auto" VerticalAlignment="Bottom">
+
+            <DockPanel Grid.Row="4" Height="Auto" Width="Auto" VerticalAlignment="Bottom">
                 <Grid Margin="{StaticResource ControlMargin}" VerticalAlignment="Center" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -217,6 +219,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="1*"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0" Content="{StaticResource InstanceId}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
@@ -229,6 +232,8 @@
                     <Label Grid.Row="1" Grid.Column="3" Content="{Binding SelectedRDPTerminal.CurrentPlatformReleaseName}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
                     <Label Grid.Row="0" Grid.Column="4" Content="{StaticResource TopologyType}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
                     <Label Grid.Row="1" Grid.Column="4" Content="{Binding SelectedRDPTerminal.TopologyType}" FontSize="20" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+                    <Label Grid.Row="2" Name="FilterStatus" Grid.Column="0" Grid.ColumnSpan="4" Content="{StaticResource FilterIsActive}" FontSize="24" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+
                 </Grid>
             </DockPanel>
         </Grid>

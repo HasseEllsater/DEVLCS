@@ -25,6 +25,9 @@ namespace LCSCarousel.Views
         public SelectRefreshOptions()
         {
             InitializeComponent();
+            this.BorderThickness = new Thickness(0);
+            this.BorderBrush = null;
+            this.GlowBrush = Brushes.Black;
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
