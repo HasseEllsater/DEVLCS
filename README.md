@@ -1,6 +1,6 @@
 # DEVLCS 
 
-# Version 1.0.4
+# Version 1.0.6
 This version will handle both Self Service LCS and old style LCS (if there is any more around).
 
 # About DEVLCS
