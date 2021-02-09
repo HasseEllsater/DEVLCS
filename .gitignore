@@ -9,3 +9,5 @@
 /.vs
 /LCSCarousel/bin/Release
 /LCSCarousel/obj
+/LCSCarousel/bin/x64/Debug
+/SimpleLCSSetup/Debug

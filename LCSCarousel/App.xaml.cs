@@ -38,6 +38,7 @@ namespace LCSCarousel
                     MessageBox.Show("Please login to LCS again. Your cookie is probably invalid or expired.");
                     break;
                 default:
+                    MessageBox.Show(e.Exception.Message.ToString());
                     throw e.Exception;
             }
         }

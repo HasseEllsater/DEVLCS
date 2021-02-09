@@ -55,7 +55,7 @@ namespace LCSCarousel
         List<RDPConnectionDetailsCache> UserCredentialsCloud = new List<RDPConnectionDetailsCache>();
         List<RDPConnectionDetailsCache> UserCredentialsSAAS= new List<RDPConnectionDetailsCache>();
 
-
+        public ProjectType MSHostedProjectType { get; private set; }
         private List<DeployablePackage> Packages = new List<DeployablePackage>();
         public string Logouttime { get; set; }
         private List<InstanceAttribute> InstanceAttributeList;
@@ -66,7 +66,6 @@ namespace LCSCarousel
         private bool GetPackagesStatus { get; set; }
         private bool RefreshCredentialsCloudStatus { get; set; }
         private bool RefreshCredentialsMSHostedStatus { get; set; }
-
 
         public string SelectedProjectName
         {
@@ -205,8 +204,11 @@ namespace LCSCarousel
                     LcsUpdateUrl = _lcsUpdateUrl,
                     LcsDiagUrl = _lcsDiagUrl
                 };
+                
                 if (SelectedProject != null)
                 {
+                    httpClientHelper.LcsProjectTypeId = SelectedProject.ProjectTypeId;
+                    MSHostedProjectType = SelectedProject.ProjectTypeId;
                     httpClientHelper.ChangeLcsProjectId(SelectedProject.Id.ToString(CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name)));
                 }
                 SelectProject();
@@ -371,7 +373,7 @@ namespace LCSCarousel
                 cookies.SetCookies(new Uri(_lcsUpdateUrl), Properties.Settings.Default.cookie);
                 cookies.SetCookies(new Uri(_lcsDiagUrl), Properties.Settings.Default.cookie);
             }
-     
+ 
             return cookies;
         }
 
@@ -458,10 +460,7 @@ namespace LCSCarousel
             //EnvironmentStatesList.Clear();
             //PlatformReleaseInformationList.Clear();
             //ReleaseInformationList.Clear();
-            //Properties.Settings.Default.EnvironmentStatesList = string.Empty;
-            //Properties.Settings.Default.PlatformReleaseInformationList = string.Empty;
-            //Properties.Settings.Default.ReleaseInformationList = string.Empty;
-            //Properties.Settings.Default.FilterValues = string.Empty;
+
 
             if (string.IsNullOrEmpty(Properties.Settings.Default.FilterValues))
             {
@@ -503,6 +502,8 @@ namespace LCSCarousel
 
                 if (SelectedProject != null)
                 {
+                    httpClientHelper.LcsProjectTypeId = SelectedProject.ProjectTypeId;
+                    MSHostedProjectType = SelectedProject.ProjectTypeId;
                     httpClientHelper.ChangeLcsProjectId(SelectedProject.Id.ToString(CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name)));
 
                     var projectInstance = Instances.FirstOrDefault(x => x.LcsProjectId.Equals(SelectedProject.Id));
@@ -654,7 +655,7 @@ namespace LCSCarousel
             {
                 if (refreshAllWM == true)
                 {
-                    SaasInstancesList = httpClientHelper.GetSaasInstances();
+                    SaasInstancesList = httpClientHelper.GetHostedInstances();
 
                     if (SaasInstancesList != null)
                     {
@@ -844,10 +845,8 @@ namespace LCSCarousel
                             break;
                         }
 
-                        await Task.Delay(200).ConfigureAwait(true);
+                        await Task.Delay(2000).ConfigureAwait(true);
                     }
-
-                    updateFilterSettings();
 
                     await controller.CloseAsync().ConfigureAwait(true);
                     EnableMenuOptions(true);
@@ -861,35 +860,7 @@ namespace LCSCarousel
             }
 
         }
-        private void updateFilterSettings()
-        {
-            foreach (CloudHostedInstance instance in AllWMs)
-            {
 
-                EnvironmentState envState = new EnvironmentState()
-                {
-                    StateDescription = instance.DeploymentStatus,
-                    StateNum = instance.DeploymentState
-                };
-                
-                AddEnvironmentState(envState);
-
-                PlatformReleaseInformation platformReleaseInformation = new PlatformReleaseInformation()
-                {
-                    PlatformRelease = instance.CurrentPlatformReleaseName
-                };
-
-                ReleaseInformation releaseinformation = new ReleaseInformation()
-                {
-                    Release = instance.CurrentApplicationReleaseName
-                };
-
-                if (platformReleaseInformation.PlatformRelease != null && releaseinformation.Release != null)
-                {
-                    AddReleaseInformation(releaseinformation, platformReleaseInformation);
-                }
-            }
-        }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>")]
         internal void OpenRDPSession(string _environmentId)
         {

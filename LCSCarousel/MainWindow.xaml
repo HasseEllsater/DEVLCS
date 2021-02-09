@@ -12,7 +12,7 @@
          Loaded="MetroWindow_Loaded" 
          BorderThickness="0" 
          GlowBrush="Black"
-         ResizeMode="CanResizeWithGrip" MinHeight="720" MinWidth="800">
+         ResizeMode="CanResizeWithGrip" MinHeight="700" MinWidth="800">
     
         <controls:MetroWindow.DataContext>
             <viewModels:ShellViewModel/>

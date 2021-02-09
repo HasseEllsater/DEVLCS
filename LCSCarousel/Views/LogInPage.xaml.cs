@@ -24,7 +24,7 @@ namespace LCSCarousel.Views
         {
             InitializeComponent();
             WebBrowserHelper.FixBrowserVersion();
-   
+
         }
         public async void LoggedIn()
         {
@@ -38,17 +38,33 @@ namespace LCSCarousel.Views
 
         private void browser_Navigated(object sender, NavigationEventArgs e)
         {
-            SetSilent(browser, true); // make it silent
-
             if (e.Uri.ToString().StartsWith("https://lcs.dynamics.com/v2"))
             {
+                SetSilent(browser, true);
                 browser.Visibility = Visibility.Hidden;
-                Wait.Visibility = Visibility.Visible;
 
                 MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
                 mainWindow.SetLoggedInUri(e.Uri);
                 Cancelled = false;
             }
+
+        }
+        private void browser_LoadCompleted(object sender, NavigationEventArgs e)
+        {
+            try
+            {
+                if (Cancelled == false)
+                {
+                    MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+                    mainWindow.LoadOrSelectProject();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                string exception = ex.Message.ToString();
+            }
+
         }
         public static void SetSilent(WebBrowser browser, bool silent)
         {
@@ -70,31 +86,12 @@ namespace LCSCarousel.Views
                 }
             }
         }
-
-
         [ComImport, Guid("6D5140C1-7436-11CE-8034-00AA006009FA"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
         private interface IOleServiceProvider
         {
             [PreserveSig]
             int QueryService([In] ref Guid guidService, [In] ref Guid riid, [MarshalAs(UnmanagedType.IDispatch)] out object ppvObject);
         }
-        private void browser_LoadCompleted(object sender, NavigationEventArgs e)
-        {
-            try
-            {
-                if (Cancelled == false)
-                {
-                    MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                    mainWindow.LoadOrSelectProject();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                string exception = ex.Message.ToString();
-            }
-
-        }
-
     }
+
 }

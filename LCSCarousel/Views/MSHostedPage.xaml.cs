@@ -1,5 +1,4 @@
-﻿using LCSCarousel.Classes;
-using LCSCarousel.Enums;
+﻿using LCSCarousel.Enums;
 using LCSCarousel.ViewModels;
 using System;
 using System.Diagnostics;
@@ -14,13 +13,45 @@ namespace LCSCarousel.Views
     /// </summary>
     public partial class MSHostedPage : Page
     {
+        int min, max,count;
+
         public MSHostedPage()
         {
             InitializeComponent();
             DataContext = new MSHostedViewModel();
             Carousel.RotationSpeed = Convert.ToInt32(Properties.Settings.Default.RotationSpeed);
             Carousel.SelectionChanged += _carouselRDPTerminals_SelectionChanged;
+            MSHostedViewModel viewModel = DataContext as MSHostedViewModel;
+            count = viewModel.NumberOfMachines;
+
+            if(count > 1)
+            {
+                max = count / 2;
+                min = max * -1;
+            }
         }
+
+        private void DisableButtons()
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            if(mainWindow.MSHostedProjectType == ProjectType.ServiceFabricImplementation)
+            {
+                OpenRDP.IsEnabled = false;
+                ShowPassword.IsEnabled = false;
+                AddFireWallException.IsEnabled = false;
+                RemoveFireWallException.IsEnabled = false;
+                
+                //OpenRDP.Visibility = Visibility.Hidden;
+                //ShowPassword.Visibility = Visibility.Hidden;
+                //AddFireWallException.Visibility = Visibility.Hidden;
+                //RemoveFireWallException.Visibility = Visibility.Hidden;
+                //RDPLabel.Visibility = Visibility.Hidden;
+                //PwdLabel.Visibility = Visibility.Hidden;
+                //AddFirewallLabel.Visibility = Visibility.Hidden;
+                //RemoveFirewallLabel.Visibility = Visibility.Hidden;
+            }
+        }
+
         private void _carouselRDPTerminals_SelectionChanged(FrameworkElement selectedElement)
         {
             MSHostedViewModel viewModel = DataContext as MSHostedViewModel;
@@ -44,12 +75,12 @@ namespace LCSCarousel.Views
 
         private void _buttonLeftManyArrow_Click(object sender, RoutedEventArgs e)
         {
-            Carousel.RotateIncrement(-5);
+            Carousel.RotateIncrement(min);
         }
 
         private void _buttonRightManyArrow_Click(object sender, RoutedEventArgs e)
         {
-            Carousel.RotateIncrement(5);
+            Carousel.RotateIncrement(max);
         }
 
         private void ShowPassword_Click(object sender, RoutedEventArgs e)
@@ -207,17 +238,8 @@ namespace LCSCarousel.Views
             {
                 ToggleFunctions(true);
             }
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            FilterValues filterValues = mainWindow.GetFilter();
-            if (filterValues.Active == true)
-            {
-                FilterStatus.Content = FindResource("FilterIsActive").ToString();
-            }
-            else
-            {
-                FilterStatus.Content = FindResource("NoFilterIsActive").ToString();
-            }
 
+            DisableButtons();
         }
         private void ToggleFunctions(bool _enable)
         {

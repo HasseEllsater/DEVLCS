@@ -29,6 +29,7 @@ namespace LCSCarousel.ViewModels
             get { return _selectedRDPTerminal; }
             set { this.SetProperty(ref this._selectedRDPTerminal, value); }
         }
+        public int NumberOfMachines { private set; get; }
 
         public CloudHostedViewModel()
         {
@@ -39,7 +40,10 @@ namespace LCSCarousel.ViewModels
             List<InstanceAttribute> instanceAttributes = mainWindow.InstanceAttributes;
             mainWindow.EnableCloudHosted(false);
 
+
             FilterValues filterValues = mainWindow.GetFilter();
+            
+            NumberOfMachines = cloudHostedTerminals.Count;
 
             if (cloudHostedTerminals != null)
             {
@@ -59,6 +63,21 @@ namespace LCSCarousel.ViewModels
                         StateNum = instance.DeploymentState
                     };
                     mainWindow.AddEnvironmentState(envState);
+
+                    PlatformReleaseInformation platformReleaseInformation = new PlatformReleaseInformation()
+                    {
+                        PlatformRelease = instance.CurrentPlatformReleaseName
+                    };
+
+                    ReleaseInformation releaseinformation = new ReleaseInformation()
+                    { 
+                        Release = instance.CurrentApplicationReleaseName
+                    };
+
+                    if(platformReleaseInformation.PlatformRelease != null && releaseinformation.Release != null)
+                    {
+                        mainWindow.AddReleaseInformation(releaseinformation, platformReleaseInformation);
+                    }
 
                     bool okToAdd = false;
                     if (filterValues.Active == true)
@@ -97,7 +116,7 @@ namespace LCSCarousel.ViewModels
                 }
                 if(RDPTerminals.Count > 0)
                 {
-                    //RDPTerminals.BubbleSort();
+                    RDPTerminals.BubbleSort();
                     SelectedRDPTerminal = RDPTerminals[0];
                     mainWindow.EnableCloudHosted(true);
                 }

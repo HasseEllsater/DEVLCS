@@ -205,6 +205,15 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string AboutMenu {
+            get {
+                return ResourceManager.GetString("AboutMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Application.
         /// </summary>
         internal static string Application {
@@ -246,6 +255,15 @@ namespace LCSCarousel.Properties {
         internal static string CloudHostedInstance {
             get {
                 return ResourceManager.GetString("CloudHostedInstance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cloud Hosted.
+        /// </summary>
+        internal static string CloudHostedMenu {
+            get {
+                return ResourceManager.GetString("CloudHostedMenu", resourceCulture);
             }
         }
         
@@ -355,33 +373,6 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filter settings.
-        /// </summary>
-        internal static string FilterDialogInformation {
-            get {
-                return ResourceManager.GetString("FilterDialogInformation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The filter is cleared all objects will be shown in the carousel.
-        /// </summary>
-        internal static string FilterNotActive {
-            get {
-                return ResourceManager.GetString("FilterNotActive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You must set all values in the filter condition.
-        /// </summary>
-        internal static string FilterNotComplete {
-            get {
-                return ResourceManager.GetString("FilterNotComplete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Both name and IP address is required for a new rule, press Cancel to close, OK to re-enter the correct values..
         /// </summary>
         internal static string FirewallRuleNotCorrect {
@@ -396,6 +387,15 @@ namespace LCSCarousel.Properties {
         internal static string FullScreen {
             get {
                 return ResourceManager.GetString("FullScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        internal static string HomeMenu {
+            get {
+                return ResourceManager.GetString("HomeMenu", resourceCulture);
             }
         }
         
@@ -441,6 +441,15 @@ namespace LCSCarousel.Properties {
         internal static string LoggInStatus {
             get {
                 return ResourceManager.GetString("LoggInStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MS Hosted.
+        /// </summary>
+        internal static string MSHosteMenu {
+            get {
+                return ResourceManager.GetString("MSHosteMenu", resourceCulture);
             }
         }
         
@@ -616,6 +625,15 @@ namespace LCSCarousel.Properties {
         internal static string SessionTime {
             get {
                 return ResourceManager.GetString("SessionTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string SettingsMenu {
+            get {
+                return ResourceManager.GetString("SettingsMenu", resourceCulture);
             }
         }
         

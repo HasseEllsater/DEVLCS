@@ -8,7 +8,7 @@
       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:metro="clr-namespace:MahApps.Metro;assembly=MahApps.Metro"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="800"
       Title="SettingsPage" Loaded="Page_Loaded" FontFamily="Segoe UI">
 
     <Border Margin="10">
@@ -24,7 +24,6 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="30" />
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -68,13 +67,13 @@
                                        Kind="Settings"/>
 
 
-            <Label FontSize="24" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" 
+            <Label FontSize="18" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
-               Content="Select your default VM"/>
+               Content="Pick your default VM"/>
 
-            <ComboBox Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" x:Name="vmCombo" Padding="2"  
+            <ComboBox Grid.Column="0" Grid.Row="4" x:Name="vmCombo" Padding="2"  
                   Margin="{StaticResource ControlMargin}"  
                   Text="VM" SelectionChanged="vmCombo_SelectionChanged"
                   Controls:TextBoxHelper.ClearTextButton="True"
@@ -91,19 +90,19 @@
                     Content="Clear default WM user" HorizontalAlignment="Left" 
                     Click="ClearDefaultUser_Click"></Button>
 
-            <Label x:Name="UserName" FontSize="16" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" 
+            <Label x:Name="UserName" FontSize="16" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
                Content="..."/>
 
-            <Label FontSize="24" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="3" 
+            <Label FontSize="18" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
                Content="Remote desktop settings"/>
 
-            <Label FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="3" 
+            <Label FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
@@ -119,13 +118,13 @@
                     TickFrequency="1"
                     IsSnapToTickEnabled="True"
                     TickPlacement="BottomRight"
-                    Value="0" Grid.Row="10" Grid.Column="0" 
+                    Value="0" Grid.Row="9" Grid.Column="0" 
                     Grid.ColumnSpan="3"
                     HorizontalAlignment="Left"
                     ToolTip="{StaticResource ResolutionTip}"
                     ValueChanged="Resolution_ValueChanged" Thumb.DragCompleted="Resolution_DragCompleted"/>
             
-            <Label Name="SelectedResolution" FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="3" 
+            <Label Name="SelectedResolution" FontSize="18" FontWeight="Light" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
@@ -137,7 +136,7 @@
                                    IsChecked="False"
                                    OffLabel="Span over all monitors - Off"
                                    OnLabel="Span over all monitors - On"
-                                   Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3"
+                                   Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3"
                                    VerticalAlignment="Center"
                                    Padding="4"
                                    ToolTip="{StaticResource SpanTip}"
@@ -149,7 +148,7 @@
                                    OffLabel="Multimon - Off"
                                    OnLabel="Multimon - On"
                                    ToolTip="{StaticResource MultimonTip}"
-                                   Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3"
+                                   Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3"
                                    VerticalAlignment="Center"
                                    Padding="4"
                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" Click="Multimon_Click"/>
@@ -158,20 +157,20 @@
                                    IsChecked="True"
                                    OffLabel="Minimize app when starting RDP or D365FO - Off"
                                    OnLabel="Minimize app when starting RDP or D365FO - On"
-                                   Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3"
+                                   Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3"
                                    VerticalAlignment="Center"
                                    Padding="4"
                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" Click="MinimizeSetting_Click"/>
             
-            <Label FontSize="24" Grid.Column="0" Grid.Row="15" Grid.ColumnSpan="3" 
+            <Label FontSize="18" Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="3" 
                Foreground="{DynamicResource LabelTextBrush}"  
                Padding="2" VerticalAlignment="Center"
                Margin="{StaticResource ControlMargin}" 
                Content="Carousell options"/>
             
-            <Label Grid.Column="0" Grid.Row="16" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Rotation speed"/>
+            <Label Grid.Column="0" Grid.Row="15" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Rotation speed"/>
             <TextBox x:Name="RotationSpeed" 
-                     Grid.Column="0" Grid.Row="17" 
+                     Grid.Column="0" Grid.Row="16" 
                      Padding="2" Margin="{StaticResource ColumnMargin}"
                      VerticalAlignment="Top"
                      HorizontalContentAlignment="Stretch"
@@ -184,15 +183,14 @@
                      ToolTip="Set the rotation speed on the carousels, 100 default speed, over 100 faster, less slower" 
                      Controls:TextBoxHelper.HasText="True"
                      TextChanged="RotationSpeed_TextChanged"/>
-            <Label Grid.Row="18" Grid.Column="0" Content="{StaticResource FilterContent}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
-            <Button x:Name="Filter" Click="Filter_Click" ToolTip="{StaticResource FilterContentTip}" Grid.Column="0" Grid.Row="19" HorizontalAlignment="Left" Margin="{StaticResource ControlMargin}" Cursor="Hand">
+            <Label Grid.Row="17" Grid.Column="0" Content="{StaticResource FilterContent}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Left"/>
+            <Button x:Name="Filter" Click="Filter_Click" ToolTip="{StaticResource FilterContentTip}" Grid.Column="0" Grid.Row="18" HorizontalAlignment="Left" Margin="{StaticResource ControlMargin}" Cursor="Hand">
                 <Button.Content>
                     <iconPacks:PackIconModern Width="32" Height="32"
                                        Foreground="{DynamicResource AccentBaseColorBrush}"
                                        Kind="Filter" />
                 </Button.Content>
             </Button>
-        
         </Grid>
     </Border>
 </Page>

@@ -169,11 +169,6 @@ namespace LCSCarousel.Views
                     SelectedVMImage.Source = new BitmapImage(fileUri);
                 }
             }
-            else
-            {
-                ToggleFunctions(Visibility.Collapsed);
-
-            }
         }
         private void ToggleFunctions(Visibility visibility)
         {

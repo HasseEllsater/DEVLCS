@@ -14,9 +14,9 @@
         ShowCloseButton="False"
         ShowTitleBar="False"
         mc:Ignorable="d"
-        Title="Set Filter" Height="240" Width="550"
+        Title="Set Filter" Height="250" Width="550"
         WindowStartupLocation="CenterOwner"
-        FontFamily="Segoe UI" Loaded="MetroWindow_Loaded" >
+        FontFamily="Segoe UI" ResizeMode="CanResizeWithGrip" Loaded="MetroWindow_Loaded" >
     
     <Border Margin="10">
         <Grid>

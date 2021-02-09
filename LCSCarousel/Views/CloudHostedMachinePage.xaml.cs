@@ -1,5 +1,4 @@
-﻿using LCSCarousel.Classes;
-using LCSCarousel.Enums;
+﻿using LCSCarousel.Enums;
 using LCSCarousel.Model;
 using LCSCarousel.ViewModels;
 using System;
@@ -15,13 +14,21 @@ namespace LCSCarousel.Views
     /// </summary>
     public partial class CloudHostedMachinePage : Page
     {
+        int min, max, count;
         public CloudHostedMachinePage()
         {
             InitializeComponent();
             DataContext = new CloudHostedViewModel();
             Carousel.RotationSpeed = Convert.ToInt32(Properties.Settings.Default.RotationSpeed);
             Carousel.SelectionChanged += _carouselRDPTerminals_SelectionChanged;
-            
+
+            CloudHostedViewModel viewModel = DataContext as CloudHostedViewModel;
+            count = viewModel.NumberOfMachines;
+            if (count > 1)
+            {
+                max = count / 2;
+                min = max * -1;
+            }
         }
 
         private void _carouselRDPTerminals_SelectionChanged(FrameworkElement selectedElement)
@@ -36,12 +43,12 @@ namespace LCSCarousel.Views
 
         private void _buttonLeftManyArrow_Click(object sender, RoutedEventArgs e)
         {
-            Carousel.RotateIncrement(-5);
+            Carousel.RotateIncrement(min);
         }
 
         private void _buttonRightManyArrow_Click(object sender, RoutedEventArgs e)
         {
-            Carousel.RotateIncrement(5);
+            Carousel.RotateIncrement(max);
         }
 
         private void EditSelectedVM_Click(object sender, RoutedEventArgs e)
@@ -163,19 +170,7 @@ namespace LCSCarousel.Views
             {
                 ToggleFunctions(true);
             }
-
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            FilterValues filterValues = mainWindow.GetFilter();
-            if(filterValues.Active == true)
-            {
-                FilterStatus.Content = FindResource("FilterIsActive").ToString();
-            }
-            else
-            {
-                FilterStatus.Content = FindResource("NoFilterIsActive").ToString();
-            }
-
-
+ 
         }
         private void ToggleFunctions(bool _enabled)
         {

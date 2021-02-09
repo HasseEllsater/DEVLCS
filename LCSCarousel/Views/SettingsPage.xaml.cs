@@ -92,7 +92,6 @@ namespace LCSCarousel.Views
 
             RotationSpeed.Text = Properties.Settings.Default.RotationSpeed;
 
-
         }
       
 

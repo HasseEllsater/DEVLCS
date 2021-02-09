@@ -59,6 +59,7 @@ namespace LCSCarousel.Views
                 project.SharepointSite = projectDetails.Settings.SharepointSite;
                 project.TfsServerSite = projectDetails.Settings.TfsServerSite;
                 project.TfsProjectName = projectDetails.Settings.TfsProjectName;
+
                 Properties.Settings.Default.projects = JsonConvert.SerializeObject(Projects, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
                 Properties.Settings.Default.Save();
 

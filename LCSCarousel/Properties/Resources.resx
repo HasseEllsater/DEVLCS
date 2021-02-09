@@ -181,6 +181,10 @@
     <value>800 by 600 pixels</value>
     <comment>Resolution</comment>
   </data>
+  <data name="AboutMenu" xml:space="preserve">
+    <value>About</value>
+    <comment>About menu</comment>
+  </data>
   <data name="Application" xml:space="preserve">
     <value>Application</value>
     <comment>Event log</comment>
@@ -200,6 +204,10 @@
   <data name="CloudHostedInstance" xml:space="preserve">
     <value>The compare object is not an instance of the CloudHostedInstance class</value>
     <comment>Compare fail</comment>
+  </data>
+  <data name="CloudHostedMenu" xml:space="preserve">
+    <value>Cloud Hosted</value>
+    <comment>Cloud hosted menu item</comment>
   </data>
   <data name="CompareObjIsNull" xml:space="preserve">
     <value>Compare object RDPTerminal is null</value>
@@ -251,18 +259,6 @@ Environment Id: {0}
 Display Name: {1}</value>
     <comment>Status message for packages</comment>
   </data>
-  <data name="FilterDialogInformation" xml:space="preserve">
-    <value>Filter settings</value>
-    <comment>Title for filter messages</comment>
-  </data>
-  <data name="FilterNotActive" xml:space="preserve">
-    <value>The filter is cleared all objects will be shown in the carousel</value>
-    <comment>Filter turned off</comment>
-  </data>
-  <data name="FilterNotComplete" xml:space="preserve">
-    <value>You must set all values in the filter condition</value>
-    <comment>Set all values in the filter dialog</comment>
-  </data>
   <data name="FirewallRuleNotCorrect" xml:space="preserve">
     <value>Both name and IP address is required for a new rule, press Cancel to close, OK to re-enter the correct values.</value>
     <comment>Incomplete rule</comment>
@@ -270,6 +266,10 @@ Display Name: {1}</value>
   <data name="FullScreen" xml:space="preserve">
     <value>Fullscreen</value>
     <comment>Resolution</comment>
+  </data>
+  <data name="HomeMenu" xml:space="preserve">
+    <value>Home</value>
+    <comment>Home menu item</comment>
   </data>
   <data name="InitRefresh" xml:space="preserve">
     <value>Clearing Cache: In progress{0}Fetching Cloud hosted VM's: In progress{1}Fetching MS Hosted VM's: In progress</value>
@@ -290,6 +290,10 @@ Display Name: {1}</value>
   <data name="LoggInStatus" xml:space="preserve">
     <value>Log in status</value>
     <comment>Status of login</comment>
+  </data>
+  <data name="MSHosteMenu" xml:space="preserve">
+    <value>MS Hosted</value>
+    <comment>Microsoft hosted menu item</comment>
   </data>
   <data name="MyRDPTitle" xml:space="preserve">
     <value>My RDP {0}</value>
@@ -370,6 +374,10 @@ Clearing credentials MS Hosted: {4}</value>
   <data name="SessionTime" xml:space="preserve">
     <value>Cookie valid to :  {0}</value>
     <comment>Session counter</comment>
+  </data>
+  <data name="SettingsMenu" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Settings menu</comment>
   </data>
   <data name="Skipped" xml:space="preserve">
     <value>Skipped</value>

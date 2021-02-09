@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LCSCarousel.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace LCSCarousel.Classes
 {
     public class EnvironmentState : IComparable
     {
-        public int StateNum { get; set; }
+        public DeploymentState StateNum { get; set; }
         public string StateDescription { get; set; }
 
         public int CompareTo(object obj)

@@ -27,9 +27,6 @@ namespace LCSCarousel.Views
         public RemoveFirewallException()
         {
             InitializeComponent();
-            this.BorderThickness = new Thickness(0);
-            this.BorderBrush = null;
-            this.GlowBrush = Brushes.Black;
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)

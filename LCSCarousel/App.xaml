@@ -181,8 +181,6 @@
             <system:String x:Key="StopInstance">Stop VM</system:String>
             <system:String x:Key="LogOnTo365">Open D365FO</system:String>
             <system:String x:Key="InstanceId">Instance Id</system:String>
-            <system:String x:Key="FilterIsActive">Content is filtered</system:String>
-            <system:String x:Key="NoFilterIsActive">No filter is active</system:String>
             <system:String x:Key="DeploymentStatus">Status</system:String>
             <system:String x:Key="ApplicationRelease">Release</system:String>
             <system:String x:Key="PlattformReleaseName">Plattform release</system:String>
