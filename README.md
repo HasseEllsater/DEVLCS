@@ -1,7 +1,10 @@
 # DEVLCS 
 
 # Version 1.0.6
-This version will handle both Self Service LCS and old style LCS (if there is any more around).
+This version will handle both Self Service LCS and old style LCS (if there is any more around). 
+
+** Important **
+Uninstall the previous version and remove the folder your Users\<your user>\AppData\Local\DevMethod, then install the new version
 
 # About DEVLCS
 This app is intended for developers to help them to manage vm's in a simple way. This application is based on the work of **Tomek Melissa** with the 2LCS app. https://github.com/microsoft/2LCS. It is also using the carousell control created by **Leif Simon Goodwin** https://www.codeproject.com/Articles/4051491/A-Custom-WPF-Carousel-Control 
