@@ -207,6 +207,9 @@
             <system:String x:Key="SpanTip">Matches the remote desktop width and height with the local virtual desktop, spanning across multiple monitors, if necessary. To span across monitors, the monitors must be arranged to form a rectangle.</system:String>
             <system:String x:Key="ResolutionTip">Specifies the width and height of the Remote Desktop window.</system:String>
             <system:String x:Key="DefaultUserTip">Use a default user for your RDP terminal</system:String>
+            <system:String x:Key="MaxRotate">Rotation increment</system:String>
+            <system:String x:Key="SetRotationIncrement">Set the rotation increment you wish to use</system:String>
+            
         </ResourceDictionary>
         
     </Application.Resources>

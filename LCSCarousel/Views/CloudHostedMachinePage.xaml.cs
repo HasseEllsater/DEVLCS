@@ -3,6 +3,7 @@ using LCSCarousel.Model;
 using LCSCarousel.ViewModels;
 using System;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using static LCSCarousel.MainWindow;
@@ -21,16 +22,23 @@ namespace LCSCarousel.Views
             DataContext = new CloudHostedViewModel();
             Carousel.RotationSpeed = Convert.ToInt32(Properties.Settings.Default.RotationSpeed);
             Carousel.SelectionChanged += _carouselRDPTerminals_SelectionChanged;
-
+            SetDefaultRotateIncrement();
+        }
+        private void SetDefaultRotateIncrement()
+        {
             CloudHostedViewModel viewModel = DataContext as CloudHostedViewModel;
             count = viewModel.NumberOfMachines;
             if (count > 1)
             {
                 max = count / 2;
                 min = max * -1;
+                if (max > 0)
+                {
+                    MaxRotate.Text = max.ToString();
+                }
             }
-        }
 
+        }
         private void _carouselRDPTerminals_SelectionChanged(FrameworkElement selectedElement)
         {
             if (!(DataContext is CloudHostedViewModel viewModel))
@@ -172,6 +180,41 @@ namespace LCSCarousel.Views
             }
  
         }
+        
+
+
+        private void MaxRotate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(MaxRotate.Text, "  ^ [0-9]"))
+            {
+                SetDefaultRotateIncrement();
+            }
+
+            if (String.IsNullOrEmpty(MaxRotate.Text))
+            {
+                SetDefaultRotateIncrement();
+            }
+            else
+            {
+                max = Convert.ToInt32(MaxRotate.Text);
+                if (max > 0 && max <= count)
+                {
+                    min = max * -1;
+                    MaxRotate.Text = max.ToString();
+                }
+                else
+                {
+                    SetDefaultRotateIncrement();
+                }
+            }
+        }
+
+        private void MaxRotate_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
         private void ToggleFunctions(bool _enabled)
         {
             StartInstance.IsEnabled = _enabled;

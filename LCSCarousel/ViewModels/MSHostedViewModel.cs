@@ -38,7 +38,7 @@ namespace LCSCarousel.ViewModels
 
             NumberOfMachines = msHostedTerminals.Count;
 
-            FilterValues filterValues = mainWindow.GetFilter();
+            FilterValues filterValues = mainWindow.GetFilter(Enums.CloudEnvironment.MicrosoftHosted);
             mainWindow.EnableMSHosted(false);
 
             if (msHostedTerminals != null)

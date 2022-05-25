@@ -14,7 +14,7 @@
         ShowCloseButton="False"
         ShowTitleBar="False"
         mc:Ignorable="d"
-        Title="Set Filter" Height="250" Width="550"
+        Title="Set Filter" Height="290" Width="550"
         WindowStartupLocation="CenterOwner"
         FontFamily="Segoe UI" ResizeMode="CanResizeWithGrip" Loaded="MetroWindow_Loaded" >
     
@@ -30,9 +30,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="30" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="90" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Canvas Grid.Column="0" Grid.Row="0" Width="180" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Rectangle
@@ -58,42 +60,75 @@
                                        Foreground="{DynamicResource AccentBaseColorBrush}"
                                        Kind="Filter"/>
 
-            <Label Grid.Column="0" Grid.Row="1" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Status"/>
+            <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Padding="2" Margin="{StaticResource ColumnMargin}" FontWeight="Bold" Content="Cloud hosted machines"/>
 
-            <ComboBox Grid.Column="0" Grid.Row="2" x:Name="Status" Padding="2"  
+            <Label Grid.Column="0" Grid.Row="2" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Status"/>
+
+            <ComboBox Grid.Column="0" Grid.Row="3" x:Name="Status" Padding="2"  
                   Margin="{StaticResource ControlMargin}"  
                   VerticalAlignment="Top"
                   DisplayMemberPath="{Binding StateDescription}" 
                   ItemsSource="{Binding EnvironmentState}" Width="Auto"/>
         
-            <Label Grid.Column="1" Grid.Row="1" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Release"/>
+            <Label Grid.Column="1" Grid.Row="2" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Release"/>
 
-            <ComboBox Grid.Column="1" Grid.Row="2" x:Name="Release" Padding="2"  
+            <ComboBox Grid.Column="1" Grid.Row="3" x:Name="Release" Padding="2"  
                   Margin="{StaticResource ControlMargin}"  
                   VerticalAlignment="Top" 
                   DisplayMemberPath="{Binding Release}"/>
 
-            <Label Grid.Column="2" Grid.Row="1" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Platform release"/>
+            <Label Grid.Column="2" Grid.Row="2" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Platform release"/>
 
-            <ComboBox Grid.Column="2" Grid.Row="2" x:Name="PlatformRelease" Padding="2"  
+            <ComboBox Grid.Column="2" Grid.Row="3" x:Name="PlatformRelease" Padding="2"  
                   Margin="{StaticResource ControlMargin}"  
                   VerticalAlignment="Top" 
                   DisplayMemberPath="{Binding PlatformRelease}" />
             
-            <Label Grid.Column="3" Grid.Row="1" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Activate filter"/>
+            <Label Grid.Column="3" Grid.Row="2" Padding="2" Margin="{StaticResource ColumnMargin}" Content="Activate filter"/>
             <controls:ToggleSwitch x:Name="ActivateFilter"
                                    Margin="{StaticResource ControlMargin}" FontSize="18" FontWeight="Light"
                                    IsChecked="False"
                                    OffLabel="Off"
                                    OnLabel="On"
-                                   Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3"
+                                   Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3"
                                    VerticalAlignment="Center"
                                    Padding="2"
                                    ToolTip="{StaticResource SpanTip}"
                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" />
+
+            <Label Grid.Column="0" Grid.Row="4" Padding="2" Grid.ColumnSpan="2" FontWeight="Bold" 
+                   Margin="{StaticResource ColumnMargin}" Content="Microsoft hosted machines"/>
             
-            <Button x:Name="ApplyFilter" Click="ApplyFilter_Click" Margin="{StaticResource ControlMargin}" Padding="2" Content="Apply" Grid.Column="2" Grid.Row="4" Height="32" Width="Auto"/>
-            <Button x:Name="Close" Click="Close_Click" Margin="{StaticResource ControlMargin}" Padding="2" Content="Close" Grid.Column="3" Grid.Row="4" Height="32" Width="Auto"/>
+            
+            <controls:ToggleSwitch x:Name="MicrosoftHostedActivateFilter"
+                                   Margin="{StaticResource ControlMargin}" FontSize="18" FontWeight="Light"
+                                   IsChecked="False"
+                                   OffLabel="Off"
+                                   OnLabel="On"
+                                   Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3"
+                                   VerticalAlignment="Center"
+                                   Padding="2"
+                                   ToolTip="{StaticResource SpanTip}"
+                                   Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" />
+
+            <ComboBox Grid.Column="2" Grid.Row="5" x:Name="MicrosoftHostedPlatformRelease" Padding="2"  
+                  Margin="{StaticResource ControlMargin}"  
+                  VerticalAlignment="Top" 
+                  DisplayMemberPath="{Binding PlatformRelease}" />
+
+            <ComboBox Grid.Column="1" Grid.Row="5" x:Name="MicrosoftHostedRelease" Padding="2"  
+                  Margin="{StaticResource ControlMargin}"  
+                  VerticalAlignment="Top" 
+                  DisplayMemberPath="{Binding Release}"/>
+
+            <ComboBox Grid.Column="0" Grid.Row="5" x:Name="MicrosoftHostedStatus" Padding="2"  
+                  Margin="{StaticResource ControlMargin}"  
+                  VerticalAlignment="Top"
+                  DisplayMemberPath="{Binding StateDescription}" 
+                  ItemsSource="{Binding EnvironmentState}" Width="Auto"/>
+
+            <Button x:Name="ApplyFilter" Click="ApplyFilter_Click" Margin="{StaticResource ControlMargin}" Padding="2" Content="Apply" Grid.Column="2" Grid.Row="6" Height="32" Width="Auto"/>
+            <Button x:Name="Close" Click="Close_Click" Margin="{StaticResource ControlMargin}" Padding="2" Content="Close" Grid.Column="3" Grid.Row="6" Height="32" Width="Auto"/>
         </Grid>
     </Border>
 </controls:MetroWindow>

@@ -8,7 +8,11 @@
         ApplicationBinary = 9,
         CriticalMetadata = 16
     }
-
+    public enum CloudEnvironment
+    {
+        MicrosoftHosted,
+        CloudHosted
+    }
     public enum LCSEnvironments
     {
         ALL = 0,

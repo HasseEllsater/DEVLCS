@@ -51,7 +51,7 @@ namespace LCSCarousel.WPFCarouselControl
 
             if (element == null)
             {
-                throw new NotSupportedException("Carousel only supports children that are Framework elements");
+                throw new NotSupportedException(Properties.Resources.NotSupportedChildObject);
             }
 
             return element;

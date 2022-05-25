@@ -50,7 +50,7 @@ namespace LCSCarousel
         private List<EnvironmentState> EnvironmentStatesList;
         private List<PlatformReleaseInformation> PlatformReleaseInformationList;
         private List<ReleaseInformation> ReleaseInformationList;
-        private FilterValues filterValues;
+        private FilterValues filterValues,microsoftHostedFilterValues;
 
         List<RDPConnectionDetailsCache> UserCredentialsCloud = new List<RDPConnectionDetailsCache>();
         List<RDPConnectionDetailsCache> UserCredentialsSAAS= new List<RDPConnectionDetailsCache>();
@@ -261,20 +261,44 @@ namespace LCSCarousel
         {
             return PlatformReleaseInformationList;
         }
-        public void SetFilter(bool active, EnvironmentState environmentState, ReleaseInformation releaseInformation, PlatformReleaseInformation platformReleaseInformation)
+        public void SetFilter(bool active, EnvironmentState environmentState, ReleaseInformation releaseInformation, PlatformReleaseInformation platformReleaseInformation, CloudEnvironment cloudEnvironment)
         {
-            filterValues = new FilterValues()
-            { 
-                Active = active,
-                environmentState = environmentState,
-                platformReleaseInformation = platformReleaseInformation,
-                releaseInformation = releaseInformation
-            };
-            Properties.Settings.Default.FilterValues = JsonConvert.SerializeObject(filterValues, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+          
+            if (cloudEnvironment == CloudEnvironment.CloudHosted)
+            {
+                filterValues = new FilterValues()
+                {
+                    Active = active,
+                    environmentState = environmentState,
+                    platformReleaseInformation = platformReleaseInformation,
+                    releaseInformation = releaseInformation
+                };                
+                Properties.Settings.Default.FilterValues = JsonConvert.SerializeObject(filterValues, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+            }
+            else
+            {
+                microsoftHostedFilterValues = new FilterValues()
+                {
+                    Active = active,
+                    environmentState = environmentState,
+                    platformReleaseInformation = platformReleaseInformation,
+                    releaseInformation = releaseInformation
+                };
+                Properties.Settings.Default.MicrosoftHostedFilterValues = JsonConvert.SerializeObject(microsoftHostedFilterValues, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+            }
+            Properties.Settings.Default.Save();
         }
-        public FilterValues GetFilter()
+        public FilterValues GetFilter(CloudEnvironment cloudEnvironment)
         {
-            return filterValues;
+            if(cloudEnvironment == CloudEnvironment.CloudHosted)
+            {
+                return filterValues;
+            }
+            if (cloudEnvironment == CloudEnvironment.MicrosoftHosted)
+            {
+                return microsoftHostedFilterValues;
+            }
+            return null;
         }
         public void AddEnvironmentState(EnvironmentState _state)
         {
@@ -474,6 +498,17 @@ namespace LCSCarousel
                 filterValues = JsonConvert.DeserializeObject<FilterValues>(Properties.Settings.Default.FilterValues);
             }
 
+            if (string.IsNullOrEmpty(Properties.Settings.Default.MicrosoftHostedFilterValues))
+            {
+                microsoftHostedFilterValues = new FilterValues()
+                {
+                    Active = false
+                };
+            }
+            else
+            {
+                microsoftHostedFilterValues = JsonConvert.DeserializeObject<FilterValues>(Properties.Settings.Default.MicrosoftHostedFilterValues);
+            }
 
             GetMenuItems();
             //CheckStartup();

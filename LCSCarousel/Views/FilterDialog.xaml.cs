@@ -1,4 +1,5 @@
 ﻿using LCSCarousel.Classes;
+using LCSCarousel.Enums;
 using LCSCarousel.Model;
 using LCSCarousel.ViewModels;
 using MahApps.Metro.Controls;
@@ -36,12 +37,25 @@ namespace LCSCarousel.Views
                 EnvironmentState environmentstate = Status.SelectedItem as EnvironmentState;
                 ReleaseInformation releaseInformation = Release.SelectedItem as ReleaseInformation;
                 PlatformReleaseInformation platformReleaseInformation = PlatformRelease.SelectedItem as PlatformReleaseInformation;
-                mainWindow.SetFilter(activate, environmentstate, releaseInformation, platformReleaseInformation);
+                mainWindow.SetFilter(activate, environmentstate, releaseInformation, platformReleaseInformation, CloudEnvironment.CloudHosted);
             }
             else
             {
-                mainWindow.SetFilter(activate, null, null, null);
+                mainWindow.SetFilter(activate, null, null, null,CloudEnvironment.CloudHosted);
             }
+            activate = MicrosoftHostedActivateFilter.IsChecked ?? false;
+            if (activate == true && MicrosoftHostedStatus.SelectedItem != null && MicrosoftHostedRelease.SelectedItem != null && MicrosoftHostedPlatformRelease.SelectedItem != null)
+            {
+                EnvironmentState environmentstate = MicrosoftHostedStatus.SelectedItem as EnvironmentState;
+                ReleaseInformation releaseInformation = MicrosoftHostedRelease.SelectedItem as ReleaseInformation;
+                PlatformReleaseInformation platformReleaseInformation = MicrosoftHostedPlatformRelease.SelectedItem as PlatformReleaseInformation;
+                mainWindow.SetFilter(activate, environmentstate, releaseInformation, platformReleaseInformation, CloudEnvironment.MicrosoftHosted);
+            }
+            else
+            {
+                mainWindow.SetFilter(activate, null, null, null, CloudEnvironment.MicrosoftHosted);
+            }
+
 
             this.Close();
         }
@@ -58,13 +72,26 @@ namespace LCSCarousel.Views
             Release.ItemsSource = releaseinfo;
             PlatformRelease.ItemsSource = platformrelease;
 
-            FilterValues filterValues = mainWindow.GetFilter();
+            MicrosoftHostedStatus.ItemsSource = environmentstate;
+            MicrosoftHostedRelease.ItemsSource = releaseinfo;
+            MicrosoftHostedPlatformRelease.ItemsSource = platformrelease;
+
+            FilterValues filterValues = mainWindow.GetFilter(CloudEnvironment.CloudHosted);
 
             if(filterValues.Active == true)
             {
-                Status.SelectedItem = environmentstate.FirstOrDefault(x => x.StateDescription.Equals(filterValues.environmentState));
-                Release.SelectedItem = releaseinfo.FirstOrDefault(x => x.Release.Equals(filterValues.releaseInformation));
-                PlatformRelease.SelectedItem = platformrelease.FirstOrDefault(x => x.PlatformRelease.Equals(filterValues.platformReleaseInformation));
+                Status.SelectedItem = environmentstate.FirstOrDefault(x => x.StateDescription.Equals(filterValues.environmentState.StateDescription));
+                Release.SelectedItem = releaseinfo.FirstOrDefault(x => x.Release.Equals(filterValues.releaseInformation.Release));
+                PlatformRelease.SelectedItem = platformrelease.FirstOrDefault(x => x.PlatformRelease.Equals(filterValues.platformReleaseInformation.PlatformRelease));
+                ActivateFilter.IsChecked = true;
+            }
+            filterValues = mainWindow.GetFilter(CloudEnvironment.MicrosoftHosted);
+            if (filterValues.Active == true)
+            {
+                MicrosoftHostedStatus.SelectedItem = environmentstate.FirstOrDefault(x => x.StateDescription.Equals(filterValues.environmentState.StateDescription));
+                MicrosoftHostedRelease.SelectedItem = releaseinfo.FirstOrDefault(x => x.Release.Equals(filterValues.releaseInformation.Release));
+                MicrosoftHostedPlatformRelease.SelectedItem = platformrelease.FirstOrDefault(x => x.PlatformRelease.Equals(filterValues.platformReleaseInformation.PlatformRelease));
+                MicrosoftHostedActivateFilter.IsChecked = true;
             }
         }
     }

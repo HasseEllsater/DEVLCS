@@ -327,6 +327,9 @@ Display Name: {1}</value>
     <value>You need to log in to LCS before you can use this application</value>
     <comment>Not signed in</comment>
   </data>
+  <data name="NotSupportedChildObject" xml:space="preserve">
+    <value>Carousel only supports children that are Framework elements</value>
+  </data>
   <data name="NullURI" xml:space="preserve">
     <value>The URI can't be null</value>
     <comment>No URI supplied</comment>
