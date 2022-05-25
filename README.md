@@ -1,5 +1,8 @@
 # DEVLCS 
 
+# Version 1.0.8
+This version has a fix for the missing values in the filter dialog, it will also make it possible to have individual filters on each carousell. The rotation increment can be set to a fixed value.
+
 # Version 1.0.6
 This version will handle both Self Service LCS and old style LCS (if there is any more around). 
 
