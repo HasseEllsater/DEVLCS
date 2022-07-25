@@ -13,7 +13,7 @@
         ShowCloseButton="False"
         ShowTitleBar="False"
         Title="Projects" Height="400" Width="500"
-        WindowStartupLocation="CenterOwner" FontFamily="Segoe UI"
+        WindowStartupLocation="CenterOwner" FontFamily="Fonts/Poppins"
         Loaded="MetroWindow_Loaded">
     <Border Margin="10">
 

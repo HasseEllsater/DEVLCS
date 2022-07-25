@@ -10,7 +10,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="700"
       Title="LogInPage"
-      Loaded="Page_Loaded" FontFamily="Segoe UI">
+      Loaded="Page_Loaded" FontFamily="Fonts/Poppins">
 
     <Border Margin="10">
         <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">

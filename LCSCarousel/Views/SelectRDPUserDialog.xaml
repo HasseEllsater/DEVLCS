@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Select user" Height="450" Width="600"
         WindowStartupLocation="CenterOwner"
-        Loaded="MetroWindow_Loaded" FontFamily="Segoe UI" 
+        Loaded="MetroWindow_Loaded" FontFamily="Fonts/Poppins" 
         ResizeMode="CanResizeWithGrip" >
     
     <Border Margin="10">

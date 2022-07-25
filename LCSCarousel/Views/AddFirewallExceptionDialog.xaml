@@ -14,7 +14,7 @@
         ShowTitleBar="False"
         mc:Ignorable="d"
         Title="Add Firewall" Height="260" Width="600"
-        WindowStartupLocation="CenterOwner" FontFamily="Segoe UI" 
+        WindowStartupLocation="CenterOwner" FontFamily="Fonts/Poppins" 
         ResizeMode="CanResizeWithGrip" >
     
     <Border Margin="10">
@@ -36,7 +36,7 @@
                             HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Rectangle
                     Width="314"
-                    Height="60"
+                    Height="52"
                     Fill="{DynamicResource AccentBaseColorBrush}"
                     />
                     <TextBlock Text="Add firewall exception"

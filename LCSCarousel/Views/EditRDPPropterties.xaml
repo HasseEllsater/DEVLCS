@@ -9,7 +9,7 @@
       xmlns:metro="clr-namespace:MahApps.Metro;assembly=MahApps.Metro"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EditRDPPropterties" FontFamily="Segoe UI">
+      Title="EditRDPPropterties" FontFamily="Fonts/Poppins">
 
     <Border Margin="10">
         <StackPanel>

@@ -13,7 +13,7 @@
         ShowCloseButton="False"
         ShowTitleBar="False"
         Title="Packages" Height="550" Width="800" 
-        WindowStartupLocation="CenterOwner" FontFamily="Segoe UI" 
+        WindowStartupLocation="CenterOwner" FontFamily="Fonts/Poppins" 
         ResizeMode="CanResizeWithGrip">
     <Border Margin="10">
         <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">

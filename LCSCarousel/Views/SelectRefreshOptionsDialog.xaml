@@ -12,7 +12,7 @@
         ShowTitleBar="False"
         mc:Ignorable="d"
         Title="Select cache options" Height="320" Width="500"
-        WindowStartupLocation="CenterOwner" FontFamily="Segoe UI" 
+        WindowStartupLocation="CenterOwner" FontFamily="Fonts/Poppins" 
         ResizeMode="CanResizeWithGrip" >
 
     <Border Margin="10">

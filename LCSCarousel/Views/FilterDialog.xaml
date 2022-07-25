@@ -16,7 +16,7 @@
         mc:Ignorable="d"
         Title="Set Filter" Height="290" Width="550"
         WindowStartupLocation="CenterOwner"
-        FontFamily="Segoe UI" ResizeMode="CanResizeWithGrip" Loaded="MetroWindow_Loaded" >
+        FontFamily="Fonts/Poppins" ResizeMode="CanResizeWithGrip" Loaded="MetroWindow_Loaded" >
     
     <Border Margin="10">
         <Grid>
