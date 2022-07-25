@@ -453,6 +453,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F65FDB4E68B5F602AD4349FEA4758C9D"
         "OwnerKey" = "8:_3E16B856300C53E96B6C0D8F3D911E32"
         "MsmSig" = "8:_UNDEFINED"
@@ -461,12 +467,6 @@
         {
         "MsmKey" = "8:_F65FDB4E68B5F602AD4349FEA4758C9D"
         "OwnerKey" = "8:_AD336E3429484067A38415976B50F126"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CAB0D80F1E10E3A0E5DACE04A4D39E23"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -641,6 +641,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B10A58D8A918B89204BDC5083097626C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CAB0D80F1E10E3A0E5DACE04A4D39E23"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -1626,6 +1632,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F08006A8CB7E4050BBA143A4C4B94266"
+            {
+            "SourcePath" = "8:Banner.jpg"
+            "TargetName" = "8:Banner.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F65FDB4E68B5F602AD4349FEA4758C9D"
             {
             "AssemblyRegister" = "3:1"
@@ -1709,7 +1735,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_B848C335541F4E299F9247F93FFE52C4"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -1736,7 +1762,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Developers LCS Util"
         "ProductCode" = "8:{C39F9B3A-D448-4983-A21B-5F84491DFFDA}"
-        "PackageCode" = "8:{6D359250-D695-48E7-A4C0-4FCDB78B72DB}"
+        "PackageCode" = "8:{2BFC3E76-FFF0-4447-B891-1C3402F4C7F3}"
         "UpgradeCode" = "8:{449C8C20-7FE3-4431-958A-1077B1D046C1}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1744,7 +1770,7 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.10"
-        "Manufacturer" = "8:DevMethods"
+        "Manufacturer" = "8:DevMethod"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Developers LCS Util"
@@ -1757,7 +1783,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -1917,7 +1943,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "UpdateText"
@@ -1961,7 +1988,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -2005,7 +2033,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "InstallAllUsersVisible"
@@ -2040,7 +2069,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -2088,7 +2118,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -2119,7 +2150,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -2167,7 +2199,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -2189,7 +2222,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -2220,7 +2254,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -2270,7 +2305,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_F08006A8CB7E4050BBA143A4C4B94266"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -2285,7 +2321,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AD336E3429484067A38415976B50F126"
             {
-            "SourcePath" = "8:..\\LCSCarousel\\obj\\Release\\LCSSimpleUtil.exe"
+            "SourcePath" = "8:..\\LCSCarousel\\obj\\x64\\Release\\LCSSimpleUtil.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"
