@@ -1761,15 +1761,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Developers LCS Util"
-        "ProductCode" = "8:{A3D4561F-C2EF-46A2-8A2E-03736C3705E1}"
-        "PackageCode" = "8:{253B6FB3-F3C1-4B74-877E-504E9C7A3133}"
+        "ProductCode" = "8:{A0401724-507A-48CE-8681-1032F9772730}"
+        "PackageCode" = "8:{309C02F2-6F99-44B2-BB26-EC827EDBF567}"
         "UpgradeCode" = "8:{449C8C20-7FE3-4431-958A-1077B1D046C1}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.12"
+        "ProductVersion" = "8:1.0.13"
         "Manufacturer" = "8:DevMethod"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -2321,7 +2321,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AD336E3429484067A38415976B50F126"
             {
-            "SourcePath" = "8:..\\LCSCarousel\\obj\\x64\\Release\\LCSSimpleUtil.exe"
+            "SourcePath" = "8:..\\LCSCarousel\\obj\\x64\\Debug\\LCSSimpleUtil.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B848C335541F4E299F9247F93FFE52C4"

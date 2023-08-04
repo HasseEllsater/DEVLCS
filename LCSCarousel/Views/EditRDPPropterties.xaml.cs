@@ -54,7 +54,7 @@ namespace LCSCarousel.Views
                 {
                     SamplePicture.Source = new BitmapImage(new Uri(Properties.Settings.Default.DefaultImage, UriKind.Relative));
                 }
-                else
+               else
                 {
                     Uri fileUri = new Uri(viewModel.SelectedRDPTerminal.ImageSource);
                     SamplePicture.Source = new BitmapImage(fileUri);
@@ -70,9 +70,9 @@ namespace LCSCarousel.Views
                 {
                     return;
                 }
-                if (viewModel.SelectedRDPTerminal.ImageSource == Properties.Settings.Default.DefaultImage)
+                if (viewModel.SelectedRDPTerminal.ImageSource == Properties.Settings.Default.DefaultMSImage)
                 {
-                    SamplePicture.Source = new BitmapImage(new Uri(Properties.Settings.Default.DefaultImage, UriKind.Relative));
+                    SamplePicture.Source = new BitmapImage(new Uri(Properties.Settings.Default.DefaultMSImage, UriKind.Relative));
                 }
                 else
                 {
@@ -142,7 +142,7 @@ namespace LCSCarousel.Views
                 }
 
                 viewModel.ResetImage();
-                SamplePicture.Source = new BitmapImage(new Uri(Properties.Settings.Default.DefaultImage, UriKind.Relative));
+                SamplePicture.Source = new BitmapImage(new Uri(Properties.Settings.Default.DefaultMSImage, UriKind.Relative));
                 selectedTerminal = viewModel.SelectedRDPTerminal;
             }
         }

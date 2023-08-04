@@ -391,5 +391,17 @@ namespace LCSCarousel.Properties {
                 this["SelectedRegion"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/Resources/Default365.png")]
+        public string DefaultMSImage {
+            get {
+                return ((string)(this["DefaultMSImage"]));
+            }
+            set {
+                this["DefaultMSImage"] = value;
+            }
+        }
     }
 }

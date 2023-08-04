@@ -95,5 +95,8 @@
     <Setting Name="SelectedRegion" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="DefaultMSImage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/Resources/Default365.png</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
