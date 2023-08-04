@@ -91,9 +91,9 @@
                     <Controls:Tile.DataContext>
                         <ViewModels:LCSUrlsViewModel/>
                     </Controls:Tile.DataContext>
-                    <iconPacks:PackIconMaterial Width="40"
+                    <iconPacks:PackIconFontAwesome Width="40"
                                           Height="40"
-                                          Kind="Rabbit"/>
+                                          Kind="GlobeEuropeSolid"/>
                 </Controls:Tile>
 
                 <Controls:Tile x:Name="OpenTerminal" Title="My RDP"
