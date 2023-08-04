@@ -1,4 +1,7 @@
 # DEVLCS 
+# Versopm 1.0.13 
+First bug, sorry for this, wasn't testing enough, if you try to change the default image for a MS hosted environment it will crash badly, fixed in this release
+
 # Version 1.0.12
 Added region support, only able to test United States and Europe but I assume it will work for other regions to. Removed functions not supported today by LCS (this was functions before the self service LCS and didn't work anymore). Cleaned upp the UI a little and fixed some bugs i found. 
 
