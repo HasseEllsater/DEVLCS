@@ -1,7 +1,8 @@
 # DEVLCS 
 # Version 1.0.12
 Added region support, only able to test United States and Europe but I assume it will work for other regions to. Removed functions not supported today by LCS (this was functions before the self service LCS and didn't work anymore). Cleaned upp the UI a little and fixed some bugs i found. 
-# un-install the old version, clear the settings from the C:\Users\<yourname>\AppData\Local\DevMethod folder
+
+*Note! un-install the old version, clear the settings from the C:\Users\<yourname>\AppData\Local\DevMethod folder*
 
 # Version 1.0.8
 This version has a fix for the missing values in the filter dialog, it will also make it possible to have individual filters on each carousell. The rotation increment can be set to a fixed value.
