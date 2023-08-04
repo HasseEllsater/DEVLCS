@@ -8,7 +8,7 @@
       xmlns:WPFCarouselControl="clr-namespace:LCSCarousel.WPFCarouselControl"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Title="MSHostedPage" FontFamily="Fonts/Poppins" Loaded="Page_Loaded">
+      Title="MSHostedPage" FontFamily="Fonts/Poppins"  >
     <Border Margin="10">
         <Grid >
             <Grid.ColumnDefinitions>
@@ -31,8 +31,8 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
 
-                    <iconPacks:PackIconSimpleIcons Width="48" Grid.Row="0"
-                                       Height="48"
+                    <iconPacks:PackIconSimpleIcons Width="32" Grid.Row="0"
+                                       Height="32"
                                        Margin="10"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
@@ -40,12 +40,12 @@
                                        Kind="MicrosoftAzure" />
                     <Canvas Grid.Column="0" Grid.Row="0" Width="180" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <Rectangle
-                    Width="320"
-                    Height="60"
+                    Width="175"
+                    Height="42"
                     Fill="{DynamicResource AccentBaseColorBrush}"
                 />
-                        <TextBlock Text="Microsoft Hosted VM's"
-                FontSize="32"
+                        <TextBlock Text="Microsoft Hosted"
+                FontSize="22"
                 Margin="8"
                 Foreground="{DynamicResource IdealForegroundColorBrush}"  
                 FontWeight="Light"
@@ -68,19 +68,12 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Button x:Name="OpenRDP" Click="OpenRDP_Click" ToolTip="{StaticResource OpenRDP}" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"
-                            Background="MediumSlateBlue" Margin="{StaticResource ControlMargin}" Cursor="Hand">
-                        <Button.Content>
-                            <iconPacks:PackIconMaterial Width="32" Height="32"
-                                       Foreground="{DynamicResource IdealForegroundColorBrush}"
-                                       Kind="RemoteDesktop" />
-                        </Button.Content>
-                    </Button>
-                    <Label Name="RDPLabel" Grid.Row="1" Grid.Column="0" Content="{StaticResource OpenRDPTip}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-
-                    <Button x:Name="LogOnToApplication" Click="LogOnToApplication_Click" ToolTip="{StaticResource LogOnTo365}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" 
+          
+                    <Button x:Name="LogOnToApplication" Click="LogOnToApplication_Click" ToolTip="{StaticResource LogOnTo365}" 
+                           Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" 
                             Background="MediumSlateBlue" Margin="{StaticResource ControlMargin}" Cursor="Hand">
                         <Button.Content>
                             <iconPacks:PackIconUnicons Width="32" Height="32"
@@ -88,73 +81,27 @@
                                        Kind="CloudDataConnection" />
                         </Button.Content>
                     </Button>
-                    <Label Grid.Row="1" Grid.Column="1" Content="{StaticResource LogOnTo365}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-
-                    <Button x:Name="StartInstance" Click="StartInstance_Click" ToolTip="{StaticResource StartInstance}" 
-                            Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand"
-                            Background="Green">
-                        <Button.Content>
-                            <iconPacks:PackIconFontAwesome Width="32" Height="32"
-                                       Foreground="{DynamicResource IdealForegroundColorBrush}"
-                                       Kind="PlayCircleRegular" />
-                        </Button.Content>
-                    </Button>
-                    <Label Grid.Row="1" Grid.Column="2" Content="{StaticResource StartInstance}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-
-                    <Button x:Name="StopInstance" Click="StopInstance_Click" ToolTip="{StaticResource StopInstance}" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" 
-                            Margin="{StaticResource ControlMargin}" Cursor="Hand" Background="DarkRed">
-                        <Button.Content>
-                            <iconPacks:PackIconFontAwesome Width="32" Height="32"
-                                       Foreground="{DynamicResource IdealForegroundColorBrush}"
-                                       Kind="StopCircleRegular" />
-                        </Button.Content>
-                    </Button>
-                    <Label Grid.Row="1" Grid.Column="3" Content="{StaticResource StopInstance}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="ShowPassword" Click="ShowPassword_Click" ToolTip="{StaticResource ShowPwd}" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
-                        <Button.Content>
-                            <iconPacks:PackIconModern Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
-                                       Kind="InterfacePassword" />
-                        </Button.Content>
-                    </Button>
-                    <Label Name="PwdLabel" Grid.Row="1" Grid.Column="4" Content="{StaticResource ShowPwd}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-
-                    <Label Name="AddFirewallLabel"  Grid.Row="3" Grid.Column="0" Content="{StaticResource AddFirewallException}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button Click="AddFireWallException_Click" Grid.Column="0" Grid.Row="2" x:Name="AddFireWallException" ToolTip="{StaticResource AddFirewallException}"  HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
-                        <Button.Content>
-                            <iconPacks:PackIconPicolIcons Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
-                                       Kind="FirewallSettings" />
-                        </Button.Content>
-                    </Button>
-
-                    <Label Name="RemoveFirewallLabel" Grid.Row="3" Grid.Column="1" Content="{StaticResource RemoveFirewallException}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button Click="RemoveFireWallException_Click" Grid.Column="1" Grid.Row="2" x:Name="RemoveFireWallException" ToolTip="{StaticResource RemoveFirewallException}"  HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
-                        <Button.Content>
-                            <iconPacks:PackIconPicolIcons Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
-                                       Kind="FirewallStop" />
-                        </Button.Content>
-                    </Button>
-                    <Label Grid.Row="3" Grid.Column="2" Content="{StaticResource DeployPackage}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="DeployPackage" Click="DeployPackage_Click" ToolTip="{StaticResource DeployPackageTip}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
-                        <Button.Content>
-                            <iconPacks:PackIconOcticons Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
-                                       Kind="Package" />
-                        </Button.Content>
-                    </Button>
-                    <Label Grid.Row="3" Grid.Column="3" Content="{StaticResource EditVMProperties}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="EditVMProperties" Click="EditVMProperties_Click" ToolTip="{StaticResource EditVMProperties}" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
+                    <Label Grid.Row="1" Grid.Column="0" Content="{StaticResource LogOnTo365}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
+                
+                    
+                    <Label Grid.Row="1" Grid.Column="1" Content="{StaticResource EditVMProperties}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
+                    <Button x:Name="EditVMProperties" Click="EditVMProperties_Click" ToolTip="{StaticResource EditVMProperties}" 
+                            Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
                         <Button.Content>
                             <iconPacks:PackIconMaterialLight Width="32" Height="32"
                                        Foreground="{DynamicResource AccentBaseColorBrush}"
                                        Kind="FilePlus" />
                         </Button.Content>
                     </Button>
-                    <Label  Grid.Row="3" Grid.Column="4" Content="{StaticResource MaxRotate}" ToolTip="{StaticResource SetRotationIncrement}" HorizontalAlignment="Center"/>
-                    <TextBox x:Name="MaxRotate" PreviewTextInput="MaxRotate_PreviewTextInput" Grid.Row="2" TextChanged="MaxRotate_TextChanged" Grid.Column="4" Height="32" Width="32" 
+                    <Label  Grid.Row="1" Grid.Column="2" Content="{StaticResource MaxRotate}" ToolTip="{StaticResource SetRotationIncrement}" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="MaxRotate" PreviewTextInput="MaxRotate_PreviewTextInput" 
+                             Grid.Row="0" Grid.Column="2" TextChanged="MaxRotate_TextChanged" Height="34" Width="34" 
                              VerticalContentAlignment="Center" HorizontalAlignment="Center" ></TextBox>
+                    <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Name="CurrentMaxRotation" TextWrapping="Wrap">
+                        </TextBlock>
+                    </Label>
+
                 </Grid>
             </StackPanel>
             <DockPanel Grid.Row="2"  Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
@@ -177,7 +124,7 @@
                     <Button Grid.Row="1" Grid.Column="0" Name="_buttonLeftManyArrow" Style="{StaticResource StyleLeftArrow}" Click="_buttonLeftManyArrow_Click"/>
                     <Button Grid.Row="1" Grid.Column="4" Name="_buttonRightManyArrow" Style="{StaticResource StyleRightArrow}" Click="_buttonRightManyArrow_Click"/>
 
-                    <WPFCarouselControl:CarouselControl Grid.Row="1" Grid.Column="2" x:Name="Carousel" 
+                    <WPFCarouselControl:CarouselControl Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" x:Name="Carousel" 
                                                         ItemsSource="{Binding RDPTerminals}" 
                                                         SelectedItem="{Binding SelectedRDPTerminals,Mode=TwoWay}" 
                                                         ShowRotation="True"  
@@ -195,7 +142,7 @@
                                                     BorderBrush="Gray" 
                                                     Background="Black" 
                                                     Width="Auto" 
-                                                    Height="200">
+                                                    Height="230">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="22"/>

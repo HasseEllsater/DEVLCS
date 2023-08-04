@@ -28,8 +28,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <iconPacks:PackIconModern Width="48" Grid.Row="0" Grid.Column="0"
-                                       Height="48"
+            <iconPacks:PackIconModern Width="32" Grid.Row="0" Grid.Column="0"
+                                       Height="32"
                                        Margin="10"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
@@ -39,12 +39,12 @@
             <Canvas Grid.Column="0" Grid.Row="0" Width="180" Height="60" 
                             HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Rectangle
-                    Width="285"
-                    Height="60"
+                    Width="200"
+                    Height="42"
                     Fill="{DynamicResource AccentBaseColorBrush}"
                     />
                 <TextBlock Text="Local Cache options"
-                FontSize="32"
+                FontSize="22"
                 Margin="8"
                 Foreground="{DynamicResource IdealForegroundColorBrush}"  
                 FontWeight="Light"

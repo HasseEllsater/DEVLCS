@@ -26,8 +26,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <iconPacks:PackIconMaterial Width="48" Grid.Row="0" Grid.Column="0"
-                                       Height="48"
+            <iconPacks:PackIconMaterial Width="32" Grid.Row="0" Grid.Column="0"
+                                       Height="32"
                                        Margin="10"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
@@ -37,18 +37,17 @@
             <Canvas Grid.Column="0" Grid.Row="0" Width="180" Height="60" 
                             HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Rectangle
-                    Width="270"
-                    Height="60"
+                    Width="170"
+                    Height="42"
                     Fill="{DynamicResource AccentBaseColorBrush}"
                     />
                 <TextBlock Text="Available KB's"
-                FontSize="32"
+                FontSize="22"
                 Margin="8"
                 Foreground="{DynamicResource IdealForegroundColorBrush}"  
                 FontWeight="Light"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                />
+                VerticalAlignment="Center"/>
             </Canvas>
 
             <Grid Grid.Row="1" Grid.Column="0">

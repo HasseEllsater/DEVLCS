@@ -32,13 +32,13 @@ namespace LCSCarousel
     public partial class MainWindow : MetroWindow, IDisposable
     {
         #region members and properties
-        private static readonly string _lcsDiagUrl = "https://diag.lcs.dynamics.com";
-        private static readonly string _lcsUpdateUrl = "https://update.lcs.dynamics.com";
+        private static readonly string _lcsDiagUrl = URLsSingleton.Instance.LcsRegion.DiagnosticUrl;//"https://diag.lcs.dynamics.com";
+        private static readonly string _lcsUpdateUrl = URLsSingleton.Instance.LcsRegion.UpdateUrl;//"https://update.lcs.dynamics.com";
         private ViewModels.MenuItem MyCloudHostedMenuItem { get; set; }
         private ViewModels.MenuItem MyMSHostedMenuItem { get; set; }
         private Uri LoggedInUri;
         private ViewModels.MenuItem MySettingsMenuItem { get; set; }
-        private static readonly string _lcsUrl = "https://lcs.dynamics.com";
+        public static readonly string _lcsUrl = URLsSingleton.Instance.LcsRegion.Url; //"https://eu.lcs.dynamics.com";
         private const int InternetCookieHttponly = 0x2000;
         private bool _disposed;
         private HttpClientHelper httpClientHelper;
@@ -562,6 +562,11 @@ namespace LCSCarousel
 
         private async void StartTimer()
         {
+            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            if(mainWindow == null)
+            {
+                return;
+            }   
             using (var timer = new TaskTimer(15000).Start())
             {
                 foreach (var tick in timer)

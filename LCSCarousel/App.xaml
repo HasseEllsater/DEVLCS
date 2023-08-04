@@ -209,7 +209,9 @@
             <system:String x:Key="DefaultUserTip">Use a default user for your RDP terminal</system:String>
             <system:String x:Key="MaxRotate">Rotation increment</system:String>
             <system:String x:Key="SetRotationIncrement">Set the rotation increment you wish to use</system:String>
-            
+            <system:String x:Key="SelectRegionTileTitle">Select LCS Region</system:String>
+            <system:String x:Key="CurrentProjectInfo">The LCS project selected as active project</system:String>
+            <system:String x:Key="CurrentCookieInfo">Information about how long the cookie is valid</system:String>
         </ResourceDictionary>
         
     </Application.Resources>

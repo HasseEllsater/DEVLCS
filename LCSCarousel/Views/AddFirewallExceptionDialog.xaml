@@ -24,8 +24,8 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
   
-                <iconPacks:PackIconPicolIcons Width="48" Grid.Row="0"
-                                       Height="48"
+                <iconPacks:PackIconPicolIcons Width="32" Grid.Row="0"
+                                       Height="32"
                                        Margin="10"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
@@ -35,12 +35,12 @@
                 <Canvas Grid.Column="0" Grid.Row="0" Width="314" Height="60" 
                             HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Rectangle
-                    Width="314"
-                    Height="52"
+                    Width="224"
+                    Height="42"
                     Fill="{DynamicResource AccentBaseColorBrush}"
                     />
                     <TextBlock Text="Add firewall exception"
-                FontSize="32"
+                FontSize="22"
                 Margin="8"
                 Foreground="{DynamicResource IdealForegroundColorBrush}"  
                 FontWeight="Light"

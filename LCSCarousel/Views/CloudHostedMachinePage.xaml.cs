@@ -36,6 +36,7 @@ namespace LCSCarousel.Views
                 {
                     MaxRotate.Text = max.ToString();
                 }
+                CurrentMaxRotation.Content = string.Format(Properties.Resources.MaxRotationInc, max.ToString());
             }
 
         }
@@ -220,22 +221,6 @@ namespace LCSCarousel.Views
             StartInstance.IsEnabled = _enabled;
             StopInstance.IsEnabled  = _enabled;
             ShowPassword.IsEnabled  = _enabled;
-            DeployPackage.IsEnabled = _enabled;
-
-        }
-        private void DeployPackage_Click(object sender, RoutedEventArgs e)
-        {
-            if (!(DataContext is CloudHostedViewModel viewModel))
-            {
-                return;
-            }
-
-            if (viewModel.SelectedRDPTerminal != null)
-            {
-                var item = viewModel.SelectedRDPTerminal;
-                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                mainWindow.DeployPackage(item.EnvironmentId);
-            }
         }
     }
 }

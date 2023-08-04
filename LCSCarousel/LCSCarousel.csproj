@@ -181,11 +181,14 @@
     <Compile Include="Classes\TaskTimer.cs" />
     <Compile Include="Classes\ThemeColor.cs" />
     <Compile Include="Classes\ThemeManagerHelper.cs" />
+    <Compile Include="Classes\URLsSingleton.cs" />
     <Compile Include="Classes\WebBrowserHelper.cs" />
     <Compile Include="Model\Credentials.cs" />
+    <Compile Include="Model\LCSUrls.cs" />
     <Compile Include="Model\RDPTerminals.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\CredentialsViewModel.cs" />
+    <Compile Include="ViewModels\LCSUrlsViewModel.cs" />
     <Compile Include="ViewModels\MSHostedViewModel.cs" />
     <Compile Include="ViewModels\CloudHostedViewModel.cs" />
     <Compile Include="ViewModels\MenuItem.cs" />
@@ -239,6 +242,9 @@
     </Compile>
     <Compile Include="Views\SelectRefreshOptionsDialog.xaml.cs">
       <DependentUpon>SelectRefreshOptionsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectRegionDialog.xaml.cs">
+      <DependentUpon>SelectRegionDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -330,6 +336,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SelectRegionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -387,16 +397,14 @@
     <Resource Include="Resources\DefaultVM.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\icons8-tapir-48.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\icons8-content.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\icons8-checklist-100.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons8-checklist-100.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Default365.png" />
+    <Resource Include="Resources\Starting365.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

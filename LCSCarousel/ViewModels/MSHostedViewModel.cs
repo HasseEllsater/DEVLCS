@@ -47,7 +47,7 @@ namespace LCSCarousel.ViewModels
                 {
                     InstanceAttribute instanceAttribute = instanceAttributes.Find(x => x.EnvironmentId == instance.EnvironmentId);
 
-                    string imageSource = "/Resources/DefaultVM.png";
+                    string imageSource = "/Resources/Default365.png";
                     if(instanceAttribute != null)
                     {
                         imageSource = instanceAttribute.ImageSource;

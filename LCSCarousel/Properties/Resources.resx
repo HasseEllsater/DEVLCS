@@ -229,6 +229,15 @@ Application will close.
 Do you want to proceed?</value>
     <comment>Confirm reset of data</comment>
   </data>
+  <data name="ConfirmRegionChange" xml:space="preserve">
+    <value>Confirm Region Change</value>
+    <comment>Confirm before close</comment>
+  </data>
+  <data name="ConfirmRegionChangeMessage" xml:space="preserve">
+    <value>Are you sure you want to change the region from {0} To {1}?
+
+This will close the form and clear all cached values and you must login again. </value>
+  </data>
   <data name="ConfirmStartInstance" xml:space="preserve">
     <value>Confirm that you wish to start the instance {0}</value>
     <comment>Confirm start of machine</comment>
@@ -290,6 +299,9 @@ Display Name: {1}</value>
   <data name="LoggInStatus" xml:space="preserve">
     <value>Log in status</value>
     <comment>Status of login</comment>
+  </data>
+  <data name="MaxRotationInc" xml:space="preserve">
+    <value>Max rotation increment that you can set is {0}</value>
   </data>
   <data name="MSHosteMenu" xml:space="preserve">
     <value>MS Hosted</value>

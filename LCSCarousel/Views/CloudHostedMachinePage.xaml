@@ -33,8 +33,8 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <iconPacks:PackIconMaterialLight Width="48" Grid.Row="0"
-                                       Height="48"
+                <iconPacks:PackIconMaterialLight Width="32" Grid.Row="0"
+                                       Height="32"
                                        Margin="10"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
@@ -42,12 +42,12 @@
                                        Kind="Cloud" />
                 <Canvas Grid.Column="0" Grid.Row="0" Width="180" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Rectangle
-                    Width="270"
-                    Height="60"
+                    Width="200"
+                    Height="42"
                     Fill="{DynamicResource AccentBaseColorBrush}"
                 />
                     <TextBlock Text="Cloud Hosted VM's"
-                FontSize="32"
+                FontSize="22"
                 Margin="8"
                 Foreground="{DynamicResource IdealForegroundColorBrush}"  
                 FontWeight="Light"
@@ -115,29 +115,27 @@
                                             Kind="InterfacePassword" />
                         </Button.Content>
                     </Button>
-                    <Label Grid.Row="3" Grid.Column="0" Content="{StaticResource DeployPackage}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="DeployPackage" Click="DeployPackage_Click" ToolTip="{StaticResource DeployPackageTip}" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
-                        <Button.Content>
-                            <iconPacks:PackIconOcticons Width="32" Height="32"
-                                       Foreground="{DynamicResource AccentBaseColorBrush}"
-                                       Kind="Package" />
-                        </Button.Content>
-                    </Button>
-                    <Label Grid.Row="3" Grid.Column="1" Content="{StaticResource EditVMProperties}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
-                    <Button x:Name="EditVMProperties" Click="EditSelectedVM_Click" ToolTip="{StaticResource EditVMProperties}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
+                    <Label Grid.Row="3" Grid.Column="0" Content="{StaticResource EditVMProperties}" FontSize="14" Foreground="{DynamicResource LabelTextBrush}" HorizontalAlignment="Center"/>
+                    <Button x:Name="EditVMProperties" Click="EditSelectedVM_Click" ToolTip="{StaticResource EditVMProperties}" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="{StaticResource ControlMargin}" Cursor="Hand">
                         <Button.Content>
                             <iconPacks:PackIconMaterialLight Width="32" Height="32"
                                        Foreground="{DynamicResource AccentBaseColorBrush}"
                                        Kind="FilePlus" />
                         </Button.Content>
                     </Button>
-                    <Label  Grid.Row="3" Grid.Column="2" Content="{StaticResource MaxRotate}" ToolTip="{StaticResource SetRotationIncrement}" HorizontalAlignment="Center"/>
-                    <TextBox x:Name="MaxRotate" PreviewTextInput="MaxRotate_PreviewTextInput" Grid.Row="2" TextChanged="MaxRotate_TextChanged" Grid.Column="2" Height="32" Width="32" VerticalContentAlignment="Center" 
+                    <Label  Grid.Row="3" Grid.Column="1" Content="{StaticResource MaxRotate}" ToolTip="{StaticResource SetRotationIncrement}" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="MaxRotate" 
+                             PreviewTextInput="MaxRotate_PreviewTextInput" 
+                             Grid.Row="2" Grid.Column="1"
+                             TextChanged="MaxRotate_TextChanged" 
+                             Height="34" Width="34" VerticalContentAlignment="Center" 
                              HorizontalAlignment="Center" ></TextBox>
+      
+                    <Label x:Name="CurrentMaxRotation" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </StackPanel>
             
-            <DockPanel Grid.Row="2"  Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <DockPanel Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Grid Margin="{StaticResource ControlMargin}" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20"/>
@@ -156,7 +154,7 @@
                     <Button Grid.Row="1" Grid.Column="0" Name="_buttonLeftManyArrow" Style="{StaticResource StyleLeftArrow}" Click="_buttonLeftManyArrow_Click"/>
                     <Button Grid.Row="1" Grid.Column="4" Name="_buttonRightManyArrow" Style="{StaticResource StyleRightArrow}" Click="_buttonRightManyArrow_Click"/>
 
-                    <WPFCarouselControl:CarouselControl Grid.Row="1" Grid.Column="2" x:Name="Carousel" 
+                    <WPFCarouselControl:CarouselControl Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" x:Name="Carousel" 
                                                         ItemsSource="{Binding RDPTerminals}" 
                                                         SelectedItem="{Binding SelectedRDPTerminals,Mode=TwoWay}"  
                                                         TiltInDegrees="10" 
@@ -174,7 +172,7 @@
                                                     BorderBrush="Gray" 
                                                     Background="Black" 
                                                     Width="Auto" 
-                                                    Height="200">
+                                                    Height="230">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="22"/>

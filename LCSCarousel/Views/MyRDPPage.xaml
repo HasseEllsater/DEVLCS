@@ -17,8 +17,8 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <iconPacks:PackIconMaterialLight Width="48" Grid.Row="0"
-                                       Height="48"
+                <iconPacks:PackIconMaterialLight Width="32" Grid.Row="0"
+                                       Height="32"
                                        Margin="10"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
@@ -27,11 +27,11 @@
                 <Canvas Grid.Column="0" Grid.Row="0" Width="Auto" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Rectangle
                     Width="350"
-                    Height="60"
+                    Height="42"
                     Fill="{DynamicResource AccentBaseColorBrush}"
                         />
                     <TextBlock x:Name="MyRDP" Text="- Nothing here to see -"
-                    FontSize="32"
+                    FontSize="22"
                     Margin="8"
                     Foreground="{DynamicResource IdealForegroundColorBrush}"  
                     FontWeight="Light"

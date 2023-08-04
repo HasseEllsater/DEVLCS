@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LCSCarousel.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace LCSCarousel.Views
 
         private void browser_Navigated(object sender, NavigationEventArgs e)
         {
-            if(e.Uri == null || e.Uri.ToString().StartsWith("https://lcs.dynamics.com/Logon"))
+            if(e.Uri == null || e.Uri.ToString().StartsWith(URLsSingleton.Instance.LcsRegion.Url))
             {
                 MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
                 mainWindow.ClearAndClose();

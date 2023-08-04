@@ -80,6 +80,10 @@ namespace LCSCarousel.Views
         public void CheckSessionTime()
         {
             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            if(mainWindow == null)
+            {
+                return;
+            }
             mainWindow.CheckStartup();
             SessionInfo.Title = mainWindow.Logouttime;
             if (Properties.Settings.Default.LimitFunctions == true)
@@ -254,6 +258,15 @@ namespace LCSCarousel.Views
             {
                 Owner = Application.Current.MainWindow as MainWindow,
                 RdpTerminal = myTerminal
+            };
+            dlg.ShowDialog();
+        }
+
+        private void SelectRegion_Click(object sender, RoutedEventArgs e)
+        {
+            SelectRegionDialog dlg = new SelectRegionDialog
+            {
+                Owner = Application.Current.MainWindow as MainWindow
             };
             dlg.ShowDialog();
         }

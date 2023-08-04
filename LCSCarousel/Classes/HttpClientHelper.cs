@@ -59,10 +59,10 @@ namespace LCSCarousel
         }
 
         public CookieContainer CookieContainer { get; }
-        public string LcsDiagUrl { private get; set; }
-        public string LcsProjectId { private get; set; }
-        public string LcsUpdateUrl { private get; set; }
-        public string LcsUrl { private get; set; }
+        public string LcsDiagUrl {  get; set; }
+        public string LcsProjectId {  get; set; }
+        public string LcsUpdateUrl {  get; set; }
+        public string LcsUrl {  get; set; }
         public ProjectType LcsProjectTypeId { get; set; }
 
         public void ChangeLcsProjectId(string value)

@@ -1,4 +1,6 @@
-﻿using LCSCarousel.Classes;
+﻿using ControlzEx.Standard;
+using LCSCarousel.Classes;
+using LCSCarousel.ViewModels;
 using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Reflection;
@@ -14,11 +16,14 @@ namespace LCSCarousel.Views
         No,
         Yes
     }
+
     /// <summary>
     /// Interaction logic for LogInPage.xaml
     /// </summary>
     public partial class LogInPage : Page
     {
+        private LCSUrlsViewModel LCSUrls = new LCSUrlsViewModel();
+
         internal bool Cancelled { get; private set; }
         public LogInPage()
         {
@@ -33,17 +38,21 @@ namespace LCSCarousel.Views
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Cancelled = true;
-            browser.Navigate("https://lcs.dynamics.com");
+            //browser.Navigate("https://eu.lcs.dynamics.com");
+            browser.Navigate(URLsSingleton.Instance.LcsRegion.Url);
         }
-
         private void browser_Navigated(object sender, NavigationEventArgs e)
         {
-            if (e.Uri.ToString().StartsWith("https://lcs.dynamics.com/v2"))
+            //if (e.Uri.ToString().StartsWith("https://eu.lcs.dynamics.com/v2"))
+            //if(CheckUrl(e.Uri.ToString()) == true)
+            //if (e.Uri.ToString().StartsWith(URLsSingleton.Instance.LcsRegion.Url))
+            if(URLsSingleton.Instance.ValidateURL(e.Uri.ToString()))
             {
                 SetSilent(browser, true);
                 browser.Visibility = Visibility.Hidden;
 
                 MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+              
                 mainWindow.SetLoggedInUri(e.Uri);
                 Cancelled = false;
             }

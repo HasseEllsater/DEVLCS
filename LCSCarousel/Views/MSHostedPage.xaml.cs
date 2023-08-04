@@ -38,28 +38,9 @@ namespace LCSCarousel.Views
                 {
                     MaxRotate.Text = max.ToString();
                 }
+                CurrentMaxRotation.Text = string.Format(Properties.Resources.MaxRotationInc, max.ToString());
             }
 
-        }
-        private void DisableButtons()
-        {
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            if(mainWindow.MSHostedProjectType == ProjectType.ServiceFabricImplementation)
-            {
-                OpenRDP.IsEnabled = false;
-                ShowPassword.IsEnabled = false;
-                AddFireWallException.IsEnabled = false;
-                RemoveFireWallException.IsEnabled = false;
-                
-                //OpenRDP.Visibility = Visibility.Hidden;
-                //ShowPassword.Visibility = Visibility.Hidden;
-                //AddFireWallException.Visibility = Visibility.Hidden;
-                //RemoveFireWallException.Visibility = Visibility.Hidden;
-                //RDPLabel.Visibility = Visibility.Hidden;
-                //PwdLabel.Visibility = Visibility.Hidden;
-                //AddFirewallLabel.Visibility = Visibility.Hidden;
-                //RemoveFirewallLabel.Visibility = Visibility.Hidden;
-            }
         }
 
         private void _carouselRDPTerminals_SelectionChanged(FrameworkElement selectedElement)
@@ -92,18 +73,6 @@ namespace LCSCarousel.Views
         {
             Carousel.RotateIncrement(max);
         }
-
-        private void ShowPassword_Click(object sender, RoutedEventArgs e)
-        {
-            ShowPasswordsDialog dlg = new ShowPasswordsDialog
-            {
-                Owner = Application.Current.MainWindow as MainWindow,
-                MSHostedViewModel = DataContext as MSHostedViewModel
-            };
-
-            dlg.ShowDialog();
-        }
-
         private void LogOnToApplication_Click(object sender, RoutedEventArgs e)
         {
             MSHostedViewModel viewModel = DataContext as MSHostedViewModel;
@@ -131,21 +100,7 @@ namespace LCSCarousel.Views
             }
         }
 
-        private void OpenRDP_Click(object sender, RoutedEventArgs e)
-        {
-            MSHostedViewModel viewModel = DataContext as MSHostedViewModel;
-            if (viewModel == null)
-            {
-                return;
-            }
-
-            if (viewModel.SelectedRDPTerminal != null)
-            {
-                var item = viewModel.SelectedRDPTerminal;
-                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                mainWindow.OpenRDPSession(item.EnvironmentId);
-            }
-        }
+ 
         private void StartInstance_Click(object sender, RoutedEventArgs e)
         {
             using (new WaitCursor())
@@ -205,23 +160,6 @@ namespace LCSCarousel.Views
                 mainWindow.NewFirewallRule(item.EnvironmentId);
             }
         }
-
-        private void DeployPackage_Click(object sender, RoutedEventArgs e)
-        {
-            MSHostedViewModel viewModel = DataContext as MSHostedViewModel;
-            if (viewModel == null)
-            {
-                return;
-            }
-
-            if (viewModel.SelectedRDPTerminal != null)
-            {
-                var item = viewModel.SelectedRDPTerminal;
-                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                mainWindow.DeployPackage(item.EnvironmentId);
-            }
-        }
-
         private void RemoveFireWallException_Click(object sender, RoutedEventArgs e)
         {
             MSHostedViewModel viewModel = DataContext as MSHostedViewModel;
@@ -236,29 +174,6 @@ namespace LCSCarousel.Views
                 MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
                 mainWindow.RemoveFirewallRule(item.EnvironmentId);
             }
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (Properties.Settings.Default.LimitFunctions == true)
-            {
-                ToggleFunctions(false);
-            }
-            else
-            {
-                ToggleFunctions(true);
-            }
-
-            DisableButtons();
-        }
-        private void ToggleFunctions(bool _enable)
-        {
-            StartInstance.IsEnabled = _enable;
-            StopInstance.IsEnabled  = _enable;
-            ShowPassword.IsEnabled = _enable;
-            AddFireWallException.IsEnabled = _enable;
-            RemoveFireWallException.IsEnabled = _enable;
-            DeployPackage.IsEnabled = _enable;
         }
 
         private void MaxRotate_TextChanged(object sender, TextChangedEventArgs e)

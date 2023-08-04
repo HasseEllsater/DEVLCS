@@ -308,6 +308,26 @@ namespace LCSCarousel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm Region Change.
+        /// </summary>
+        internal static string ConfirmRegionChange {
+            get {
+                return ResourceManager.GetString("ConfirmRegionChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to change the region from {0} To {1}?
+        ///
+        ///This will close the form and clear all cached values and you must login again. .
+        /// </summary>
+        internal static string ConfirmRegionChangeMessage {
+            get {
+                return ResourceManager.GetString("ConfirmRegionChangeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm that you wish to start the instance {0}.
         /// </summary>
         internal static string ConfirmStartInstance {
@@ -441,6 +461,15 @@ namespace LCSCarousel.Properties {
         internal static string LoggInStatus {
             get {
                 return ResourceManager.GetString("LoggInStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max rotation increment that you can set is {0}.
+        /// </summary>
+        internal static string MaxRotationInc {
+            get {
+                return ResourceManager.GetString("MaxRotationInc", resourceCulture);
             }
         }
         
