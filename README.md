@@ -1,3 +1,7 @@
+# More cool tools
+Visit DevMethod's site and check out the DevMethod tools for Azure TFVC projects: https://devmethod.azurewebsites.net
+
+/Hasse
 # DEVLCS 
 # Version 1.0.13 
 First bug, sorry for this, wasn't testing enough, if you try to change the default image for a MS hosted environment it will crash badly, fixed in this release
@@ -30,7 +34,4 @@ The solution also consist of a setup program that let you easily distribute the 
 # No support
 Use this with care, I have written this for my own use in my spare time, it is provided AS IS and it can break anytime because of changes introduced in LCS or by me or anyone else, it is your responsibility to test the functions before you use it on a environment that is important for you. As I think this a useful tool, I want to help and share it with anybody who needs it.
 
-# More cool tools
-Visit DevMethod's site and check out the DevMethod tools for Azure TFVC projects: https://devmethod.azurewebsites.net
 
-/Hasse
